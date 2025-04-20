@@ -10,15 +10,15 @@ It makes a list of pins conections for wire wrap.
 
 Uses sort for group wires to wrap 
 
-##   Premisses
+##  Rules
 
-1. Each wire have one name,
+> Each unit have two or more pins,
 
-2. Each wire connect two or more pins,
+> Each pin have one or more wires,
 
-3. Each pin have one or more wires,
+> Each wire connect two or more pins,
 
-4. Each unit have two or more pins,
+> Each wire have one name (only),
 
 ## List format 
 
@@ -42,9 +42,9 @@ Use # at start of line, for comments.
 
 ### List notes
 
-1. unit 00 is reserved for the board;
-1. pin 00 is reserved for specials;
-1. use obs for more information, eg.  sizes, color, datasheet use/name of pin;
+1. _unit_ 00 is reserved for the board;
+1. _pin_ 00 is reserved for specials;
+1. use _obs_ for more information, eg. sizes, color, datasheet use/name of pin;
 
 #### wires reserved
 
@@ -60,10 +60,17 @@ Use:
 
 1. The units are placed at top of board and the wires at bottom;
 2. The units are mirror vertically the pinout of schematics;
-3. The first pin is at TOP RIGHT, last pin is at TP LEFT;
+3. The first pin is at TOP RIGHT, last pin is at TOP LEFT, counts clockwise;
 4. Leave at least 2 spaces between rows of pins;
 
+## More
 
+What about ?
 
+1. auto position of units at board, with defined especifications, eg. bigger units at top, two rows of separation, lesser wires, etc
+1. auto create power and ground planes with wires
+1. define colors for group of wires, a0-a15 addresses, d0-d7 data, VCC, VDD, VSS, GND, etc
+1. group passives in sockets, except decouple capacitors
+1. place headers for extensions boards 
 
 
