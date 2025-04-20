@@ -1,0 +1,105 @@
+
+
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid black;"> </canvas>
+
+<script>
+
+  // https://www.w3schools.com/graphics/canvas_intro.asp
+
+  const canvas = document.getElementById("myCanvas");
+
+  const ctx = canvas.getContext("2d");
+
+  ctx.fillStyle = "red";
+
+
+  ctx.fillRect(0, 0, 150, 75);
+
+  // Define a new path
+
+  ctx.beginPath();
+
+  // Set a start-point
+
+  ctx.moveTo(0, 0);
+
+  // Set an end-point
+
+  ctx.lineTo(200, 100);
+
+  // Stroke it (Do the Drawing)
+
+  ctx.stroke();
+
+  // chose the color 
+
+  ctx.strokeStyle = "rgb(0 0 255 / 50%)";
+
+  // chose width
+
+  ctx.lineWidth = 5;
+
+  // define a rectangle
+
+  ctx.rect( 10, 10, 150, 100);
+
+  // draw
+
+  ctx.stroke();
+
+  // clear a aread
+
+  ctx.clearRect(60,35, 50,50);
+
+  // draw a circle
+
+  ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+
+  // bezier curve
+
+  ctx.quadraticCurveTo(250, 170, 230, 20);
+
+  // select text parameters
+  
+  ctx.font = "50px Arial";
+
+  // draw a text
+  
+  ctx.fillText("Hello World",10,80);
+
+  ctx.fillStyle = "purple";
+
+  ctx.textBaseline = "top";
+
+  ctx.fillText("top", 5, 75);
+
+  ctx.textBaseline = "hanging";
+
+  ctx.fillText("hanging", 40, 75);
+
+  ctx.textBaseline = "middle";
+
+  ctx.fillText("middle", 120, 75);
+
+  ctx.textBaseline = "alphabetic";
+
+  ctx.fillText("alphabetic", 190, 75);
+
+  ctx.textBaseline = "ideographic";
+
+  ctx.fillText("ideographic", 295, 75);
+
+  ctx.textBaseline = "bottom";
+
+  ctx.fillText("bottom", 410, 75);
+
+  // Create a circular clipping region
+
+  ctx.beginPath();
+
+  ctx.arc(100, 75, 70, 15, Math.PI * 2);
+
+  ctx.clip();
+
+
+</script>
