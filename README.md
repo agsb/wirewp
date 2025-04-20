@@ -1,10 +1,14 @@
 # WireWp
 
+( not finish, version 0.1 )
+
 It is a simple planner for wire wrap boards.
 
 Still just a bunch of scripts.
 
 It makes a list of pins conections for wire wrap.
+
+Uses sort for group wires to wrap 
 
 ##   Premisses
 
@@ -16,37 +20,50 @@ It makes a list of pins conections for wire wrap.
 
 4. Each unit have two or more pins,
 
-5. Mirror vertically the pinout of schematics,
-
 ## List format 
 
-Make a primary list with: unit, pin, wire, obs,
+Make a primary CSV list with: unit, pin, wire, obs,
 
-    unit, the unit to place at board ( integer counter );
+_unit, the unit to place at board ;_
         00 is the board
 
-    pin, the pin of unit;
+_pin, the pin of unit;_
         counted as in schematics
 
-    wire, name of wire in this pin;
-        must start with a letter, only power start with number
+_wire, name of wire to wrap at this pin;_
+        must start with a letter, only power wires start numbers
 
-    obs, any observation about it;
+_obs, any observation about it;_
         eg. schematics name of pin
 
 Use one line for each wire on pin.
 
+Use # at start of line, for comments.
+
 ### List notes
 
-Use " 00, 00, 00, x, y," to define the size of board.
+1. unit 00 is reserved for the board;
+1. pin 00 is reserved for specials;
+1. use obs for more information, eg.  sizes, color, datasheet use/name of pin;
 
-Use " NN, 00, 00, x, y," to define the size of unit.
-    
+#### wires reserved
 
-  1. use # for comments
-  2. use obs for datasheet use of pin,
-  3. use nc for not connected
-  4. use 0V0, for VSS, gnd
-  5. use 3V3, for VDD,
-  6. use 5V5, for VCC,
+Use:
+
+    "NN, 00, 00, x, y," to define the size of unit;    
+    0V0, for VSS, GND;
+    3V3, for VDD;
+    5V0, for VCC;
+    nc, for not connected;
+
+### Wire wrap
+
+1. The units are placed at top of board and the wires at bottom;
+2. The units are mirror vertically the pinout of schematics;
+3. The first pin is at TOP RIGHT, last pin is at TP LEFT;
+4. Leave at least 2 spaces between rows of pins;
+
+
+
+
 
