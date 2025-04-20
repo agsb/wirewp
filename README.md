@@ -25,16 +25,16 @@ Uses sort for group wires to wrap
 Make a primary CSV list with: unit, pin, wire, obs,
 
 _unit, the unit to place at board ;_
-        00 is the board
+        U00 is the board, U01 first unit, etc
 
 _pin, the pin of unit;_
-        counted as in schematics
+        NN, counted as in schematics, 00 is reserved
 
 _wire, name of wire to wrap at this pin;_
         must start with a letter, only power wires start numbers
 
 _obs, any observation about it;_
-        eg. schematics name of pin
+        eg. schematics name of pin, sizes, etc 
 
 Use one line for each wire on pin.
 
