@@ -28,6 +28,8 @@ Make a primary list with: unit, pin, wire, obs,
 Use one line for each wire on pin.
 
 Use "unit, 00, 00, x, y," for define the size of unit.
+
+Use " 00, 00, 00, x, y," for define the size of board.
     
 ### List notes
 
