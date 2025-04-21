@@ -16,25 +16,22 @@ BEGIN {
 #
 # using 96 DPI for reference
 #
-# units is 0.1 of inch
  
-    dpi = 96 
+    dpi = 96
+
+# standart unit is 0.1 of inch
 
     hole = dpi / 10 
 
+# circles around holes
+
     isle = hole / 3
 
-# border around
+# border around holes
     
-    xb = dpi / 4; 
+    xb = hole * 2 
     
-    yb = dpi / 4; 
-
-# default size
-
-    dx = 37;
-
-    dy = 55;
+    yb = hole * 2
 
 # default origin
 
@@ -42,11 +39,18 @@ BEGIN {
 
     yo = 100
 
+# default size
+
+    xd = 0;
+
+    yd = 0;
+
 # default canvas
 
-    cx = 0
+    xc = 0;
 
-    cy = 0
+    yc = 0;
+
 }
 
 #
@@ -54,71 +58,103 @@ BEGIN {
 #
 {
 
+# read the list of connections 
+# increment cnt to keep the order
+# do it later
 
 } 
 
-function do_htmls () {
-
-    print "<!DOCTYPE html>"
-    print "<html lang=\"en-US\">"
-    print "<head>"
-    print "<title> Wire Wrap Method </title>"
-    print "<meta charset=\"utf-8\">"
-    print "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
-    print "<meta http-equiv=\"expires\" content=\"Sat, 01 Jan 2001 00:00:00 GMT\">"
-    print "<link rel=\"stylesheet\" type=\"text/css\" href=\"/base.css\">"
-    print "</head>"
-    print "<body>"
-
-}
 
 function do_canvas( ) {
 
 # sizes
 
-    cx = dx * hole 
-    
-    cy = dy * hole
+# svg is zero offset !
 
-    print "<p> board (" cx + 2 * xb " by " cy + 2 * yb ") <p> <hr> <p>  " 
+    xc = xd * hole
 
-    print "<svg width=\"" cx + 3 * xb "\" height=\"" cy + 3 * yb "\" " 
-    #print " ViewBox=\" 0 0 1000 1000 \" 
+    yc = yd * hole
+
+    xx = xc + 2 * xb
+
+    yy = yc + 2 * yb
+
+    print "<p> board (" xx " by " yy ") <p> <hr> <p>  " 
+
+    print "<svg width=\"" xx + xo "\" height=\"" yy + yo "\" " 
     print " xmlns=\"http://www.w3.org/2000/svg\" >"
 
-    print "<defs>"
-    print "<pattern id=\"patt1\" x=\"" xb "\" y=\"" xb "\" "
-    print "width=\"" hole "\" height=\"" hole "\"patternUnits=\"userSpaceOnUse\">"
-    print "<circle cx=\"" hole "\" cy=\"" hole "\" r=\"" isle "\" fill=\"red\" />"
-    print "</pattern>"
-    print "</defs>"
     }
 
 function do_board( ) {
  
 # clear a rectangle view
 
-print "<rect width=\"" cx + 2 * xb "\" height=\"" cy + 2 * yb "\" x=\"" xo "\" y=\"" yo 
-print "\" rx=\"4\" ry=\"4\" " 
-print "style=\"fill:green; stroke:red; stroke-width:2; fill-opacity:0.1; stroke-opacity:0.9\" />"
-
-print "<rect width=\"" cx "\" height=\"" cy "\" x=\"" xo + xb "\" y=\"" yo + yb "\" rx=\"4\" ry=\"4\" fill=\"url(#patt1)\" />" 
+    print "<rect width=\"" xc + 2 * xb "\" height=\"" yc + 2 * yb "\" " 
+    print "x=\"" xo "\" y=\"" yo "\" rx=\"4\" ry=\"4\" " 
+    print "style=\"fill:green; stroke:black; stroke-width:2; fill-opacity:0.6; stroke-opacity:0.4\" />"
 
 }
 
 function do_isles( )  {
 # draw isles
 
-    for (x = 1; x <= dx; x += 1) {
+    tz = hole * 0.8
 
-        xx = x * hole + xb + xo - hole / 2
+    for (x = 0; x < xd; x += 1) {
 
+        xx = x * hole + xb + xo 
+
+        txt = sprintf ("%c", (x % 26) + 65) 
+
+        yy = hole + yo 
+
+        print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" tz "\" fill=\"white\">" txt "</text>"
+
+        yy = yd * hole + yo + yb 
+
+        print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" tz "\" fill=\"white\">" txt "</text>"
+
+        }
+
+    for (y = 0; y < yd; y += 1) {
         
-        for (y = 1; y <= dy; y += 1) {
-        
-            yy = y * hole + yb + yo - hole / 2
+        yy = y * hole + yb + yo 
 
-            #print "<circle r=\"" isle "\" cx=\"" xx "\" cy=\"" yy "\" fill=\"red\" />"
+        y = y % 100
+
+        txt = sprintf ("%02d", (y+1) ) 
+
+        xx = hole + xo  
+
+        print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" tz "\" fill=\"white\">" txt "</text>"
+
+        xx = xd * hole + xo + xb
+
+        print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" tz "\" fill=\"white\">" txt "</text>"
+
+        }
+
+    for (x = 0; x < xd; x += 1) {
+
+        xx = x * hole + xb + xo 
+
+        for (y = 0; y < yd; y += 1) {
+        
+            yy = y * hole + yb + yo 
+
+            if ( y % 1) { 
+                dotcolor = "white"
+                }
+            else {
+                dotcolor = "black"
+                }
+
+            print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" hole "\" fill=\"" dotcolor "\">" "+" "</text>"
+            
+            holecolor = "white" 
+
+            print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" hole "\" fill=\"" holecolor "\">" "O" "</text>"
 
             }
         }
@@ -133,22 +169,41 @@ function wraps( ) {
 
 END {
 
-    do_htmls( ) 
+# init html
 
-    xo = 10
+    print "<!DOCTYPE html>"
+    print "<html lang=\"en-US\">"
+    print "<head>"
+    print "<title> Wire Wrap Planner </title>"
+    print "<meta charset=\"utf-8\">"
+    print "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+    print "<meta http-equiv=\"expires\" content=\"Sun, 01 Jan 2001 00:00:00 GMT\">"
+    print "<link rel=\"stylesheet\" type=\"text/css\" href=\"/mystyles.css\">"
+    print "</head>"
+    print "<body>"
 
-    yo = 10
+#    could use this for define dpi
+#    print "<div id="dpi"></div>"
+#    print "#dpi { height: 1in; width: 1in; left: -100%; top: -100%; position: absolute; }"
+#    print "alert(document.getElementById(\"dpi\").offsetHeight);"
 
-    dx = 37
+# units
 
-    dy = 55
+    xd = 37
 
-    do_canvas(  ) 
+    yd = 55
 
-    do_board(  ) 
+# draw 
 
-    do_isles(  )
+    do_canvas( ) 
 
+    do_board( ) 
+
+    do_isles( )
+
+# exit htlm
+
+    print "<hr>"
     print "</svg>"
     print "</body>"
     print "</html>"
