@@ -2,7 +2,7 @@
 #  agsb@2025
 
 # board
-U00, 00, 00, 55, 95
+U00, 00, 00, 37, 55
 
 # R1, 10k resistor, weak pull-up
 U10, 00, 00, 1, 4

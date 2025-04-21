@@ -61,6 +61,25 @@ BEGIN {
 # read the list of connections 
 # increment cnt to keep the order
 # do it later
+    
+    print  ">" cnt ">" $1 ">" $2 ">" $3 ">" $4 ">" $5 ">"
+
+    if ($2 eq "00" AND $3 eq "00") {
+        x = $4
+        y = $5
+        unit[$1][n] = $1
+        unit[$1][x] = x
+        unit[$1][y] = y
+        if ($1 eq "U00") { # board size
+            xd = x
+            yd = y
+            }
+
+        next
+        }
+    
+    cnt++;
+    wire[cnt] = $0
 
 } 
 
@@ -143,10 +162,12 @@ function do_isles( )  {
         
             yy = y * hole + yb + yo 
 
-            if ( y % 1) { 
-                dotcolor = "white"
+            dotcolor = "white"
+
+            if ( !( (x + 1) % 10 ) )  { 
+                dotcolor = "black"
                 }
-            else {
+            if ( !( (y + 1) % 10 ) ) { 
                 dotcolor = "black"
                 }
 
@@ -189,9 +210,9 @@ END {
 
 # units
 
-    xd = 37
+    #xd = 0
 
-    yd = 55
+    #yd = 0
 
 # draw 
 
