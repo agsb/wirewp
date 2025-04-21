@@ -5,11 +5,11 @@
 #
 BEGIN {
 
-  FS = " ";
+# common
+
+  FS = ",";
 
   RS = "\n";
-
-  SUBSEP = " ";
 
   cnt = 0;
 
@@ -18,20 +18,35 @@ BEGIN {
 #
 # units is 0.1 of inch
  
-    dip = 96 / 10
+    dpi = 96 
 
-    isle = dip / 3
+    hole = dpi / 10 
+
+    isle = hole / 3
 
 # border around
     
-    ofx = 96; 
+    xb = dpi; 
     
-    ofy = 96; 
+    yb = dpi; 
 
-    dx = ofx;
+# default size
 
-    dy = ofy;
+    dx = 37;
 
+    dy = 55;
+
+# default origin
+
+    xo = 100
+
+    yo = 100
+
+# default canvas
+
+    cx = 0
+
+    cy = 0
 }
 
 #
@@ -50,6 +65,7 @@ function do_htmls () {
     print "<title> Wire Wrap Method </title>"
     print "<meta charset=\"utf-8\">"
     print "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+    print "<meta http-equiv=\"expires\" content=\"Sat, 01 Jan 2001 00:00:00 GMT\">"
     print "<link rel=\"stylesheet\" type=\"text/css\" href=\"/base.css\">"
     print "</head>"
     print "<body>"
@@ -60,15 +76,11 @@ function do_canvas( ) {
 
 # sizes
 
-    bdx = dx * dpi + 2 * ofx
+    cx = dx * hole + 2 * xb
     
-    dby = dy * dpi + 2 * ofy
+    cy = dy * hole + 2 * yb
 
-    cx = 100
-
-    cy = 100
-
-    print "<canvas id=\"myCanvas\" width=\"" dbx "\" height=\"" dby "\" style=\"border:1px solid black;\"> </canvas>"
+    print "<canvas id=\"myCanvas\" width=\"" cx "\" height=\"" cy "\" style=\"border:1px solid black;\"> </canvas>"
 
     print "<script>"
 
@@ -86,7 +98,7 @@ function do_board( ) {
 
     print "ctx.beginPath();"
 
-    print "ctx.clearRect(" cx ", " cy ", " dbx + cx ", " dby + cy ");"
+    print "ctx.clearRect(" xo ", " yo ", " cx ", " cy ");"
 
 # select a color 
 
@@ -94,14 +106,15 @@ function do_board( ) {
 
 # chose width
 
-    print "ctx.lineWidth = 5;"
+    print "ctx.lineWidth = 15;"
 
 # define a rectangle view
 
-    print "ctx.Rect(" cx ", " cy ", " dbx + cx ", " dby + cy ");"
+    print "ctx.Rect(" xo ", " yo ", " cx ", " cy ");"
 
     print "ctx.Stroke();"
 
+    print "ctx.closePath();"
 }
 
 function do_isles( )  {
@@ -111,11 +124,11 @@ function do_isles( )  {
 
     for (x = 0; x < dx; x += 1) {
 
-        xx = x * dpi + ofx
+        xx = x * hole + xb
         
         for (y = 0; y < dy; y += 1) {
         
-            yy = y * dpi + ofy
+            yy = y * hole + yb
 
             print "ctx.beginPath();"
 
@@ -125,6 +138,7 @@ function do_isles( )  {
 
             print "ctx.Stroke();"
 
+            print "ctx.closePath();"
             }
         }
 
@@ -140,9 +154,13 @@ END {
 
     do_htmls( ) 
 
-    dx = 100
+    xo = 10
 
-    dy = 100
+    yo = 10
+
+    dx = 37
+
+    dy = 55
 
     do_canvas(  ) 
 
