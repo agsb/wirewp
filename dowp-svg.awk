@@ -82,10 +82,13 @@ function do_canvas( ) {
 
     print "<p> board (" cx + 2 * xb " by " cy + 2 * yb ") <p> <hr> <p>  " 
 
-    print "<svg width=\"" cx + 3 * xb "\" height=\"" cy + 3 * yb "\" xmlns=\"http://www.w3.org/2000/svg\" >"
+    print "<svg width=\"" cx + 3 * xb "\" height=\"" cy + 3 * yb "\" " 
+    #print " ViewBox=\" 0 0 1000 1000 \" 
+    print " xmlns=\"http://www.w3.org/2000/svg\" >"
 
     print "<defs>"
-    print "<pattern id=\"patt1\" x=\"0\" y=\"0\" width=\"" hole "\" height=\"" hole "\"patternUnits=\"userSpaceOnUse\">"
+    print "<pattern id=\"patt1\" x=\"" xb "\" y=\"" xb "\" "
+    print "width=\"" hole "\" height=\"" hole "\"patternUnits=\"userSpaceOnUse\">"
     print "<circle cx=\"" hole "\" cy=\"" hole "\" r=\"" isle "\" fill=\"red\" />"
     print "</pattern>"
     print "</defs>"
@@ -95,8 +98,9 @@ function do_board( ) {
  
 # clear a rectangle view
 
-print "<rect width=\"" cx + 2 * xb "\" height=\"" cy + 2 * yb "\" x=\"" xo "\" y=\"" yo "\" rx=\"4\" ry=\"4\" " 
-print "style=\"fill:green; strok2:red; stroke-width:2; fill-opacity:0.1; stroke-opacity:0.9\" />"
+print "<rect width=\"" cx + 2 * xb "\" height=\"" cy + 2 * yb "\" x=\"" xo "\" y=\"" yo 
+print "\" rx=\"4\" ry=\"4\" " 
+print "style=\"fill:green; stroke:red; stroke-width:2; fill-opacity:0.1; stroke-opacity:0.9\" />"
 
 print "<rect width=\"" cx "\" height=\"" cy "\" x=\"" xo + xb "\" y=\"" yo + yb "\" rx=\"4\" ry=\"4\" fill=\"url(#patt1)\" />" 
 
