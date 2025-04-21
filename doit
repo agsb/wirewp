@@ -1,1 +1,0 @@
-awk -f dowp-svg.awk eeprogramer.wwp.lst > a.html ; cp a.html /mnt/c/Users/barce/Documents

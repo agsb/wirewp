@@ -62,15 +62,20 @@ BEGIN {
 # increment cnt to keep the order
 # do it later
     
-    print  ">" cnt ">" $1 ">" $2 ">" $3 ">" $4 ">" $5 ">"
+    # trim spaces
+    gsub (" *, ", "," ,$0)
 
-    if ($2 eq "00" AND $3 eq "00") {
+    # sizes
+    if ($2 == "00" && $3 == "00") {
+    
         x = $4
         y = $5
-        unit[$1][n] = $1
-        unit[$1][x] = x
-        unit[$1][y] = y
-        if ($1 eq "U00") { # board size
+        
+        unit[$1]["n"] = $1
+        unit[$1]["x"] = x
+        unit[$1]["y"] = y
+        
+        if ($1 == "U00") { # board size
             xd = x
             yd = y
             }
@@ -78,11 +83,13 @@ BEGIN {
         next
         }
     
+
     cnt++;
     wire[cnt] = $0
 
-} 
+    #print  ">" cnt ">" $1 ">" $2 ">" $3 ">" $4 ">" $5 ">"
 
+} 
 
 function do_canvas( ) {
 
@@ -98,7 +105,7 @@ function do_canvas( ) {
 
     yy = yc + 2 * yb
 
-    print "<p> board (" xx " by " yy ") <p> <hr> <p>  " 
+    print "<p> board (" xd " by " yd ") <p> <hr> <p>  " 
 
     print "<svg width=\"" xx + xo "\" height=\"" yy + yo "\" " 
     print " xmlns=\"http://www.w3.org/2000/svg\" >"
@@ -182,6 +189,45 @@ function do_isles( )  {
 
   }
 
+function do_units( ) {
+
+    # wire wrap mirror datasheets pinouts
+
+    # leave space 
+
+    xbb = 4
+    ybb = 4
+
+    for (u in unit ) {
+
+    # more two rows for long wires (paralel to socket)
+    # and more two between those
+
+        xu = unit[u]["x"] + 2
+        yu = unit[u]["y"] + 2
+
+        for ( y = 0; y < yu; y++) {
+
+            yy = y * hole + yb + yo + ybb
+
+            xx = 1 * hole + xb + xo + xbb 
+
+            print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" hole "\" "
+            print " fill=\"" "red" "\">" "O" "</text>"
+
+            xx = xu * hole + xb + xo + xbb 
+
+            print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" hole "\" "
+            print " fill=\"" "red" "\">" "O" "</text>"
+
+            }
+
+        xbb += 8
+        ybb += 2 + yu
+                    
+        }   
+  }
+
 function wires( ) {
   }
 
@@ -191,6 +237,8 @@ function wraps( ) {
 END {
 
 # init html
+
+    print " < " xd " == " yd " > "
 
     print "<!DOCTYPE html>"
     print "<html lang=\"en-US\">"
@@ -221,6 +269,8 @@ END {
     do_board( ) 
 
     do_isles( )
+
+    do_units( )
 
 # exit htlm
 
