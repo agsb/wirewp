@@ -18,3 +18,8 @@ https://learn.sparkfun.com/tutorials/working-with-wire/how-to-use-a-wire-wrap-to
 
 https://www.planetanalog.com/learning-from-a-wire-wrapping-misassumption/
 
+https://electronics.stackexchange.com/questions/318562/wire-wrapping-power-ground
+
+
+
+

@@ -138,11 +138,11 @@ function do_isles( )  {
 
     tz = hole * 0.8
 
-    for (x = 0; x < xd; x += 1) {
+    for (x = 1; x <= xd; x += 1) {
 
         xx = x * hole + xb + xo 
 
-        txt = sprintf ("%c", (x % 26) + 65) 
+        txt = sprintf ("%c", (x % 26) + 64) 
 
         yy = hole + yo 
 
@@ -154,13 +154,13 @@ function do_isles( )  {
 
         }
 
-    for (y = 0; y < yd; y += 1) {
+    for (y = 1; y <= yd; y += 1) {
         
         yy = y * hole + yb + yo 
 
         y = y % 100
 
-        txt = sprintf ("%02d", (y+1) ) 
+        txt = sprintf ("%02d", (y) ) 
 
         xx = hole + xo  
 
@@ -174,20 +174,20 @@ function do_isles( )  {
 
     holecolor = "white" 
 
-    for (x = 0; x < xd; x += 1) {
+    for (x = 1; x <= xd; x += 1) {
 
         xx = x * hole + xb + xo 
 
-        for (y = 0; y < yd; y += 1) {
+        for (y = 1; y <= yd; y += 1) {
         
             yy = y * hole + yb + yo 
 
             dotcolor = "white"
 
-            if ( !( (x + 1) % 10 ) )  { 
+            if ( !( x % 10 ) )  { 
                 dotcolor = "black"
                 }
-            if ( !( (y + 1) % 10 ) ) { 
+            if ( !( y % 10 ) )  { 
                 dotcolor = "black"
                 }
 
@@ -199,6 +199,51 @@ function do_isles( )  {
         }
 
   }
+
+function do_planes( ) {
+    # reserve planes for VSS and VCC power
+
+
+    for (x = 1; x <= xd; x += 1) {
+
+        xx = x * hole + xb + xo 
+
+        yy = 1 * hole + yb + yo 
+            
+        gnd_color = "black"
+
+        print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" hole "\" fill=\"" gnd_color "\">" "X" "</text>"
+
+        yy = yd * hole + yb + yo 
+            
+        gnd_color = "red"
+
+        print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" hole "\" fill=\"" gnd_color "\">" "X" "</text>"
+
+        }
+
+    for (x = 5; x <= xd; x += 5) {
+
+        gnd_color = "black"
+
+        if ( !(x % 10) ) {
+
+            gnd_color = "red"
+
+            }
+
+        xx = x * hole + xb + xo 
+
+        for (y = 2; y < yd; y++) {
+
+            yy = y * hole + yb + yo 
+            
+            print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" hole "\" fill=\"" gnd_color "\">" "X" "</text>"
+
+            }
+        }
+
+}
 
 function do_units( ) {
 
@@ -298,6 +343,8 @@ END {
     do_board( ) 
 
     do_isles( )
+
+    do_planes( )
 
     do_units( )
 

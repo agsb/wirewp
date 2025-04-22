@@ -10,6 +10,26 @@ Still just a bunch of scripts.
 
 Uses sort for group wires to wrap. 
 
+## What is ?
+
+https://schematicsforfree.com/files/Manufacturing%20and%20Design/Prototyping/Wire%20Wrapping%20Techniques.pdf
+
+https://www.gb.nrao.edu/electronics/edir/edir163.pdf
+
+https://www.reddit.com/r/electronics/comments/yw0an0/mid_1980s_286_single_board_computer_done/
+
+### Macintosh
+
+https://www.digibarn.com/collections/parts/mac-wirewrap5-board/index.html
+
+https://folklore.org/PC_Board_Esthetics.html
+
+### IBM PC
+
+https://vintagecomputer.ca/ibm-5100-in-pictures/
+
+https://www.puntogeek.com/2007/11/17/first-motherboard/
+
 ##  Rules
 
 > Each unit have two or more pins;
@@ -20,7 +40,24 @@ Uses sort for group wires to wrap.
 
 > Each wire have one name (only);
 
-## Howto
+## Planes
+
+To reduce the interference:
+
+> Power (Vcc) on components side
+> Ground (Vss) on wires side
+
+Or both at wire side, as lines with two rows of isles, one
+with Ground (VSS) and other with Power (VCC);
+
+Most of wirewrap PCB breadboards does a sequence of
+
+       __[V V x o o o G G o o o x]__ or __[G G x o o o V V o o o x]__
+
+        V vcc
+        G vss (gnd)
+        x not connect
+        o isle, for pin of sockets 
 
 #### List format 
 
