@@ -65,19 +65,30 @@ BEGIN {
     # trim spaces
     gsub (" *, ", "," ,$0)
 
-    # sizes
-    if ($2 == "00" && $3 == "00") {
+    # specials
+    if ($2 == "00") {
+
+        # sizes 
+        if ($3 == "00") {
     
-        x = $4
-        y = $5
+            x = $4
+            y = $5
+            
+            unit[$1]["name"] = $4
+            unit[$1]["x"] = x
+            unit[$1]["y"] = y
+            
+            if ($1 == "U00") { # board size
+                xd = x
+                yd = y
+                }
+            }
+
+        # order 
+        if ($3 == "01") {
         
-        unit[$1]["n"] = $1
-        unit[$1]["x"] = x
-        unit[$1]["y"] = y
-        
-        if ($1 == "U00") { # board size
-            xd = x
-            yd = y
+            unit[$1]["order"] = $4
+            
             }
 
         next
@@ -161,6 +172,8 @@ function do_isles( )  {
 
         }
 
+    holecolor = "white" 
+
     for (x = 0; x < xd; x += 1) {
 
         xx = x * hole + xb + xo 
@@ -180,8 +193,6 @@ function do_isles( )  {
 
             print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" hole "\" fill=\"" dotcolor "\">" "+" "</text>"
             
-            holecolor = "white" 
-
             print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" hole "\" fill=\"" holecolor "\">" "O" "</text>"
 
             }
@@ -193,38 +204,56 @@ function do_units( ) {
 
     # wire wrap mirror datasheets pinouts
 
-    # leave space 
+    # leave space outer ground 
 
-    xbb = 4
-    ybb = 4
+    xbb = 2
+    ybb = 2
+
+    cs = 1
 
     for (u in unit ) {
+
+        if (u == "U00") {
+            continue
+            }
 
     # more two rows for long wires (paralel to socket)
     # and more two between those
 
-        xu = unit[u]["x"] + 2
-        yu = unit[u]["y"] + 2
+    # for easy all space are blocked in 8 holes 
+        xu = unit[u]["x"] 
+        yu = unit[u]["y"] 
+
+print "<!-- " u " == " xu " by " yu "-->"
+
+        txt = sprintf ("%02d", cs ) 
 
         for ( y = 0; y < yu; y++) {
 
-            yy = y * hole + yb + yo + ybb
+            yy = (y + ybb) * hole + yb + yo
 
-            xx = 1 * hole + xb + xo + xbb 
-
-            print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" hole "\" "
-            print " fill=\"" "red" "\">" "O" "</text>"
-
-            xx = xu * hole + xb + xo + xbb 
+            xx = (0 + xbb) * hole + xb + xo 
 
             print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" hole "\" "
-            print " fill=\"" "red" "\">" "O" "</text>"
+            print " fill=\"" "blue" "\">" txt "</text>"
+
+            xx = (xu + xbb) * hole + xb + xo
+
+            print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" hole "\" "
+            print " fill=\"" "blue" "\">" txt "</text>"
 
             }
 
-        xbb += 8
-        ybb += 2 + yu
-                    
+        xbb += xu + 2
+
+        if (xbb > xd) { 
+
+            xxb = 2
+
+            ybb += yu + 2
+
+            }
+
         }   
   }
 
