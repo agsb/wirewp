@@ -2,25 +2,27 @@
 
 ( not finish, version 0.1 )
 
-It is a simple planner for wire wrap boards.
-
-Still just a bunch of scripts.
+It is a simple planner for wire wrap circuits in boards.
 
 It makes a list of pins conections for wire wrap.
 
-Uses sort for group wires to wrap 
+Still just a bunch of scripts.
+
+Uses sort for group wires to wrap. 
 
 ##  Rules
 
-> Each unit have two or more pins,
+> Each unit have two or more pins;
 
-> Each pin have one or more wires,
+> Each pin have none or one or more wires;
 
-> Each wire connect two or more pins,
+> Each wire connects two or more pins;
 
-> Each wire have one name (only),
+> Each wire have one name (only);
 
-## List format 
+## Howto
+
+#### List format 
 
 Make a primary CSV list with: unit, pin, wire, obs,
 
@@ -40,7 +42,7 @@ Use one line for each wire on pin.
 
 Use # at start of line, for comments.
 
-### List notes
+#### List notes
 
 1. _unit_ 00 is reserved for the board;
 1. _pin_ 00 is reserved for specials;
@@ -48,15 +50,27 @@ Use # at start of line, for comments.
 
 #### wires reserved
 
-Use:
+    (still a primitive sintax)
 
-    "NN, 00, 00, x, y," to define the size of unit;    
+    - "NN, 00, 00, x, y," define the size of unit, top-right origin;    
+
+    - "NN, 00, 01, t," define separation between socket pin and wired pin;    
+    
+    - "NN, 00, 02, t," define border ground, 0 none, 1 around, 2 interleaved;    
+    
+    - "NN, 00, 03, t," define separation between rows of wired pins;   
+    
+    - "NN, 00, 04, color, size," define color and awg of wire, 0 black, 0 30 awg
+
+For power lines:
+
     0V0, for VSS, GND;
     3V3, for VDD;
     5V0, for VCC;
+
     nc, for not connected;
 
-### Wire wrap
+### Wire Wrap SVG
 
 1. The units are placed at top of board and the wires at bottom;
 2. The units are mirror vertically the pinout of schematics;
