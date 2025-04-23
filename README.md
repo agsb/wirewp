@@ -20,26 +20,26 @@ for "one shot" circuits.
 
 ## What is wire wrap ?
 
-https://schematicsforfree.com/files/Manufacturing%20and%20Design/Prototyping/Wire%20Wrapping%20Techniques.pdf
+[^1]
 
-https://www.reddit.com/r/electronics/comments/yw0an0/mid_1980s_286_single_board_computer_done/
+[^2]
 
 ### Macintosh
 
-https://www.digibarn.com/collections/parts/mac-wirewrap5-board/index.html
+[^3]
 
-https://folklore.org/PC_Board_Esthetics.html
+[^4]
 
 ### IBM PC
 
-https://vintagecomputer.ca/ibm-5100-in-pictures/
+[^5]
 
-https://www.puntogeek.com/2007/11/17/first-motherboard/
+[^6]
 
 ## Design and Planner
 
 I found some documentation about a program for wirewrap connections at
-https://www.gb.nrao.edu/electronics/edir/edir163.pdf but no sources.
+NRAO [^7], but no sources.
 
 ##  My Rules
 
@@ -102,9 +102,9 @@ For power lines:
 
 ## Wire Wrap SVG
 
-### Planes
+### Power Planes
 
-To reduce the interference, some boards uses power (Vcc) on 
+To reduce the noise and interference [^1], some boards uses power (Vcc) on 
 components side and ground (Vss) on wires side, 
 using more thicker wires.
 
@@ -160,4 +160,21 @@ VCC, VDD, VSS, GND, etc
 1. group passives in sockets, except decouple capacitors
 1. place headers for extensions boards 
 
+## References
+
+[^1](https://schematicsforfree.com/files/Manufacturing%20and%20Design/Prototyping/Wire%20Wrapping%20Techniques.pdf)
+
+[^2](https://www.reddit.com/r/electronics/comments/yw0an0/mid_1980s_286_single_board_computer_done/)
+
+[^3](https://www.digibarn.com/collections/parts/mac-wirewrap5-board/index.html)
+
+[^4](https://folklore.org/PC_Board_Esthetics.html)
+
+[^5](https://vintagecomputer.ca/ibm-5100-in-pictures/)
+
+[^6](https://www.puntogeek.com/2007/11/17/first-motherboard/)
+
+[^7](https://www.gb.nrao.edu/electronics/edir/edir163.pdf.)
+
+[^8](https://www.sierraassembly.com/blog/what-is-pcb-ground-plane/)
 
