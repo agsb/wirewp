@@ -55,12 +55,11 @@ https://www.gb.nrao.edu/electronics/edir/edir163.pdf but no sources.
 
 ## Planes
 
-To reduce the interference:
+To reduce the interference, some boards uses power (Vcc) on 
+components side and ground (Vss) on wires side, 
+using more thicker wires.
 
-Some boards uses Power (Vcc) on components side and Ground (Vss) 
-on wires side, using more thicker wires.
-
-Or both at wire side, as lines with two rows of isles, one
+Or both at wire side, as lines with two rows (of holes), one
 with Ground (VSS) and other with Power (VCC).
 
 Most of vendor's wirewrap PCB boards does a sequence of
@@ -72,8 +71,7 @@ Most of vendor's wirewrap PCB boards does a sequence of
 
 ## Board
 
-For easy the pcp protoboard, using common pcb protoboards,
-I made a mix over above: 
+For using common pcb protoboards, I made a mix over above: 
 
     coordenade X is the smaller side and Y is longest side of board;
 
@@ -87,7 +85,11 @@ I made a mix over above:
             __p1__, __p3__, are holes socket for wide DIP,
             if socket have long pin, __o__ is not connected
 
-#### List format 
+    I use long pin headers in both sides of common sockets, in paralel,
+    as cheap substitute for special wire-wrap long pins sockets. 
+    Must soldering to fix both and join pins.
+
+#### List Input format 
 
 Make a primary CSV list with: unit, pin, wire, obs,
 
@@ -146,6 +148,7 @@ For power lines:
 
 What about ?
 
+1. a library of components (chips, transistors and passives)
 1. auto position of units at board, with defined especifications, eg. bigger units at top, two rows of separation, lesser wires, etc
 1. auto create power and ground planes with wires
 1. define colors for group of wires, a0-a15 addresses, d0-d7 data, VCC, VDD, VSS, GND, etc
