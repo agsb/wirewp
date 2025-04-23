@@ -311,8 +311,8 @@ function do_planes( ) {
 
 function do_grids( ) {
 
-    #       xopVopxgpo
-    split ("xosVosxGso",mark,"")
+    #       opVopxgpox
+    split ("osVosxGsox",mark,"")
 
     k = 0
 
@@ -320,11 +320,14 @@ function do_grids( ) {
 
         color = "red"
 
-        k = k + 1
-
+        # cycle 1 to 10
         k = (k % 10) + 1
 
-        text  = mark[ 10 - k ]
+        kk = 10 - k + 1
+
+        text  = mark[ kk ]
+
+        print " k = " k " kk = " kk
 
         xx = (xd - x + 1) * hole + xb + xo 
 
