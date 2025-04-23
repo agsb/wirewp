@@ -25,7 +25,7 @@ and thin wires. Some details and technics[^1]
 
 ### Classics
 
-Some images of first Macintosh [^2] and IBM-PC [^3] [^4]
+Some images of IBM-PC [^3] [^4] [^7] and first Macintosh [^2]
 
 ## Design and Planner
 
@@ -164,5 +164,7 @@ VCC, VDD, VSS, GND, etc
 [^5]:(https://www.gb.nrao.edu/electronics/edir/edir163.pdf.)
 
 [^6]:(https://www.sierraassembly.com/blog/what-is-pcb-ground-plane/)
+
+[^7]:(https://bsky.app/profile/tubetime.bsky.social/post/3k5edfr6gxp2w)
 
 
