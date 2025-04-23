@@ -33,15 +33,17 @@ BEGIN {
     
     yb = hole * 2
 
-# sizes
+# font size
 
-    tz = hole * 0.8
+    fz = hole * 0.8
 
-# standart board using sockets and long headers
+# standart board using round pin sockets and long pin headers
+# x not connected, o row of headers, s row of sockets,
+# g Vss (GND), v vcc, t 
 
-    lays = "osVosxGsox"
+    row_name = "txosvosxgsox"
 
-    lays_size = length (lays)
+    row_size = length (row_name)
 
 # default origin
 
@@ -112,244 +114,161 @@ BEGIN {
 
 } 
 
+# svg is zero offset !
 function do_canvas( ) {
 
-# sizes
-
-# svg is zero offset !
-
     xc = xd * hole
-
     yc = yd * hole
-
-    xx = xc + 2 * xb
-
-    yy = yc + 2 * yb
-
+    xx = xc + 3 * xb
+    yy = yc + 3 * yb
     print "<p> board (" xd " by " yd ") <p> <hr> <p>  " 
-
     print "<svg width=\"" xx + xo "\" height=\"" yy + yo "\" " 
     print " xmlns=\"http://www.w3.org/2000/svg\" >"
-
     }
 
+# draw a rectangle view
 function do_board( ) {
- 
-# clear a rectangle view
 
-    print "<rect width=\"" xc + 2 * xb "\" height=\"" yc + 2 * yb "\" " 
+    print "<rect width=\"" xc + 3 * xb "\" height=\"" yc + 3 * yb "\" " 
     print "x=\"" xo "\" y=\"" yo "\" rx=\"4\" ry=\"4\" " 
     print "style=\"fill:green; stroke:black; stroke-width:2; fill-opacity:0.6; stroke-opacity:0.4\" />"
+    }
 
-}
+# draw border texts
+function do_texts( xxe, yye, xxf, yyf, color, txt  )  {
 
-function do_marks( )  {
+    print "<text x=\"" xxe "\" y=\"" yye "\" font-size=\"" fz "\" fill=\"" color "\">" txt "</text>"
+    print "<text x=\"" xxf "\" y=\"" yyf "\" font-size=\"" fz "\" fill=\"" color "\">" txt "</text>"
+    }
 
-        xx = ( xd + 1 ) * holes + xb + xo 
+# mark reference
+function do_reference( sense )  {
+        
+        xx = (sense == 0) ? xx = xb + xo : (xd + 1 ) * hole + xb + xo
         yy = yb + yo 
+        print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" fz "\" fill=\"white\">" "." "</text>"
+        print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" fz "\" fill=\"white\">" "+" "</text>"
+    }
 
-        print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" tz "\" fill=\"white\">" "." "</text>"
-        print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" tz "\" fill=\"white\">" "+" "</text>"
-
-    for (x = 1; x <= xd; x += 1) {
-
-        xx = x * hole + xb + xo 
-
-        txt = sprintf ("%c", (x % 26) + 64) 
-
-        yy = yb + yo 
-
-        print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" tz "\" fill=\"white\">" txt "</text>"
-
-        yy = (yd + 1) * hole + yb + yo 
-
-        print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" tz "\" fill=\"white\">" txt "</text>"
-
-        }
-
-  }
-
+# annotate vertical border numbers
 function do_numbers( ) {
 
+    xxe = xb + xo  
+    xxf = (xd + 1) * hole + xb + xo
     for (y = 1; y <= yd; y += 1) {
-        
+        txt = sprintf ("%02d", (y % 100) ) 
         yy = y * hole + yb + yo 
-
-        y = y % 100
-
-        txt = sprintf ("%02d", (y) ) 
-
-        xx = xb + xo  
-
-        print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" tz "\" fill=\"white\">" txt "</text>"
-
-        xx = (xd + 1) * hole + xb + xo
-
-        print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" tz "\" fill=\"white\">" txt "</text>"
-
+        do_texts( xxe, yy, xxf, yy, color, txt )
         }
     }
 
+# annotade horizontal border letters 
 function do_letters( sense )  {
 
-    # mark reference
-
-        yy = yb + yo 
-        
-        if (sense == 0) {
-            xx = xb + xo 
-            }
-        else {
-            xx = (xd + 1 ) * hole + xb + xo 
-            }
-
-        print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" tz "\" fill=\"white\">" "." "</text>"
-        print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" tz "\" fill=\"white\">" "+" "</text>"
-
-    # annotade 
-
+    color = "black"
+    yye = yb + yo 
+    yyf = (yd + 1) * hole + yb + yo 
     for (x = 1; x <= xd; x += 1) {
-
+        k = (sense == 0) ? k = x % 26 : k = (xd - x) % 26 + 1 
+        txt = sprintf ("%c", k + 64) 
         xx = x * hole + xb + xo 
-
-        if (sense == 0) {
-            txt = sprintf ("%c", (x % 26) + 64) 
-            }
-        else {
-            txt = sprintf ("%c", ((xd - x ) % 26 + 1) + 64) 
-            }
-
-        yy = yb + yo 
-
-        print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" tz "\" fill=\"white\">" txt "</text>"
-
-        yy = (yd + 1) * hole + yb + yo 
-
-        print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" tz "\" fill=\"white\">" txt "</text>"
-
+        do_texts( xx, yye, xx, yyf, color, txt )
         }
-}
+    }
 
+# annotade horizontal socket rows numbers 
+function do_rows( sense )  {
+
+    color = "blue"
+    yye = yo + yb - yb / 2
+    yyf = (yd + 1) * hole + yo + yb + yb / 2
+    for (x = 1; x <= xd; x += 1) {
+        k = (sense == 0) ? k = x : k = xd - x + 1
+        if ( k % 3 ) continue
+        k = k - k % 3 
+        txt = sprintf ("%02d", k) 
+        xx = x * hole + xb + xo 
+        print "<text x=\"" xx "\" y=\"" yye "\" font-size=\"" fz "\" fill=\"" color "\">" txt "</text>"
+        print "<text x=\"" xx "\" y=\"" yyf "\" font-size=\"" fz "\" fill=\"" color "\">" txt "</text>"
+        }
+    }
+
+# draw hole isles
 function do_isles( sense ) {
 
-    holecolor = "white" 
-
     for (x = 1; x <= xd; x += 1) {
-
         xx = x * hole + xb + xo 
-
         for (y = 1; y <= yd; y += 1) {
-        
             yy = y * hole + yb + yo 
-
             dotcolor = "white"
-
             if ( !( y % 10 ) )  { 
                 dotcolor = "black"
                 }
-
             if (sense == 0) {
                 if ( !( x % 10 ) )  { 
                     dotcolor = "black"
                     }
                 }
             else  {
-
                 if ( !( (xd - x + 1) % 10 ) )  { 
                     dotcolor = "black"
                     }
                }
-
             print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" hole "\" fill=\"" dotcolor "\">" "+" "</text>"
-            
             }
         }
-  }
+    }
 
+# reserve planes for VSS and VCC power
 function do_planes( ) {
-    # reserve planes for VSS and VCC power
-
 
     for (x = 1; x <= xd; x += 1) {
-
         xx = x * hole + xb + xo 
-
         yy = 1 * hole + yb + yo 
-            
         gnd_color = "black"
-
         print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" hole "\" fill=\"" gnd_color "\">" "X" "</text>"
-
         yy = yd * hole + yb + yo 
-            
         gnd_color = "red"
-
         print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" hole "\" fill=\"" gnd_color "\">" "X" "</text>"
-
         }
 
     for (x = 5; x <= xd; x += 5) {
-
         gnd_color = "black"
-
         if ( !(x % 10) ) {
-
             gnd_color = "red"
-
             }
-
         xx = x * hole + xb + xo 
-
         for (y = 2; y < yd; y++) {
-
             yy = y * hole + yb + yo 
-            
             print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" hole "\" "
             print "fill=\"" gnd_color "\">" "X" "</text>"
-
             }
         }
-
-}
+    }
 
 function do_grids( sense ) {
 
     #  
-    split (lays,mark,"")
-
+    split (row_name,mark,"")
     color = "red"
-
     k = 0
-
     for (x = 1; x <= xd; x += 1) {
-
         # cycle text
-
-        k = (k % lays_size) + 1
-
+        k = (k % row_size) + 1
         if (sense != 0) {
-            kk = lays_size + 1 - k
+            kk = row_size + 1 - k
             }
-
         tag  = mark[ kk ]
-
         tag = (x == 1 || x == xd) ? "x" : tag ;
-
         xx = (xd - x + 1) * hole + xb + xo 
-
         for (y = 1; y <= yd; y += 1) {
-
             text = (y == 1 || y == yd) ? "x" : tag ;
-
             yy = y * hole + yb + yo 
-
             print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" hole "\" "
             print "font-family=\"monospace\" fill=\"" color "\">" text "</text>"
-
             }
         }
-
-}
+    }
 
 function do_units( ) {
 
@@ -412,12 +331,10 @@ function wires( ) {
 function wraps( ) {
   }
 
-END {
-
 # init html
+function init_html( ) {
 
     print " < " xd " == " yd " > "
-
     print "<!DOCTYPE html>"
     print "<html lang=\"en-US\">"
     print "<head>"
@@ -428,48 +345,69 @@ END {
     print "<link rel=\"stylesheet\" type=\"text/css\" href=\"/mystyles.css\">"
     print "</head>"
     print "<body>"
-
 #    could use this for define dpi
 #    print "<div id="dpi"></div>"
 #    print "#dpi { height: 1in; width: 1in; left: -100%; top: -100%; position: absolute; }"
 #    print "alert(document.getElementById(\"dpi\").offsetHeight);"
-
-# units
-
-    x = xd % lays_size 
-    xd = xd - x
-
-    y = yd % lays_size
-    yd = yd - y
-
-    xb += ( x - (x % 2) ) / 2 * hole
-    yb += ( y - (y % 2) ) / 2 * hole
-
-# draw 
-
-    do_canvas( ) 
-
-    do_board( ) 
-
-    do_numbers( ) 
-
-    do_letters( 1 )
-
-    do_isles( 1 )
-
-    do_grids( 1 )
-    
-    # do_planes( )
-
-    # do_units( )
+    }
 
 # exit htlm
+function exit_html( ) {
 
     print "<hr>"
     print "</svg>"
     print "</body>"
     print "</html>"
+    }
 
+END {
+
+# units
+
+# leave not connected the extra holes around ?
+if (0) {
+    x = xd % row_size 
+    xd = xd - x
+
+    y = yd % row_size
+    yd = yd - y
+
+    xb += ( x - (x % 2) ) / 2 * hole
+    yb += ( y - (y % 2) ) / 2 * hole
+    }
+
+# draw svg
+
+    # left-right == 0 or right-left == 1
+    mirror = 1
+
+    init_html( )
+
+    # define svg
+    do_canvas( ) 
+
+    # draw border
+    do_board( ) 
+
+    # draw numbers top-down 
+    do_numbers( ) 
+
+    # draw letters mirror
+    do_letters( mirror )
+
+    # draw counts mirror
+    do_rows( mirror )
+
+    # draw hole symbols
+    do_isles( mirror )
+
+    do_grids( mirror )
+    
+    # do_planes( )
+
+    # do_units( )
+
+    exit_html( )
   }
 
   
