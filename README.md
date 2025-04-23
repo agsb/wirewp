@@ -19,11 +19,11 @@ and a awk script to make a SVG draw of board and wires.
 It is a easy and fast way to prototype circuits using long headers 
 and thin wires. 
 
-Use a simple tool to wrap[^10][^11]. 
+Use a simple tool to wrap[^10] or make one [^11]. 
 
-Some details[^9], technics[^1] and standarts[^12]
+Some details[^9], technics[^1], standarts[^12] and tips[^13].
 
-Why us it [^8]?
+Why use it [^8]?
 
 PS. I know about PCB manufacturing companies, 
 but do not want expend time in draw schematics and routes, 
@@ -182,6 +182,8 @@ VCC, VDD, VSS, GND, etc
 [^11]:(https://www.instructables.com/Wire-Wrapping-Tool-CHEAP-QUALITY-AND-EASY/)
 
 [^12]:(https://workmanship.nasa.gov/lib/insp/2%20books/links/sections/files/301.pdf)
+
+[^13]:(https://www.ecb.torontomu.ca/~jkoch/prototype/Proto.htm)
 
 - - - 
 
