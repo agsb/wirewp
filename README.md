@@ -36,7 +36,7 @@ Some images of IBM-PC [^3] [^4] [^7] and first Macintosh [^2]
 ## Design and Planner
 
 I found some documentation about a program for wirewrap connections at
-NRAO [^5] (1975), but no sources.
+NRAO[^5] (1975) and DTIC[^14] (1982), but no sources.
 
 ##  My Rules
 
@@ -201,6 +201,10 @@ VCC, VDD, VSS, GND, etc
 [^12]:(https://workmanship.nasa.gov/lib/insp/2%20books/links/sections/files/301.pdf)
 
 [^13]:(https://www.ecb.torontomu.ca/~jkoch/prototype/Proto.htm)
+
+[^14]:(https://apps.dtic.mil/sti/tr/pdf/ADA113439.pdf)
+
+
 
 - - - 
 
