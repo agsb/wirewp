@@ -238,24 +238,21 @@ function do_isles( sense ) {
 
             dotcolor = "white"
 
-            if (sense == 0) {
+            if ( !( y % 10 ) )  { 
+                dotcolor = "black"
+                }
 
+            if (sense == 0) {
                 if ( !( x % 10 ) )  { 
                     dotcolor = "black"
                     }
-                if ( !( y % 10 ) )  { 
-                    dotcolor = "black"
-                    }
                 }
-            else {
+            else  {
 
-                if ( !( (xd - x) % 10 ) )  { 
+                if ( !( (xd - x + 1) % 10 ) )  { 
                     dotcolor = "black"
                     }
-                if ( !( (xd - y) % 10 ) )  { 
-                    dotcolor = "black"
-                    }
-                }
+               }
 
             print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" hole "\" fill=\"" dotcolor "\">" "+" "</text>"
             
@@ -309,29 +306,33 @@ function do_planes( ) {
 
 }
 
-function do_grids( ) {
+function do_grids( sense ) {
 
     #       opVopxgpox
     split ("osVosxGsox",mark,"")
+
+    color = "red"
 
     k = 0
 
     for (x = 1; x <= xd; x += 1) {
 
-        color = "red"
-
         # cycle 1 to 10
         k = (k % 10) + 1
 
-        kk = 10 - k + 1
+        if (sense != 0) {
+            kk = 11 - k
+            }
 
-        text  = mark[ kk ]
+        tag  = mark[ kk ]
 
-        print " k = " k " kk = " kk
+        tag = (x == 1 || x == xd) ? "x" : tag ;
 
         xx = (xd - x + 1) * hole + xb + xo 
 
         for (y = 1; y <= yd; y += 1) {
+
+            text = (y == 1 || y == yd) ? "x" : tag ;
 
             yy = y * hole + yb + yo 
 
@@ -444,7 +445,7 @@ END {
 
     do_isles( 1 )
 
-    do_grids( )
+    do_grids( 1 )
     
     # do_planes( )
 
