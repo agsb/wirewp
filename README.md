@@ -44,20 +44,38 @@ https://www.puntogeek.com/2007/11/17/first-motherboard/
 
 To reduce the interference:
 
-> Power (Vcc) on components side
-> Ground (Vss) on wires side
+Some boards uses:
+
+    Power (Vcc) on components side
+
+    Ground (Vss) on wires side
 
 Or both at wire side, as lines with two rows of isles, one
 with Ground (VSS) and other with Power (VCC);
 
 Most of wirewrap PCB breadboards does a sequence of
 
-       __[V V x o o o G G o o o x]__ or __[G G x o o o V V o o o x]__
+    [V V x o o o G G o o o x] or [G G x o o o V V o o o x]
 
-        V vcc
-        G vss (gnd)
-        x not connect
-        o isle, for pin of sockets 
+    V vcc
+    G vss (gnd)
+    x not connect
+    o isle, for pin of sockets 
+
+## Board
+
+For easy the pcp protoboard is 
+
+    coordenate X is the smaller side and Y is longest side of board
+
+    first and last row around all board is left without connections
+
+    the identification is done at wire side of board
+
+    a sequence of (o p1 x x p2 o x p3 o x),(o p1 x x p2 o x p3 o x), 
+    __x__ is not used, __o__ is for hole for long pin, 
+    __p1__, __p2__, are holes socket for slim DIP, 
+    __p1__, __p3__, are holes socket for wide DIP
 
 #### List format 
 

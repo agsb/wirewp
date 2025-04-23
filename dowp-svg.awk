@@ -144,11 +144,11 @@ function do_isles( )  {
 
         txt = sprintf ("%c", (x % 26) + 64) 
 
-        yy = hole + yo 
+        yy = hole + yb + yo 
 
         print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" tz "\" fill=\"white\">" txt "</text>"
 
-        yy = yd * hole + yo + yb 
+        yy = yd * hole + yb + yo 
 
         print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" tz "\" fill=\"white\">" txt "</text>"
 
@@ -162,11 +162,11 @@ function do_isles( )  {
 
         txt = sprintf ("%02d", (y) ) 
 
-        xx = hole + xo  
+        xx = hole + xb + xo  
 
         print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" tz "\" fill=\"white\">" txt "</text>"
 
-        xx = xd * hole + xo + xb
+        xx = xd * hole + xb + xo
 
         print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" tz "\" fill=\"white\">" txt "</text>"
 
@@ -238,7 +238,37 @@ function do_planes( ) {
 
             yy = y * hole + yb + yo 
             
-            print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" hole "\" fill=\"" gnd_color "\">" "X" "</text>"
+            print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" hole "\" "
+            print "fill=\"" gnd_color "\">" "X" "</text>"
+
+            }
+        }
+
+}
+
+function do_grids( ) {
+
+    #       xopVopxgpo
+    split ("xosVosxGso",mark,"")
+
+    k = 0
+
+    for (x = 1; x <= xd; x += 1) {
+
+        color = "red"
+
+        text  = mark[k]
+
+        k = (k % 10) + 1
+
+        xx = x * hole + xb + xo 
+
+        for (y = 1; y <= yd; y += 1) {
+
+            yy = y * hole + yb + yo 
+
+            print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" hole "\" "
+            print "font-family=\"monospace\" fill=\"" color "\">" text "</text>"
 
             }
         }
@@ -268,8 +298,6 @@ function do_units( ) {
     # for easy all space are blocked in 8 holes 
         xu = unit[u]["x"] 
         yu = unit[u]["y"] 
-
-print "<!-- " u " == " xu " by " yu "-->"
 
         txt = sprintf ("%02d", cs ) 
 
@@ -344,9 +372,11 @@ END {
 
     do_isles( )
 
-    do_planes( )
+    do_grids( )
+    
+    # do_planes( )
 
-    do_units( )
+    # do_units( )
 
 # exit htlm
 
