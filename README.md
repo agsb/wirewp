@@ -21,7 +21,7 @@ and thin wires.
 
 Use a simple tool to wrap[^10][^11]. 
 
-Some details[^9] and technics[^1]
+Some details[^9], technics[^1] and standarts[^12]
 
 Why us it [^8]?
 
@@ -180,6 +180,8 @@ VCC, VDD, VSS, GND, etc
 [^10]:(https://learn.sparkfun.com/tutorials/working-with-wire/how-to-use-a-wire-wrap-tool)
 
 [^11]:(https://www.instructables.com/Wire-Wrapping-Tool-CHEAP-QUALITY-AND-EASY/)
+
+[^12]:(https://workmanship.nasa.gov/lib/insp/2%20books/links/sections/301_discrete%20wiring.html)
 
 - - - 
 
