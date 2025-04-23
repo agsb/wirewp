@@ -17,7 +17,7 @@ and a awk script to make a SVG draw of board and wires.
 ## What is wire wrap ?
 
 It is a easy and fast way to prototype circuits using long headers 
-and thin wires. Some details[^9] and technics[^1]
+and thin wires. Use a simple tool to wrap[^10]. Some details[^9] and technics[^1]
 
 Why us it [^8]?
 
@@ -172,6 +172,8 @@ VCC, VDD, VSS, GND, etc
 [^8]:(https://wirewrapodyssey.com/index.html#construction)
 
 [^9]:(https://tecratools.com/pages/tecalert/wirewrap_guide.html)
+
+[^10]:(https://learn.sparkfun.com/tutorials/working-with-wire/how-to-use-a-wire-wrap-tool)
 
 - - - 
 
