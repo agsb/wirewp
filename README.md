@@ -70,6 +70,7 @@ Use # at start of line, for comments.
 
 ### List notes
 
+1. chips of less than 22 pins uses slim (0,300") and above uses wide (0,600")
 1. _unit_ 00 is reserved for the board;
 1. _pin_  00 is reserved for specials;
 1. use _comments_ for more information, 
