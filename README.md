@@ -2,19 +2,27 @@
 
 ( not finish, version 0.1 )
 
+I want easy make hobby circuits and the best way is using wirewrap, 
+but cann't found a program to design boards around in the internet, 
+then maybe I try make one.
+
 It is a simple planner for wire wrap circuits in boards.
 
 It makes a list of pins conections for wire wrap.
 
 Still just a bunch of scripts.
 
-Uses sort for group wires to wrap. 
+Uses a sort for group wires to wrap. 
 
-## What is ?
+Uses a awk script to make a SVG draw of board and wires.
+
+PS. I know about PCB manufacturing companies, 
+but do not want expend time in draw schematics and routes, 
+for "one shot" circuits.  
+
+## What is wire wrap ?
 
 https://schematicsforfree.com/files/Manufacturing%20and%20Design/Prototyping/Wire%20Wrapping%20Techniques.pdf
-
-https://www.gb.nrao.edu/electronics/edir/edir163.pdf
 
 https://www.reddit.com/r/electronics/comments/yw0an0/mid_1980s_286_single_board_computer_done/
 
@@ -30,7 +38,12 @@ https://vintagecomputer.ca/ibm-5100-in-pictures/
 
 https://www.puntogeek.com/2007/11/17/first-motherboard/
 
-##  Rules
+## History
+
+I found some documentation about a program for wirewrap connections at
+https://www.gb.nrao.edu/electronics/edir/edir163.pdf but no sources.
+
+##  My Rules
 
 > Each unit have two or more pins;
 
@@ -44,38 +57,35 @@ https://www.puntogeek.com/2007/11/17/first-motherboard/
 
 To reduce the interference:
 
-Some boards uses:
-
-    Power (Vcc) on components side
-
-    Ground (Vss) on wires side
+Some boards uses Power (Vcc) on components side and Ground (Vss) 
+on wires side, using more thicker wires.
 
 Or both at wire side, as lines with two rows of isles, one
-with Ground (VSS) and other with Power (VCC);
+with Ground (VSS) and other with Power (VCC).
 
-Most of wirewrap PCB breadboards does a sequence of
+Most of vendor's wirewrap PCB boards does a sequence of
 
     [V V x o o o G G o o o x] or [G G x o o o V V o o o x]
 
-    V vcc
-    G vss (gnd)
-    x not connect
-    o isle, for pin of sockets 
+    __V__ vcc, __G__ vss (gnd), __x__ not connect, 
+    __o__ isle for pin of sockets 
 
 ## Board
 
-For easy the pcp protoboard is 
+For easy the pcp protoboard, using common pcb protoboards,
+I made a mix over above: 
 
-    coordenate X is the smaller side and Y is longest side of board
+    coordenade X is the smaller side and Y is longest side of board;
 
-    first and last row around all board is left without connections
+    a sequence of isles around board is left without connections;
 
-    the identification is done at wire side of board
+    the identification is done at wire side of board;
 
-    a sequence of (o p1 x x p2 o x p3 o x),(o p1 x x p2 o x p3 o x), 
-    __x__ is not used, __o__ is for hole for long pin, 
-    __p1__, __p2__, are holes socket for slim DIP, 
-    __p1__, __p3__, are holes socket for wide DIP
+    a sequence of (x o p3 v o p2 x g p1 o) where:
+            __x__ is not connected, __o__ is for hole for long pin, 
+            __p1__, __p2__, are holes socket for slim DIP, 
+            __p1__, __p3__, are holes socket for wide DIP,
+            if socket have long pin, __o__ is not connected
 
 #### List format 
 
