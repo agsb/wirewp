@@ -320,9 +320,11 @@ function do_grids( ) {
 
         color = "red"
 
+        k = k + 1
+
         k = (k % 10) + 1
 
-        text  = mark[ 11 - k ]
+        text  = mark[ 10 - k ]
 
         xx = (xd - x + 1) * hole + xb + xo 
 
