@@ -30,7 +30,7 @@ Some images of first Macintosh [^2] and IBM-PC [^3] [^4]
 ## Design and Planner
 
 I found some documentation about a program for wirewrap connections at
-NRAO [^5], but no sources.
+NRAO [^5] (1975), but no sources.
 
 ##  My Rules
 
