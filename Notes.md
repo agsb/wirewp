@@ -20,6 +20,9 @@ https://www.planetanalog.com/learning-from-a-wire-wrapping-misassumption/
 
 https://electronics.stackexchange.com/questions/318562/wire-wrapping-power-ground
 
+https://docs.rs-online.com/dc28/0900766b80565423.pdf
+
+https://booksite.elsevier.com/samplechapters/9780750663700/9780750663700.PDF
 
 
 

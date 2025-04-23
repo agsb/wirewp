@@ -150,14 +150,14 @@ Must soldering to fix both and join pins.
 | Colour | Number Designator |
 | :---: | :---: |
 | Black | 0 | 
-| Green | 5 |
 | Brown | 1 |
-| Blue | 6 |
 | Red | 2 |
-| Violet (Purple) | 7 |
 | Orange | 3 |
-| Grey (Slate) | 8 |
 | Yellow | 4 |
+| Green | 5 |
+| Blue | 6 |
+| Violet (Purple) | 7 |
+| Grey (Slate) | 8 |
 | White | 9 |
 
 From [Table 1-A-5 Colour Code](https://www.casa.gov.au/sites/default/files/2021-09/advisory-circular-21-99-aircraft-wiring-bonding.pdf)
