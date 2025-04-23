@@ -429,9 +429,14 @@ END {
 
 # units
 
-    #xd = 0
+    x = xd % 10 
+    xd = xd - x
 
-    #yd = 0
+    y = yd % 10
+    yd = yd - y
+
+    xb += ( x - (x % 2) ) / 2 * hole
+    yb += ( y - (y % 2) ) / 2 * hole
 
 # draw 
 
