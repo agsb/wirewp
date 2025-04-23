@@ -14,14 +14,18 @@ It makes a list of pins conections for wire wrap.
 Still just a bunch of scripts, that uses a sort for group wires to wrap
 and a awk script to make a SVG draw of board and wires.
 
-PS. I know about PCB manufacturing companies, 
-but do not want expend time in draw schematics and routes, 
-for "one shot" circuits.  
-
 ## What is wire wrap ?
 
 It is a easy and fast way to prototype circuits using long headers 
 and thin wires. Some details and technics[^1]
+
+Why us it [^8]?
+
+PS. I know about PCB manufacturing companies, 
+but do not want expend time in draw schematics and routes, 
+for "one shot" circuits.  
+
+
 
 ### Classics
 
@@ -166,5 +170,11 @@ VCC, VDD, VSS, GND, etc
 [^6]:(https://www.sierraassembly.com/blog/what-is-pcb-ground-plane/)
 
 [^7]:(https://bsky.app/profile/tubetime.bsky.social/post/3k5edfr6gxp2w)
+
+[^8]:(https://wirewrapodyssey.com/index.html#construction)
+
+- - - 
+
+
 
 
