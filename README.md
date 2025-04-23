@@ -20,21 +20,12 @@ for "one shot" circuits.
 
 ## What is wire wrap ?
 
-[^1]
+It is a easy and fast way to prototype circuits using long headers 
+and thin wires. Some details[^1] and technics[^2]
 
-[^2]
+### Classics
 
-### Macintosh
-
-[^3]
-
-[^4]
-
-### IBM PC
-
-[^5]
-
-[^6]
+Some images of first Macintosh [^3] [^4] and IBM-PC [^5] [^6]
 
 ## Design and Planner
 
@@ -176,6 +167,6 @@ VCC, VDD, VSS, GND, etc
 
 [^7]:(https://www.gb.nrao.edu/electronics/edir/edir163.pdf.)
 
-[^8](:https://www.sierraassembly.com/blog/what-is-pcb-ground-plane/)
+[^8]:(https://www.sierraassembly.com/blog/what-is-pcb-ground-plane/)
 
 
