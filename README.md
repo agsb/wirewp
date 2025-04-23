@@ -71,7 +71,7 @@ Most of vendor's wirewrap PCB boards does a sequence of
 
 ## Board
 
-For using common pcb protoboards, I made a mix over above: 
+I made a mix over above: 
 
     coordenade X is the smaller side and Y is longest side of board;
 
@@ -85,9 +85,10 @@ For using common pcb protoboards, I made a mix over above:
             __p1__, __p3__, are holes socket for wide DIP,
             if socket have long pin, __o__ is not connected
 
-    I use long pin headers in both sides of common sockets, in paralel,
-    as cheap substitute for special wire-wrap long pins sockets. 
-    Must soldering to fix both and join pins.
+For common pcb protoboards, with isles in both sides of FR4 plate, 
+I use long pin headers at sides of common sockets, in paralel, 
+as cheap substitute for special wire-wrap long pins sockets. 
+Must soldering to fix both and join pins.
 
 #### List Input format 
 
