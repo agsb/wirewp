@@ -1,8 +1,5 @@
 #/usr/bin/awk
 
-# make board and tags for wire wraps
-# agsb@2025
-
 #
 # define parameters
 #
@@ -10,15 +7,11 @@ BEGIN {
 
 # common
 
-    FS = ",";
+  FS = ",";
 
-    RS = "\n";
+  RS = "\n";
 
-    cnt = 0;
-
-    str = "date --iso-8601=seconds";
-    str | getline date;
-    close(str);
+  cnt = 0;
 
 #
 # using 96 DPI for reference
@@ -36,9 +29,9 @@ BEGIN {
 
 # border around holes
     
-    xb = hole * 1  
+    xb = hole * 2  
     
-    yb = hole * 1
+    yb = hole * 2
 
 # font size
 
@@ -54,9 +47,9 @@ BEGIN {
 
 # default origin
 
-    xo = 0
+    xo = 100
 
-    yo = 0
+    yo = 100
 
 # default size
 
@@ -128,11 +121,9 @@ function do_canvas( ) {
     yc = yd * hole
     xx = xc + 3 * xb
     yy = yc + 3 * yb
-    print "<?xml version=\"1.0\" encoding=\"utf-8\"?>"
-    print "<!-- Generator: Wire Wrap Toolbox, Date: " date " -->"
+    print "<p> board (" xd " by " yd ") <p> <hr> <p>  " 
     print "<svg width=\"" xx + xo "\" height=\"" yy + yo "\" " 
-    print "  id=\"boardwwp\" version=\"1.1\" "
-    print "  xmlns=\"http://www.w3.org/2000/svg\" >"
+    print " xmlns=\"http://www.w3.org/2000/svg\" >"
     }
 
 # draw a rectangle view
@@ -140,37 +131,24 @@ function do_board( ) {
 
     print "<rect width=\"" xc + 3 * xb "\" height=\"" yc + 3 * yb "\" " 
     print "x=\"" xo "\" y=\"" yo "\" rx=\"4\" ry=\"4\" " 
-    print "style=\"fill:green; stroke:black; stroke-width:2; "
-    print "fill-opacity:0.6; stroke-opacity:0.4\" />"
+    print "style=\"fill:green; stroke:black; stroke-width:2; fill-opacity:0.6; stroke-opacity:0.4\" />"
     }
 
 # draw border texts
-function do_texts( xxe, yye, xxf, yyf, anchore, anchorf, color, txt  )  {
+function do_texts( xxe, yye, xxf, yyf, color, txt  )  {
 
-    print "<text x=\"" xxe "\" y=\"" yye "\" font-size=\"" fz "\" "
-    print "text-anchor=\"" anchore "\" fill=\"" color "\">" txt "</text>"
-    print "<text x=\"" xxf "\" y=\"" yyf "\" font-size=\"" fz "\" "
-    print "text-anchor=\"" anchorf "\" fill=\"" color "\">" txt "</text>"
+    print "<text x=\"" xxe "\" y=\"" yye "\" font-size=\"" fz "\" fill=\"" color "\">" txt "</text>"
+    print "<text x=\"" xxf "\" y=\"" yyf "\" font-size=\"" fz "\" fill=\"" color "\">" txt "</text>"
     }
 
 # mark reference
-function do_reference( )  {
+function do_reference( sense )  {
         
-    xx = (sense == 0) ? xx = xb + xo : (xd + 1 ) * hole + xb + xo
-    yy = yb + yo 
-    print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" fz "\" fill=\"white\">" "." "</text>"
-    print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" fz "\" fill=\"white\">" "+" "</text>"
-
-    for (x = 1; x <= xd + 4; x += 1) {
-        xx = x * hole
-        for (y = 1; y <= yd + 4; y += 1) {
-            yy = y * hole
-            print "<text x=\"" xx "\" y=\""yy "\" font-size=\"" fz "\" "
-            print "text-anchor=\"middle\" fill=\"white\">" "." "</text>"
-        }
+        xx = (sense == 0) ? xx = xb + xo : (xd + 1 ) * hole + xb + xo
+        yy = yb + yo 
+        print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" fz "\" fill=\"white\">" "." "</text>"
+        print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" fz "\" fill=\"white\">" "+" "</text>"
     }
-
-}
 
 # annotate vertical border numbers
 function do_numbers( ) {
@@ -180,7 +158,7 @@ function do_numbers( ) {
     for (y = 1; y <= yd; y += 1) {
         txt = sprintf ("%02d", (y % 100) ) 
         yy = y * hole + yb + yo 
-        do_texts( xxe, yy, xxf, yy, "end", "start", color, txt )
+        do_texts( xxe, yy, xxf, yy, color, txt )
         }
     }
 
@@ -194,7 +172,7 @@ function do_letters( sense )  {
         k = (sense == 0) ? k = x % 26 : k = (xd - x) % 26 + 1 
         txt = sprintf ("%c", k + 64) 
         xx = x * hole + xb + xo 
-        do_texts( xx, yye, xx, yyf, "middle", "middle", color, txt )
+        do_texts( xx, yye, xx, yyf, color, txt )
         }
     }
 
@@ -202,20 +180,16 @@ function do_letters( sense )  {
 function do_rows( sense )  {
 
     color = "blue"
-    yye = yo + yb 
-    yyf = (yd + 1) * hole + yo + yb 
-    kk = 1
+    yye = yo + yb - yb / 2
+    yyf = (yd + 1) * hole + yo + yb + yb / 2
     for (x = 1; x <= xd; x += 1) {
         k = (sense == 0) ? k = x : k = xd - x + 1
         if ( k % 3 ) continue
         k = k - k % 3 
         txt = sprintf ("%02d", k) 
-        #txt = sprintf ("%c", kk++ + 64) 
         xx = x * hole + xb + xo 
-        print "<text x=\"" xx "\" y=\"" yye "\" font-size=\"" hole "\" "
-        print "text-anchor=\"middle\" fill=\"" color "\">" txt "</text>"
-        print "<text x=\"" xx "\" y=\"" yyf "\" font-size=\"" hole "\" "
-        print "text-anchor=\"middle\" fill=\"" color "\">" txt "</text>"
+        print "<text x=\"" xx "\" y=\"" yye "\" font-size=\"" fz "\" fill=\"" color "\">" txt "</text>"
+        print "<text x=\"" xx "\" y=\"" yyf "\" font-size=\"" fz "\" fill=\"" color "\">" txt "</text>"
         }
     }
 
@@ -240,8 +214,7 @@ function do_isles( sense ) {
                     dotcolor = "black"
                     }
                }
-            print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" hole "\" "
-            print "text-anchor=\"middle\" fill=\"" dotcolor "\">" "+" "</text>"
+            print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" hole "\" fill=\"" dotcolor "\">" "+" "</text>"
             }
         }
     }
@@ -292,8 +265,7 @@ function do_grids( sense ) {
             text = (y == 1 || y == yd) ? "x" : tag ;
             yy = y * hole + yb + yo 
             print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" hole "\" "
-            print "text-anchor=\"middle\" font-family=\"monospace\" "
-            print "fill=\"" color "\">" text "</text>"
+            print "font-family=\"monospace\" fill=\"" color "\">" text "</text>"
             }
         }
     }
@@ -409,7 +381,7 @@ if (0) {
     # left-right == 0 or right-left == 1
     mirror = 1
 
-    # init_html( )
+    init_html( )
 
     # define svg
     do_canvas( ) 
@@ -417,14 +389,11 @@ if (0) {
     # draw border
     do_board( ) 
 
-    # draw points
-    do_reference( )
-
     # draw numbers top-down 
     do_numbers( ) 
 
     # draw letters mirror
-    # do_letters( mirror )
+    do_letters( mirror )
 
     # draw counts mirror
     do_rows( mirror )
@@ -434,13 +403,11 @@ if (0) {
 
     do_grids( mirror )
     
-    print "</svg>"
-
     # do_planes( )
 
     # do_units( )
 
-    # exit_html( )
+    exit_html( )
   }
 
   

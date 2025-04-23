@@ -148,6 +148,13 @@ function do_reference( sense )  {
         yy = yb + yo 
         print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" fz "\" fill=\"white\">" "." "</text>"
         print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" fz "\" fill=\"white\">" "+" "</text>"
+
+        for (x = hole; x < 100; x += hole) {
+            for (y = hole; y < 100; y += hole) {
+                print "<text x=\"" x "\" y=\"" y "\" font-size=\"" fz "\" fill=\"white\">" "." "</text>"
+            }
+        }
+
     }
 
 # annotate vertical border numbers
