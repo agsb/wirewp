@@ -29,9 +29,13 @@ BEGIN {
 
 # border around holes
     
-    xb = hole * 2 
+    xb = hole * 2  
     
     yb = hole * 2
+
+# sizes
+
+    tz = hole * 0.8
 
 # default origin
 
@@ -133,10 +137,13 @@ function do_board( ) {
 
 }
 
-function do_isles( )  {
-# draw isles
+function do_marks( )  {
 
-    tz = hole * 0.8
+        xx = ( xd + 1 ) * holes + xb + xo 
+        yy = yb + yo 
+
+        print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" tz "\" fill=\"white\">" "." "</text>"
+        print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" tz "\" fill=\"white\">" "+" "</text>"
 
     for (x = 1; x <= xd; x += 1) {
 
@@ -144,15 +151,19 @@ function do_isles( )  {
 
         txt = sprintf ("%c", (x % 26) + 64) 
 
-        yy = hole + yb + yo 
+        yy = yb + yo 
 
         print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" tz "\" fill=\"white\">" txt "</text>"
 
-        yy = yd * hole + yb + yo 
+        yy = (yd + 1) * hole + yb + yo 
 
         print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" tz "\" fill=\"white\">" txt "</text>"
 
         }
+
+  }
+
+function do_numbers( ) {
 
     for (y = 1; y <= yd; y += 1) {
         
@@ -162,15 +173,58 @@ function do_isles( )  {
 
         txt = sprintf ("%02d", (y) ) 
 
-        xx = hole + xb + xo  
+        xx = xb + xo  
 
         print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" tz "\" fill=\"white\">" txt "</text>"
 
-        xx = xd * hole + xb + xo
+        xx = (xd + 1) * hole + xb + xo
 
         print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" tz "\" fill=\"white\">" txt "</text>"
 
         }
+    }
+
+function do_letters( sense )  {
+
+    # mark reference
+
+        yy = yb + yo 
+        
+        if (sense == 0) {
+            xx = xb + xo 
+            }
+        else {
+            xx = (xd + 1 ) * hole + xb + xo 
+            }
+
+        print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" tz "\" fill=\"white\">" "." "</text>"
+        print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" tz "\" fill=\"white\">" "+" "</text>"
+
+    # annotade 
+
+    for (x = 1; x <= xd; x += 1) {
+
+        xx = x * hole + xb + xo 
+
+        if (sense == 0) {
+            txt = sprintf ("%c", (x % 26) + 64) 
+            }
+        else {
+            txt = sprintf ("%c", ((xd - x ) % 26 + 1) + 64) 
+            }
+
+        yy = yb + yo 
+
+        print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" tz "\" fill=\"white\">" txt "</text>"
+
+        yy = (yd + 1) * hole + yb + yo 
+
+        print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" tz "\" fill=\"white\">" txt "</text>"
+
+        }
+}
+
+function do_isles( sense ) {
 
     holecolor = "white" 
 
@@ -184,20 +238,29 @@ function do_isles( )  {
 
             dotcolor = "white"
 
-            if ( !( x % 10 ) )  { 
-                dotcolor = "black"
+            if (sense == 0) {
+
+                if ( !( x % 10 ) )  { 
+                    dotcolor = "black"
+                    }
+                if ( !( y % 10 ) )  { 
+                    dotcolor = "black"
+                    }
                 }
-            if ( !( y % 10 ) )  { 
-                dotcolor = "black"
+            else {
+
+                if ( !( (xd - x) % 10 ) )  { 
+                    dotcolor = "black"
+                    }
+                if ( !( (xd - y) % 10 ) )  { 
+                    dotcolor = "black"
+                    }
                 }
 
             print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" hole "\" fill=\"" dotcolor "\">" "+" "</text>"
             
-            print "<text x=\"" xx "\" y=\"" yy "\" font-size=\"" hole "\" fill=\"" holecolor "\">" "O" "</text>"
-
             }
         }
-
   }
 
 function do_planes( ) {
@@ -257,11 +320,11 @@ function do_grids( ) {
 
         color = "red"
 
-        text  = mark[k]
-
         k = (k % 10) + 1
 
-        xx = x * hole + xb + xo 
+        text  = mark[ 11 - k ]
+
+        xx = (xd - x + 1) * hole + xb + xo 
 
         for (y = 1; y <= yd; y += 1) {
 
@@ -370,7 +433,11 @@ END {
 
     do_board( ) 
 
-    do_isles( )
+    do_numbers( ) 
+
+    do_letters( 1 )
+
+    do_isles( 1 )
 
     do_grids( )
     
