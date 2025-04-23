@@ -21,16 +21,16 @@ for "one shot" circuits.
 ## What is wire wrap ?
 
 It is a easy and fast way to prototype circuits using long headers 
-and thin wires. Some details[^1] and technics[^2]
+and thin wires. Some details and technics[^1]
 
 ### Classics
 
-Some images of first Macintosh [^3] [^4] and IBM-PC [^5] [^6]
+Some images of first Macintosh [^2] and IBM-PC [^3] [^4]
 
 ## Design and Planner
 
 I found some documentation about a program for wirewrap connections at
-NRAO [^7], but no sources.
+NRAO [^5], but no sources.
 
 ##  My Rules
 
@@ -95,7 +95,7 @@ For power lines:
 
 ### Power Planes
 
-To reduce the noise and interference [^1], some boards uses power (Vcc) on 
+To reduce the noise and interference [^6], some boards uses power (Vcc) on 
 components side and ground (Vss) on wires side, 
 using more thicker wires.
 
