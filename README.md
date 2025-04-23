@@ -155,9 +155,9 @@ VCC, VDD, VSS, GND, etc
 
 [^1]:(https://schematicsforfree.com/files/Manufacturing%20and%20Design/Prototyping/Wire%20Wrapping%20Techniques.pdf)
 
-[^2]:(https://www.reddit.com/r/electronics/comments/yw0an0/mid_1980s_286_single_board_computer_done/)
+[^2]:(https://www.digibarn.com/collections/parts/mac-wirewrap5-board/index.html)
 
-[^3]:(https://www.digibarn.com/collections/parts/mac-wirewrap5-board/index.html)
+[^3]:(https://www.reddit.com/r/electronics/comments/yw0an0/mid_1980s_286_single_board_computer_done/)
 
 [^4]:(https://folklore.org/PC_Board_Esthetics.html)
 
