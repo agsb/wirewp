@@ -159,14 +159,10 @@ VCC, VDD, VSS, GND, etc
 
 [^3]:(https://www.reddit.com/r/electronics/comments/yw0an0/mid_1980s_286_single_board_computer_done/)
 
-[^4]:(https://folklore.org/PC_Board_Esthetics.html)
+[^4]:(https://www.puntogeek.com/2007/11/17/first-motherboard/)
 
-[^5]:(https://vintagecomputer.ca/ibm-5100-in-pictures/)
+[^5]:(https://www.gb.nrao.edu/electronics/edir/edir163.pdf.)
 
-[^6]:(https://www.puntogeek.com/2007/11/17/first-motherboard/)
-
-[^7]:(https://www.gb.nrao.edu/electronics/edir/edir163.pdf.)
-
-[^8]:(https://www.sierraassembly.com/blog/what-is-pcb-ground-plane/)
+[^6]:(https://www.sierraassembly.com/blog/what-is-pcb-ground-plane/)
 
 
