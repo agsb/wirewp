@@ -37,6 +37,12 @@ BEGIN {
 
     tz = hole * 0.8
 
+# standart board using sockets and long headers
+
+    lays = "osVosxGsox"
+
+    lays_size = length (lays)
+
 # default origin
 
     xo = 100
@@ -308,8 +314,8 @@ function do_planes( ) {
 
 function do_grids( sense ) {
 
-    #       opVopxgpox
-    split ("osVosxGsox",mark,"")
+    #  
+    split (lays,mark,"")
 
     color = "red"
 
@@ -317,11 +323,12 @@ function do_grids( sense ) {
 
     for (x = 1; x <= xd; x += 1) {
 
-        # cycle 1 to 10
-        k = (k % 10) + 1
+        # cycle text
+
+        k = (k % lays_size) + 1
 
         if (sense != 0) {
-            kk = 11 - k
+            kk = lays_size + 1 - k
             }
 
         tag  = mark[ kk ]
@@ -429,10 +436,10 @@ END {
 
 # units
 
-    x = xd % 10 
+    x = xd % lays_size 
     xd = xd - x
 
-    y = yd % 10
+    y = yd % lays_size
     yd = yd - y
 
     xb += ( x - (x % 2) ) / 2 * hole
