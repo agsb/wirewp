@@ -144,6 +144,23 @@ Must soldering to fix both and join pins.
 3. The first pin is at TOP RIGHT, last pin is at TOP LEFT, counts clockwise;
 4. Leave at least 2 spaces between rows of pins;
 
+### Colors
+
+| Colour | Number Designator |
+| :---: | :---: |
+| Black | 0 | 
+| Green | 5 |
+| Brown | 1 |
+| Blue | 6 |
+| Red | 2 |
+| Violet (Purple) | 7 |
+| Orange | 3 |
+| Grey (Slate) | 8 |
+| Yellow | 4 |
+| White | 9 |
+
+From [Table 1-A-5 Colour Code](https://www.casa.gov.au/sites/default/files/2021-09/advisory-circular-21-99-aircraft-wiring-bonding.pdf)
+
 ## More
 
 What about ?
