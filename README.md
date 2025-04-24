@@ -212,6 +212,8 @@ VCC, VDD, VSS, GND, etc
 
 [^15]:(https://www.peconnectors.com/wire-wrap-sockets-and-headers/)
 
+[^16]:(https://onlinelibrary.wiley.com/doi/epdf/10.1002/spe.4380150304)
+
 - - - 
 
 
