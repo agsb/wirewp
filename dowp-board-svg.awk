@@ -148,8 +148,11 @@ function do_board( ) {
 function do_texts( xxe, yye, xxf, yyf, anchore, anchorf, color, txt  )  {
 
     print "<text x=\"" xxe "\" y=\"" yye "\" font-size=\"" fz "\" "
+    #print "alignment-baseline=\"middle\" "
     print "text-anchor=\"" anchore "\" fill=\"" color "\">" txt "</text>"
+
     print "<text x=\"" xxf "\" y=\"" yyf "\" font-size=\"" fz "\" "
+    #print "alignment-baseline=\"middle\" "
     print "text-anchor=\"" anchorf "\" fill=\"" color "\">" txt "</text>"
     }
 
