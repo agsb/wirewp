@@ -150,6 +150,23 @@ Must soldering to fix both and join pins.
 3. The first pin is at TOP RIGHT, last pin is at TOP LEFT, counts clockwise;
 4. Leave at least 2 spaces between rows of pins;
 
+### Chips
+
+| pins  | spaced | Number Designator |
+| :---: | :---: | :---: |
+| 6 | 0.300" | 1 |
+| 8 | 0.300" | 2 |
+| 14 | 0.300" | 3 |
+| 16 | 0.300" | 4 |
+| 18 | 0.300" | 5 |
+| 20 | 0.300" | 6 |
+| 24 | 0.300" | 7 |
+| 24 | 0.600" | 8 |
+| 28 | 0.600" | 9 |
+| 40 | 0.600" | 10 |
+| 48 | 0.600" | 11 |
+
+
 ### Colors
 
 | Colour | Number Designator |
