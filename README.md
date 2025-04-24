@@ -151,6 +151,11 @@ Must soldering to fix both and join pins.
 
 ### Dual in-line Package
 
+"DIP parts have standard sizes that follow JEDEC rules. 
+The space between two pins (called pitch) is 0.1 inches (2.54 mm). 
+The space between two rows of pins depends on how many pins are in the package. 
+Common row spacings are 0.3 inches (7.62 mm) or 0.6 inches (15.24 mm)"
+
 | pins  | spaced | Number Designator |
 | :---: | :---: | :---: |
 | 6 | 0.300" | 1 |
