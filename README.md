@@ -136,6 +136,10 @@ I made a mix over above concepts:
 
             if sockets have long pins, __o__ is not connected
 
+
+The headers and sockets with long pins for wire-wrap boards[^15] are more expensive
+than common round sockets and common pin headers.
+
 For common pcb protoboards, a FR4 plate with isles in both sides, 
 I use long pin headers at sides of common round pin sockets, in paralel, 
 as cheap substitute for special wire-wrap long pins sockets. 
@@ -206,7 +210,7 @@ VCC, VDD, VSS, GND, etc
 
 [^14]:(https://apps.dtic.mil/sti/tr/pdf/ADA113439.pdf)
 
-
+[^15]:(https://www.peconnectors.com/wire-wrap-sockets-and-headers/)
 
 - - - 
 
