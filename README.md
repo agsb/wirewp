@@ -136,7 +136,6 @@ I made a mix over above concepts:
 
             if sockets have long pins, __o__ is not connected
 
-
 The headers and sockets with long pins for wire-wrap boards[^15] are more expensive
 than common round sockets and common pin headers.
 
@@ -150,7 +149,7 @@ Must soldering to fix both and join pins.
 3. The first pin is at TOP RIGHT, last pin is at TOP LEFT, counts clockwise;
 4. Leave at least 2 spaces between rows of pins;
 
-### Chips
+### Dual in-line Package
 
 | pins  | spaced | Number Designator |
 | :---: | :---: | :---: |
