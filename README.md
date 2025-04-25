@@ -157,11 +157,11 @@ Sockets uses a designator with spacing ( 4 or 7 ) and number of pins (slim, 6 to
 
 There are any consensus about colors of wires ? 
 Which color for VSS, for VCC, for Address, Data, Controls, Inputs, Outputs ? 
-But for wire colors there is a designator.
+But for wire colors there is a designator, and use with DC power
 
 | Colour | Number Designator | Use |
 | :---: | :---: | :---: |
-| Black | 0 | ground, VSS |
+| Black | 0 | GND |
 | Brown | 1 |  Output |
 | Red | 2 | 5V0 |
 | Orange | 3 | 3V3 |
