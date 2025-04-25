@@ -50,12 +50,12 @@ NRAO[^5] (1975) and DTIC[^14] (1982), but no sources.
 
 ## Input format 
 
-Make a primary CSV list with: unit, pin, wire, comment,
+Make a primary CSV list with: sock, pins, wire, comment,
 
-_unit, the unit to place at board ;_
+_sock, the socket to place a unit at board ;_
         (numeric) 00 is the board, 01 first unit, etc
 
-_pin, the pin of unit;_
+_pins, the pin of unit;_
         (numeric) NN, counted as in schematics, 00 is reserved
 
 _wire, name of wire to wrap at this pin;_
@@ -70,10 +70,10 @@ Use # at start of line, for comments.
 
 ### List notes
 
-The chips of 8 to 24 pins uses slim (0,300") form and 24 to 48 uses wide (0,600") inter rows space.
+The chips of 6 to 28 pins uses slim (0.300") form and 24 to 64 uses wide (0,600") inter rows space.
 
-1. _unit_ 00 is reserved for the board;
-1. _pin_  00 is reserved for specials;
+1. _sock_ 00 is reserved for the board;
+1. _pins_  00 is reserved for specials;
 1. use _comments_ for more information, 
 eg. sizes, color, datasheet use/name of pin;
 
@@ -81,31 +81,26 @@ eg. sizes, color, datasheet use/name of pin;
 
 (still a primitive sintax)
 
-    - "NN, 00, 00, x, y," define the size of unit, top-right origin;    
-
-    - "NN, 00, 01, t," define separation between socket pin and wired pin;    
-    
-    - "NN, 00, 02, t," define border ground, 0 none, 1 around, 2 interleaved;    
-    
-    - "NN, 00, 03, t," define separation between rows of wired pins;   
-    
-    - "NN, 00, 04, color, size," define color and awg of wire, 0 black, 0 30 awg
+        "NN, 00, 00, x, y," define the size of unit, top-right origin;    
+        "NN, 00, 01, t," define separation between socket pin and wired pin;    
+        "NN, 00, 02, t," define border ground, 0 none, 1 around, 2 interleaved;    
+        "NN, 00, 03, t," define separation between rows of wired pins;   
+        "NN, 00, 04, color, size," define color and awg of wire, 0 black, 0 30 awg
 
 For power lines:
 
-    0V0, for VSS, GND;
-    3V3, for VDD;
-    5V0, for VCC;
+        0V0, for VSS, GND;
+        3V3, for VDD;
+        5V0, for VCC;
 
-    nc, for not connected;
+nc, for not connected;
 
 ## Wire Wrap SVG
 
 ### Power Planes
 
 To reduce the noise and interference [^6], some boards uses power (Vcc) on 
-components side and ground (Vss) on wires side, 
-using more thicker wires.
+components side and ground (Vss) on wires side, using more thicker wires.
 
 Or both at wire side, as lines with two rows (of holes), one
 with Ground (VSS) and other with Power (VCC).
@@ -154,24 +149,15 @@ Must soldering to fix both and join pins.
 "DIP parts have standard sizes that follow JEDEC rules. 
 The space between two pins (called pitch) is 0.1 inches (2.54 mm). 
 The space between two rows of pins depends on how many pins are in the package. 
-Common row spacings are 0.3 inches (7.62 mm) or 0.6 inches (15.24 mm)"
+Common row spacings are slim with 0.3 inches (7.62 mm) or wide 0.6 inches (15.24 mm)"
 
-| pins  | spaced | Number Designator |
-| :---: | :---: | :---: |
-| 6 | 0.300" | 1 |
-| 8 | 0.300" | 2 |
-| 14 | 0.300" | 3 |
-| 16 | 0.300" | 4 |
-| 18 | 0.300" | 5 |
-| 20 | 0.300" | 6 |
-| 24 | 0.300" | 7 |
-| 24 | 0.600" | 8 |
-| 28 | 0.600" | 9 |
-| 40 | 0.600" | 10 |
-| 48 | 0.600" | 11 |
-
+Sockets uses a designator with spacing ( 4 or 7 ) and number of pins (slim, 6 to 28 or wide, 24 to 64)
 
 ### Colors
+
+There are any consensus about colors of wires ? 
+Which color for VSS, for VCC, for Address, Data, Controls, Inputs, Outputs ? 
+But for wire colors there is a designator.
 
 | Colour | Number Designator |
 | :---: | :---: |
