@@ -159,20 +159,20 @@ There are any consensus about colors of wires ?
 Which color for VSS, for VCC, for Address, Data, Controls, Inputs, Outputs ? 
 But for wire colors there is a designator.
 
-| Colour | Number Designator |
-| :---: | :---: |
-| Black | 0 | 
-| Brown | 1 |
-| Red | 2 |
-| Orange | 3 |
-| Yellow | 4 |
-| Green | 5 |
-| Blue | 6 |
-| Violet (Purple) | 7 |
-| Grey (Slate) | 8 |
-| White | 9 |
+| Colour | Number Designator | Use |
+| :---: | :---: | :---: |
+| Black | 0 | ground, VSS |
+| Brown | 1 |  Output |
+| Red | 2 | 5V0 |
+| Orange | 3 | 3V3 |
+| Yellow | 4 | Control |
+| Green | 5 | Data |
+| Blue | 6 | Adress |
+| Violet (Purple) | 7 | Clock |
+| Grey (Slate) | 8 |  |
+| White | 9 | Input |
 
-From [Table 1-A-5 Colour Code](https://www.casa.gov.au/sites/default/files/2021-09/advisory-circular-21-99-aircraft-wiring-bonding.pdf)
+adapted from [Table 1-A-5 Colour Code](https://www.casa.gov.au/sites/default/files/2021-09/advisory-circular-21-99-aircraft-wiring-bonding.pdf)
 
 ## More
 
