@@ -1,15 +1,21 @@
 # WireWp
 
 ( sure not finish, version 0.1 )
-Sorry, this is not about jewels.
 
-I want easy make hobby eletronic circuits and the best way is 
-using wire wrap, but can not found a program to design boards around 
-(in the internet), then maybe I try make this one.
+Sorry, but this is not about jewels.
 
-It is a simple planner for wire wrap circuits in boards.
+I like make electronic circuits as a hobby and the best way to do is using the wire wrap. 
 
-It makes a list of pins conections for wire wrap.
+I need a program to design wire-wrap on standart universal protoboards, 
+using standart round Dual In-line Package (DIP) sockets and standart square pins headers. 
+
+I found some documentation about programs for planning wirewrap connections 
+at NRAO[^5] (1975) and DTIC[^14] (1982), for proto-tipical boards, but no sources.
+
+Then I decided to do this one.
+
+It is a simple planner for wire wrap circuits that accepts a list of sockets, pins and named wires, 
+then makes a simple list of pins conections for wire wrap, grouped by wire name.
 
 Still just a bunch of scripts, that uses a sort for group wires to wrap
 and a awk script to make a SVG draw of board and wires.
@@ -19,7 +25,7 @@ and a awk script to make a SVG draw of board and wires.
 It is a easy and fast way to prototype circuits using long headers 
 and thin wires. 
 
-Use a simple tool to wrap[^10] or make one [^11]. 
+It uses a simple tool to wrap[^10],  or make one [^11]. 
 
 Some details[^9], technics[^1], standarts[^12], tips[^13] and guide[18].
 
@@ -29,16 +35,13 @@ PS. I know about PCB manufacturing companies,
 but do not want expend time in draw schematics and routes, 
 for "one shot" circuits.  
 
-### Classics
+## Classics
 
 Some images of IBM-PC [^3] [^4] [^7] and first Macintosh [^2]
 
 ## Design and Planner
 
-I found some documentation about a program for wirewrap connections at
-NRAO[^5] (1975) and DTIC[^14] (1982), but no sources.
-
-##  My Rules
+###  My Rules
 
 > Each unit have two or more pins;
 
@@ -48,20 +51,20 @@ NRAO[^5] (1975) and DTIC[^14] (1982), but no sources.
 
 > Each wire have one name (only);
 
-## Input format 
+### Input format 
 
 Make a primary CSV list with: sock, pins, wire, comment,
 
 _sock, the socket to place a unit at board ;_
         (numeric) 00 is the board, 01 first unit, etc
 
-_pins, the pin of unit;_
+_pins, the pin of unit ;_
         (numeric) NN, counted as in schematics, 00 is reserved
 
-_wire, name of wire to wrap at this pin;_
+_wire, name of wire to wrap at this pin ;_
         (text) must start with a letter, only power wires start numbers
 
-_comment, any comments about it;_
+_comment, any comments about it ;_
         (text) eg. schematics name of pin, sizes, etc 
 
 Use one line for each wire on pin.
@@ -70,14 +73,16 @@ Use # at start of line, for comments.
 
 ### List notes
 
-The chips of 6 to 28 pins uses slim (0.300") form and 24 to 64 uses wide (0,600") inter rows space.
+The sockets of 6 to 28 pins uses slim (0.300") form and 24 to 64 uses wide (0,600") inter rows space.
 
 1. _sock_ 00 is reserved for the board;
 1. _pins_  00 is reserved for specials;
 1. use _comments_ for more information, 
 eg. sizes, color, datasheet use/name of pin;
 
-### wires reserved
+Anywhere any pin not connected is marked as nc. 
+
+### Wires reserved
 
 (still a primitive sintax)
 
@@ -87,25 +92,20 @@ eg. sizes, color, datasheet use/name of pin;
         "NN, 00, 03, t," define separation between rows of wired pins;   
         "NN, 00, 04, color, size," define color and awg of wire, 0 black, 0 30 awg
 
-For power lines:
+### Power lines
 
-Vcc and Vee refer to circuits built on bipolar transistors, hence the letters C (collector, collector) and E (emitter, emitter), and
-Vdd and Vss refer to circuits built on field-effect transistors, hence the letters D (drain, drain) and S (source, source). Usually
-On old circuits, VCC is  +5 V, VDD is +12 V, VEE is -5 V and VSS is 0V0 (GND)  [^17]
+Ussually on circuit we find references for power, as Vcc and Vee refer to circuits built on bipolar transistors, 
+hence the letters C (collector, collector) and E (emitter, emitter), and Vdd and Vss refer to circuits built on field-effect transistors,
+hence the letters D (drain, drain) and S (source, source). Usually on old circuits, VCC is  +5 V, VDD is +12 V, VEE is -5 V and VSS is 0V0 (GND)  [^17]
 
-Then I prefer explicity the values as using V for positive 12V0, 5V0, 3V3, 2V7, append a N for negative 12V0N, 5V0N, 3V3N, 2V7N and use GND (0V0) 
+Then I prefer explicity the values as using V for positive 12V0, 5V0, 3V3, 2V7, append a suffix N for negative 12V0N, 5V0N, 3V3N, 2V7N and 
+use GND (0V0) for reference ground potencial.
         
-Anywhere any pin not connected is marked as nc. 
-
-## Wire Wrap SVG
-
 ### Power Planes
 
-To reduce the noise and interference [^6], some boards uses power (Vcc) on 
-components side and ground (Vss) on wires side, using more thicker wires.
+To reduce the noise and interference [^6], some boards uses power (V) on components side and ground (G) on wires side, using more thicker wires.
 
-Or both at wire side, as lines with two rows (of holes), one
-with Ground (VSS) and other with Power (VCC).
+Or both at wire side, as lines with two rows (of holes), one with ground (G) and other with power (V).
 
 Most of vendor's wirewrap PCB boards does a sequence of
 
@@ -120,33 +120,33 @@ I made a mix over above concepts:
 
     coordenade X is the smaller side and Y is longest side of board;
 
-    a sequence of isles around board is left without connections;
+    the identification is done at both sides ( component and wire) of board;
 
-    the identification is done at wire side of board;
-
-    a sequence of (x x o p3 v o p2 x g p1 o x) where:
+    a sequence of (x x o=p3 v o=p2=x g p1=o x) where:
             __x__ is not connected, __o__ is for hole for long pin, 
             __p1__, __p2__, are holes socket for slim DIP, 
             __p1__, __p3__, are holes socket for wide DIP,
+            __=__, is always conected,
             __g__, is the vss line,
             __v__, is the vcc line,
 
-            if sockets have long pins, __o__ is not connected
+            if socket have long pins, __o__ is not connected
 
 The headers and sockets with long pins for wire-wrap boards[^15] are more expensive
 than common round sockets and common pin headers.
 
 For common pcb protoboards, a FR4 plate with isles in both sides, 
 I use long pin headers at sides of common round pin sockets, in paralel, 
-as cheap substitute for special wire-wrap long pins sockets. 
-Must soldering to fix both and join pins.
+as cheap substitute for special wire-wrap long pins sockets, soldering to fix both and join pins.
 
-1. The units are placed at top of board and the wires at bottom;
-2. The units are mirror vertically the pinout of schematics;
-3. The first pin is at TOP RIGHT, last pin is at TOP LEFT, counts clockwise;
-4. Leave at least 2 spaces between rows of pins;
+The sockets are placed at top of board and the wires at bottom. At the wires side, the sockets are mirrored vertically the pinout of schematics, 
+so the first pin is at TOP RIGHT, last pin is at TOP LEFT, counts clockwise;
 
-### Dual in-line Package
+A prototype SVG drawing of the board, with sockets, connectors and wires, is in the testing phase.
+
+Still no IA for better plannings
+
+### Sockets in Dual in-line Package
 
 "DIP parts have standard sizes that follow JEDEC rules. 
 The space between two pins (called pitch) is 0.1 inches (2.54 mm). 
@@ -155,11 +155,11 @@ Common row spacings are slim with 0.3 inches (7.62 mm) or wide 0.6 inches (15.24
 
 Sockets uses a designator with spacing ( 4 or 7 ) and number of pins (slim, 6 to 28 or wide, 24 to 64)
 
-### Colors
+### Wire Colors
 
 There are any consensus about colors of wires ? 
 Which color for VSS, for VCC, for Address, Data, Controls, Inputs, Outputs ? 
-But for wire colors there is a designator, and use with DC power
+But for wire colors there is a designator, and some tips for using.
 
 | Colour | Number Designator | Use |
 | :---: | :---: | :---: |
@@ -176,6 +176,8 @@ But for wire colors there is a designator, and use with DC power
 
 adapted from [Table 1-A-5 Colour Code](https://www.casa.gov.au/sites/default/files/2021-09/advisory-circular-21-99-aircraft-wiring-bonding.pdf)
 
+PS. Note that squema is for digital circuits, not for home wiring.
+
 ## More
 
 What about ?
@@ -188,7 +190,9 @@ eg. bigger units at top, two rows of separation, lesser wires, etc
 VCC, VDD, VSS, GND, etc
 1. group passives in sockets, except decouple capacitors
 1. place headers for extensions boards 
+1. make svg draw of board
 
+   
 ## References
 
 [^1]:(https://schematicsforfree.com/files/Manufacturing%20and%20Design/Prototyping/Wire%20Wrapping%20Techniques.pdf)
