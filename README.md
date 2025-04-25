@@ -21,7 +21,7 @@ and thin wires.
 
 Use a simple tool to wrap[^10] or make one [^11]. 
 
-Some details[^9], technics[^1], standarts[^12] and tips[^13].
+Some details[^9], technics[^1], standarts[^12], tips[^13] and guide[18].
 
 Why use it [^8]?
 
@@ -225,7 +225,9 @@ VCC, VDD, VSS, GND, etc
 
 [^17]:(https://woopcb.com/blog/what-is-vcc-vss-vdd-vee-in-electronics)
 
-- - - 
+[^18]:(https://www.jmargolin.com/making/jm_making.htm#p4)
+
+ 
 
 
 
