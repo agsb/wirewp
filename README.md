@@ -89,11 +89,13 @@ eg. sizes, color, datasheet use/name of pin;
 
 For power lines:
 
-        0V0, for VSS, GND;
-        3V3, for VDD;
-        5V0, for VCC;
+Vcc and Vee refer to circuits built on bipolar transistors, hence the letters C (collector, collector) and E (emitter, emitter), and
+Vdd and Vss refer to circuits built on field-effect transistors, hence the letters D (drain, drain) and S (source, source). Usually
+On old circuits, VCC is  +5 V, VDD is +12 V, VEE is -5 V and VSS is 0V0 (GND)  [^17]
 
-nc, for not connected;
+Then I prefer explicity the values as using V for positive 12V0, 5V0, 3V3, 2V7, append a N for negative 12V0N, 5V0N, 3V3N, 2V7N and use GND (0V0) 
+        
+Anywhere any pin not connected is marked as nc. 
 
 ## Wire Wrap SVG
 
@@ -220,6 +222,8 @@ VCC, VDD, VSS, GND, etc
 [^15]:(https://www.peconnectors.com/wire-wrap-sockets-and-headers/)
 
 [^16]:(https://onlinelibrary.wiley.com/doi/epdf/10.1002/spe.4380150304)
+
+[^17]:(https://woopcb.com/blog/what-is-vcc-vss-vdd-vee-in-electronics)
 
 - - - 
 
