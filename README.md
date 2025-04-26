@@ -43,7 +43,7 @@ Some images of IBM-PC [^3] [^4] [^7] and first Macintosh [^2]
 
 ###  My Rules
 
-> Each unit have two or more pins;
+> Each socket have two or more pins;
 
 > Each pin have none or one or more wires;
 
@@ -77,8 +77,7 @@ The sockets of 6 to 28 pins uses slim (0.300") form and 24 to 64 uses wide (0,60
 
 1. _sock_ 00 is reserved for the board;
 1. _pins_  00 is reserved for specials;
-1. use _comments_ for more information, 
-eg. sizes, color, datasheet use/name of pin;
+1. use _comments_ for more information, eg. sizes, color, datasheet use/name of pin;
 
 Anywhere any pin not connected is marked as nc. 
 
@@ -176,9 +175,36 @@ But for wire colors there is a designator, and some tips for using.
 
 adapted from [Table 1-A-5 Colour Code](https://www.casa.gov.au/sites/default/files/2021-09/advisory-circular-21-99-aircraft-wiring-bonding.pdf)
 
-PS. Note that squema is for digital circuits, not for home wiring.
+PS. Note that color squema is for digital circuits, not and never for home wiring.
 
 ## More
+
+# Design Tips (?)
+
+1. Do not optimize by calculate the size of wires pin to pin, with some coordenate system.
+1. Divide the board in blocks with 12 isles in X and by lesser socket DIP (pins + offset in Y) count in Y.
+2. Count how many connections from-into by sockets by block, then minimize the distance count.
+
+```
+        eg. 01 is 40 pins and 02, 03 is 8 pins
+        +-----------+-----------+-----------+-----------+
+        |           |    01     |           |           |
+        +-----------+-----------+-----------+-----------+
+        |     02    |    01     |    02     |           |
+        +-----------+-----------+-----------+-----------+
+        |           |    01     |           |           |
+        +-----------+-----------+-----------+-----------+
+        |           |           |           |           |
+        +-----------+-----------+-----------+-----------+
+        |           |           |           |           |
+        +-----------+-----------+-----------+-----------+
+
+
+```
+    
+1. Place the bigger DIP at top and center, and move the others around
+2. Place small passives on a DIP
+3. Place capacitors 100nF Voltage to GND, for each DIP internaly to pins of DIP
 
 What about ?
 
