@@ -182,23 +182,27 @@ PS. Note that color squema is for digital circuits, not and never for home wirin
 # Design Tips (?)
 
 1. Do not optimize by calculate the size of wires pin to pin, with some coordenate system.
-1. Divide the board in blocks with 12 isles in X and by lesser socket DIP (pins + offset in Y) count in Y.
+1. Divide the board in blocks with 12 holes in X and by 6 holes in Y.
 2. Count how many connections from-into by sockets by block, then minimize the distance count.
 
 ```
-        eg. 01 is 40 pins and 02, 03 is 8 pins
-        +-----------+-----------+-----------+-----------+
-        |           |    01     |           |           |
-        +-----------+-----------+-----------+-----------+
-        |     02    |    01     |    02     |           |
-        +-----------+-----------+-----------+-----------+
-        |           |    01     |           |           |
-        +-----------+-----------+-----------+-----------+
-        |           |           |           |           |
-        +-----------+-----------+-----------+-----------+
-        |           |           |           |           |
-        +-----------+-----------+-----------+-----------+
-
+        eg. a 10 x 10 cm board with 37 x 37 holes
+                socket 01 is 40 pins and 02, 03 is 8 pins, 04 14 pins
+        1          12          24          36
+        +-----------+-----------+-----------+x
+        |           |    01     |           |
+        +-----------+-----------+-----------+x
+        |     04    |    01     |    02     |
+        +-----------+-----------+-----------+x12
+        |     04    |    01     |    03     |
+        +-----------+-----------+-----------+x
+        |           |    01     |           |
+        +-----------+-----------+-----------+x24
+        |           |           |           |
+        +-----------+-----------+-----------+x
+        |           |           |           |
+        +-----------+-----------+-----------+x36
+        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 ```
     
