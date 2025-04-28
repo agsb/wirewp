@@ -182,8 +182,13 @@ PS. Note that color squema is for digital circuits, not and never for home wirin
 # Design Tips (?)
 
 1. Do not optimize by calculate the size of wires pin to pin, with some coordenate system.
-1. Divide the board in blocks with 12 holes in X and by 6 holes in Y.
-2. Count how many connections from-into by sockets by block, then minimize the distance count.
+1. Divide the board in blocks with 6 holes in X and by 6 holes in Y.
+1. Place the sockets, in X, with left row (pin 1) in a odd block and right row in a even block, in Y with 2 rows between sockets.
+1. Group the pins using blocks as coordenates
+1. Count the connections from-into by sockets by blocks 
+1. Then minimize the distance count.
+2. repeat until best minimum count
+
 
 ```
         eg. a 10 x 10 cm board with 37 x 37 holes
