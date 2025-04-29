@@ -149,9 +149,9 @@ PS. Still no IA for better plannings
 
 Two wire wrap protoboards done with kicad
 
-version 1.0 in https://github.com/agsb/wirewp/tree/9a788e2c3fbe4f3798d0a73f268daacefcf1945c/wirewrap%20board%20v1
+version 1.0, with triple isles and 2 conectors with 2 rows, in https://github.com/agsb/wirewp/tree/40e1aa6ff126634400b46e8b2a6ddee23b6c2398/wirewrap%20board%20v1
 
-version 2.0 in https://github.com/agsb/wirewp/tree/7174c95f88cdbb4bf5eb186957d4e92c74e50f8e/wirewarp%20board%20v2
+version 2.0, with extra header and lines for gnd and vcc, in https://github.com/agsb/wirewp/tree/40e1aa6ff126634400b46e8b2a6ddee23b6c2398/wirewarp%20board%20v2
 
 ### Sockets in Dual in-line Package
 
