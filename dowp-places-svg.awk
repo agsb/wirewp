@@ -14,65 +14,26 @@ BEGIN {
 
     RS = "\n";
 
-    cnt = 0;
-
+# get the date
     str = "date --iso-8601=seconds";
     str | getline date;
     close(str);
 
-#
-# using 96 DPI for reference
-#
- 
-    dpi = 96
+# count wires
+    wnt = 0;
 
-# standart socket is 0.1 of inch
+# count sockets
+    snt = 0;
 
-    hole = dpi / 10 
-
-# circles around holes
-
-    isle = hole / 3
-
-# border around holes
+# board in holes
     
-    xb = hole * 1  
+    xb = 0  
     
-    yb = hole * 1
+    yb = 0
 
-# font size
+    xc = 0
 
-    fz = hole * 0.8
-
-# standart board using round pin sockets and long pin headers
-# x not connected, o row of headers, s row of sockets,
-# g Vss (GND), v vcc, t 
-
-    row_name = "txosvosxgsox"
-
-    row_size = length (row_name)
-
-# default origin
-
-    xo = 0
-
-    yo = 0
-
-# default size
-
-    xd = 0;
-
-    yd = 0;
-
-# default canvas
-
-    xc = 0;
-
-    yc = 0;
-
-    xm = 0;
-
-    ym = 0;
+    yc = 0
 }
 
 #
@@ -83,32 +44,34 @@ BEGIN {
 # read the list of connections 
 # increment cnt to keep the order
 # do it later
-    
+# csv orderd by wire, socket, pin    
+# socket, pin, wire, obs...
+
     # trim spaces
     gsub (" *, ", "," ,$0)
 
-    # specials
+    $0 = $0
+
+    # pin 00 is for specials
     if ($2 == "00") {
 
-        # sizes 
+        # wire 00 is for sizes 
         if ($3 == "00") {
     
-            x = $4
-            y = $5
-            
-            socket[$1]["name"] = $4
-            socket[$1]["x"] = x
-            socket[$1]["y"] = y
+            sock[snt]["s"] = $1
+            sock[snt]["x"] = $4
+            sock[snt]["y"] = $5
+            snt++
             
             # print "> " $1 " " socket[$1]["name"] " " socket[$1]["x"] " " socket[$1]["y"]
 
             if ($1 == "U00") { # board size
-                xd = x
-                yd = y
+                xb = $4
+                yb = $5
                 }
             }
 
-        # order 
+        # wire 01 is for order 
         if ($3 == "01") {
         
             socket[$1]["order"] = $4
@@ -117,105 +80,78 @@ BEGIN {
 
         next
         }
-    
 
+    # keep in order
+    wire[wnt]["f"] = $0 # full
+    wire[wnt]["s"] = $1 # sock
+    wire[wnt]["p"] = $2 # pin
+    wire[wnt]["w"] = $3 # wire
     cnt++;
-    wire[cnt] = $0
 
 } 
 
-function do_sockets( ) {
-
-    # 
+function do_slots( ) {
     
-    xn = xd
+    # number of blocks 
+   
+    xc = (xb - xb % 6) / 6
+    yc = (yb - yb % 6) / 6
 
-    yn = yd
+    xn = 0
+    yn = 0
 
-    ym = 0
-    
-    for (u in socket ) {
-
-        if (u == "U00") {
-            continue
-            }
-
-        x = socket[u]["x"] 
-        y = socket[u]["y"] 
-
-        # minimal 
-        if (yn > y && y > 4) {
-            yn = y
-            }
-
-        # maximal 
-        if ( ym < y ) {
-            ym = y
-            }
-
-        }
-    
-    # how many horizontal slots of standart block
-    # [xosgosovsoxx] [xxoxxosvosogsox]
-    xn = ( xn - xn % 12 ) / 12
-
-    # use a half for calculate, (never odd)
-    # and leave a space around .[s...s].
-    yn = ( yn / 2 ) + 2 
-
-    # how many vertical slots of smalest socket 
-    yn = ( yd - yd % yn ) / yn
-
-    # print " slots " xn " in X and " yn " in Y "
-
-    # order by count connections 
-    w = ""
-    u = ""
-    p = 0
-    k = 0
-
-    for (n = 1; n <= cnt; n++) {
-
-        $0 = wire[n]
-        # trim spaces
-        gsub (" *, ", "," ,$0)
-        $0 = $0
-
-        # next wire 
-        if ( w != $3 ) {
-            pri[w] = k
-            u = $1
-            p = $2
-            w = $3
-            k = 0
-            continue
-            }
-
-        if ( u == $1 ) {
-            continue
-            }
-
-        print " " u ", " $1
-        #print " " $1 ", " u
-
-        k++ 
-        u = $1
-
-        }
-    
-    print " " u ", " $1
-    #print " " $1 ", " u
-
-    pri[w] = k
-
-    " mktemp " | getline file
-
-    for (n in pri) {
-        print  n "," pri[n] > file
-        }
+    for (k = 0; k < snt; k++) {
+        n = sock[k]["s"]
+        x = sock[k]["x"]
+        y = sock[k]["y"]
         
-    " sort -t',' -k 2 < $file > $file.ss " 
-  }
+        while (yn < y) {
+            boem[xn][yn] = n
+            boem[xn+1][yn] = n
+            yn = yn + 6
+            }
+        xn++
+        xn++
+        if (xn > xc) {
+            xn = 0;
+            }
+zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+        }
+
+    }
+
+
+
+function do_costs( ) {
+
+    w0 = ""
+    p0 = ""
+    s0 = ""
+    b0 = 0 + 0
+
+    costs = 0
+
+    for (n = 0; n < cnt; n++) {
+        
+        w1 = wire[n]["w"]
+        p1 = wire[n]["p"]
+        s1 = wire[n]["s"]
+    
+        b1 = sock[n]["b"]
+
+        if (n > 1) {
+            costs = costs + abs(b1 - b0)
+            }
+
+        w0 = w1
+        p0 = p1
+        s0 = s1
+        b0 = b1
+
+        }
+    }
+
+}
 
 
 END {
