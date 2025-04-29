@@ -147,7 +147,7 @@ PS. Still no IA for better plannings
 
 ### Protoboard
 
-Two wire wrap protoboards done with kicad
+Two wire wrap protoboards done with kicad, both reserves rows to use of headers in paralel with sockets, for "poor man wire wraps" just solder the pins to protoboard.
 
 Protoboard 10 cm x 10 cm, for maximum sockets with triple isles and 2 conectors with 2 rows, in [version 1.0](https://github.com/agsb/wirewp/tree/40e1aa6ff126634400b46e8b2a6ddee23b6c2398/wirewrap%20board%20v1)
 
