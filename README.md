@@ -143,7 +143,13 @@ so the first pin is at TOP RIGHT, last pin is at TOP LEFT, counts clockwise;
 
 A prototype SVG drawing of the board, with sockets, connectors and wires, is in the testing phase.
 
-Still no IA for better plannings
+Two wire wrap protoboards done with kicad 
+
+in https://github.com/agsb/wirewp/tree/9a788e2c3fbe4f3798d0a73f268daacefcf1945c/wirewrap%20board%20v1
+
+in https://github.com/agsb/wirewp/tree/7174c95f88cdbb4bf5eb186957d4e92c74e50f8e/wirewarp%20board%20v2
+
+PS. Still no IA for better plannings
 
 ### Sockets in Dual in-line Package
 
