@@ -68,8 +68,8 @@ BEGIN {
             if ($3 == "00") {
         
                 sock[snt]["s"] = $1
-                sock[snt]["x"] = $4
-                sock[snt]["y"] = $5
+                sock[snt]["px"] = $4
+                sock[snt]["py"] = $5
                 
                 #print "sz  " $1 " " sock[snt]["s"] " " sock[snt]["x"] " " sock[snt]["y"]
 
@@ -110,6 +110,7 @@ function do_slots( ) {
         xc = xb
         yc = yb 
 
+        # if relative blocks of 6 x 6
         if (0) {
         # number of blocks 
         xc = (xb - xb % SSIZE) / SSIZE
@@ -125,13 +126,11 @@ function do_slots( ) {
         for (i = 0; i < snt; i++) {
                 j = order[i];
                 s = sock[j]["s"]
-                p = sock[j]["p"]
-                w = sock[j]["w"]
 
                 if (s == "U00") continue
 
-                x = sock[j]["x"]
-                y = sock[j]["y"]
+                x = sock[j]["px"]
+                y = sock[j]["py"]
 
                 # use unit size
                 xm = SSIZE 
@@ -144,38 +143,23 @@ function do_slots( ) {
                 if ((yn + ym + 1) > yc) {
                         print " y cross "
                         xn = xn + xm
-                        yn = 1;
+                        yn = 1
                         }
 
                 if ((xn + SSIZE + 1) > xc ) {
                         print " x cross "
-                        xn = 1;
-                        yn = lasty[xn];
+                        xn = 1
+                        yn = lasty[xn]
                         }
 
-                if (0) {
-                        for (k = 1; k <= y; k++) {
-                                if ( k <= ym ) {
-                                        xx = xn
-                                        yy = yn + k
-                                        }
-                                else {
-                                        xx = xn + xm
-                                        yy = yn + k - ym
-                                        }
-                                post[n][k]["x"] = xx
-                                post[n][k]["y"] = yy
-                                #print " sock: " s " pin: " k " x: " xx " y: " yy
-                                }
-                        }
-
-                post[n][1][x] = xn        
-                post[n][1][y] = yn        
+                sock[j]["x"] = xn        
+                sock[j]["y"] = yn        
                 
-                print " sock: " s " pin: " p " x: " xn " y: " yn
+                print " sock: " s " pin: 1  x: " xn " y: " yn
 
                 lasty[xn] = yn + ym + 1
                 xn = xn + xm + 1
+
                 }
 
         }
