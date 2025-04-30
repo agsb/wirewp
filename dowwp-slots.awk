@@ -27,7 +27,7 @@ BEGIN {
         str | getline date;
         close(str);
 
-# define a slot
+# define slots as wide 6 * 0.100"
         SSIZE = 6
 
 # count wires
@@ -37,15 +37,11 @@ BEGIN {
         snt = 0;
 
 # board in holes
-        
         xb = 0  
-        
         yb = 0
 
 # board in slots
-
         xc = 0
-
         yc = 0
 }
 
@@ -74,9 +70,12 @@ BEGIN {
                 sock[snt]["s"] = $1
                 sock[snt]["x"] = $4
                 sock[snt]["y"] = $5
-                snt++
                 
-                # print "> " $1 " " socket[$1]["name"] " " socket[$1]["x"] " " socket[$1]["y"]
+                #print "sz  " $1 " " sock[snt]["s"] " " sock[snt]["x"] " " sock[snt]["y"]
+
+                order[snt] = snt
+
+                snt++
 
                 # board size
                 if ($1 == "U00") { 
@@ -87,7 +86,8 @@ BEGIN {
 
             # wire 01 is for order 
             if ($3 == "01") {
-                socket[$1]["order"] = $4
+                order[$4] = $1
+                # print "od  " $4 " " $1
                 }
 
             next
@@ -98,40 +98,85 @@ BEGIN {
         wire[wnt]["s"] = $1 # sock
         wire[wnt]["p"] = $2 # pin
         wire[wnt]["w"] = $3 # wire
-        cnt++;
+
+        #print "> " wnt " " wire[wnt]["s"] " " wire [wnt]["p"] " " wire[wnt]["w"] 
+
+        wnt++;
 
 } 
 
 function do_slots( ) {
-        
+       
+        xc = xb
+        yc = yb 
+
+        if (0) {
         # number of blocks 
-   
         xc = (xb - xb % SSIZE) / SSIZE
         yc = (yb - yb % SSIZE) / SSIZE
-
         # must be even
         xc = xc - xc % 2
-            
-        xn = 0
-        yn = 0
+        }
 
-        for (k = 0; k < snt; k++) {
-            n = sock[k]["s"]
-            x = sock[k]["x"]
-            y = sock[k]["y"]
-            
-            while (yn < y) {
-                boem[xn][yn] = n
-                boem[xn+1][yn] = n
-                yn = yn + 6
+        xn = 1
+        yn = 1
+        lasty[xn] = yn
+
+        for (i = 0; i < snt; i++) {
+                j = order[i];
+                s = sock[j]["s"]
+                p = sock[j]["p"]
+                w = sock[j]["w"]
+
+                if (s == "U00") continue
+
+                x = sock[j]["x"]
+                y = sock[j]["y"]
+
+                # use unit size
+                xm = SSIZE 
+
+                # use half size
+                ym = y / 2;
+
+                print "sk " s " " x " " y " " ym
+
+                if ((yn + ym + 1) > yc) {
+                        print " y cross "
+                        xn = xn + xm
+                        yn = 1;
+                        }
+
+                if ((xn + SSIZE + 1) > xc ) {
+                        print " x cross "
+                        xn = 1;
+                        yn = lasty[xn];
+                        }
+
+                if (0) {
+                        for (k = 1; k <= y; k++) {
+                                if ( k <= ym ) {
+                                        xx = xn
+                                        yy = yn + k
+                                        }
+                                else {
+                                        xx = xn + xm
+                                        yy = yn + k - ym
+                                        }
+                                post[n][k]["x"] = xx
+                                post[n][k]["y"] = yy
+                                #print " sock: " s " pin: " k " x: " xx " y: " yy
+                                }
+                        }
+
+                post[n][1][x] = xn        
+                post[n][1][y] = yn        
+                
+                print " sock: " s " pin: " p " x: " xn " y: " yn
+
+                lasty[xn] = yn + ym + 1
+                xn = xn + xm + 1
                 }
-            xn++
-            xn++
-            if (xn > xc) {
-                xn = 0;
-                }
-zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
-            }
 
         }
 
@@ -166,9 +211,6 @@ function do_costs( ) {
             }
         }
 
-}
-
-
 END {
 
 # sockets
@@ -179,7 +221,7 @@ END {
         # left-right == 0 or right-left == 1
         mirror = 1
 
-        do_sockets( );
+        do_slots( );
 
 
   }
