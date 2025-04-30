@@ -110,15 +110,6 @@ function do_slots( ) {
         xc = xb
         yc = yb 
 
-        # if relative blocks of 6 x 6
-        if (0) {
-        # number of blocks 
-        xc = (xb - xb % SSIZE) / SSIZE
-        yc = (yb - yb % SSIZE) / SSIZE
-        # must be even
-        xc = xc - xc % 2
-        }
-
         xn = 1
         yn = 1
         lasty[xn] = yn
@@ -161,10 +152,7 @@ function do_slots( ) {
                 xn = xn + xm + 1
 
                 }
-
         }
-
-
 
 function do_costs( ) {
 
@@ -177,11 +165,12 @@ function do_costs( ) {
 
         for (n = 0; n < cnt; n++) {
             
-            w1 = wire[n]["w"]
-            p1 = wire[n]["p"]
             s1 = wire[n]["s"]
+            p1 = wire[n]["p"]
+            w1 = wire[n]["w"]
         
-            b1 = sock[n]["b"]
+            x1 = sock[n]["x"]
+            y1 = sock[n]["y"]
 
             if (n > 1) {
                 costs = costs + abs(b1 - b0)
