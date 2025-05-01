@@ -151,7 +151,9 @@ Two wire wrap protoboards done with kicad, both reserves rows to use of headers 
 
 Protoboard 10 cm x 10 cm, for maximum sockets with triple isles and 2 conectors with 2 rows, in [version 1.0](https://github.com/agsb/wirewp/tree/40e1aa6ff126634400b46e8b2a6ddee23b6c2398/wirewrap%20board%20v1)
 
-Protoboard 10 cm x 10 cm, for spaced sockets with extra header and lines for gnd and vcc and 2 connectors with 2 rows, in [version 2.0](https://github.com/agsb/wirewp/tree/40e1aa6ff126634400b46e8b2a6ddee23b6c2398/wirewarp%20board%20v2)
+Protoboard 10 cm x 10 cm, for spaced sockets with extra header, lines for gnd and vcc and 2 connectors with 2 rows each, in [version 2.0](https://github.com/agsb/wirewp/tree/40e1aa6ff126634400b46e8b2a6ddee23b6c2398/wirewarp%20board%20v2)
+
+Protoboard 10 cm x 10 cm, for spaced sockets with extra header, lines for gnd and vcc and 2 connectors with 4 rows each, in [version 3.0](https://github.com/agsb/wirewp/tree/62398a8cee20bd1393776733a083bdba2ebc7329/wirewarp%20board%20v3)
 
 ### Sockets in Dual in-line Package
 
