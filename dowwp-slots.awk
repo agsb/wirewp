@@ -4,9 +4,8 @@
 # for protoboards of 0.100" and Dual-In-Package (DIP) sockets
 # agsb@2025
 
-# usually DIP sockets are 0.300" or 0.600", 
+# DIP sockets are 0.300" or 0.600", 
 # using 6 of 0.100" (mils) as standart pace
-# the board is divided in slots of 6 by 6 mils
 # the sockets are placed and wires lenght counted
 # the lower count is the best arrange
 
@@ -159,26 +158,33 @@ function do_costs( ) {
         w0 = ""
         p0 = ""
         s0 = ""
-        b0 = 0 + 0
+        x0 = ""
+        y0 = ""
 
         costs = 0
 
-        for (n = 0; n < cnt; n++) {
+        for (n = 0; n < wnt; n++) {
             
+            w1 = wire[n]["w"]
             s1 = wire[n]["s"]
             p1 = wire[n]["p"]
-            w1 = wire[n]["w"]
-        
             x1 = sock[n]["x"]
             y1 = sock[n]["y"]
+        
+            if (w1 == w0) {
 
-            if (n > 1) {
-                costs = costs + abs(b1 - b0)
+                
+                if (n > 1) {
+                    costs = costs + abs(b1 - b0)
+                    }
+                    
                 }
 
             w0 = w1
             p0 = p1
             s0 = s1
+            x0 = x1
+            y0 = y1
             b0 = b1
 
             }
