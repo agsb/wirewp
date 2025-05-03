@@ -147,13 +147,15 @@ PS. Still no IA for better plannings
 
 ### Protoboard
 
-Two wire wrap protoboards done with kicad, both reserves rows to use of headers in paralel with sockets, for "poor man wire wraps" just solder the pins to protoboard.
+Some 10 x 10 cm2 wire wrap protoboards done with kicad, it reserves rows to use of headers in paralel with sockets, for "poor man wire wraps" just solder the pins to protoboard. The sockets side are marked as I H G F E D C B A and wire wrap side with A B C D E F G H I, rows for conectors as CON.
 
-Protoboard 10 cm x 10 cm, for maximum sockets with triple isles and 2 conectors with 2 rows, in [version 1.0](https://github.com/agsb/wirewp/tree/40e1aa6ff126634400b46e8b2a6ddee23b6c2398/wirewrap%20board%20v1)
+Those prototypes are still not tested in real FR4. Please check before order.
 
-Protoboard 10 cm x 10 cm, for spaced sockets with extra header, lines for gnd and vcc and 2 connectors with 2 rows each, in [version 2.0](https://github.com/agsb/wirewp/tree/40e1aa6ff126634400b46e8b2a6ddee23b6c2398/wirewarp%20board%20v2)
+Protoboard type I, for maximum sockets with triple isles and 2 conectors with 2 rows, in [version 1.0](https://github.com/agsb/wirewp/tree/40e1aa6ff126634400b46e8b2a6ddee23b6c2398/wirewrap%20board%20v1)
 
-Protoboard 10 cm x 10 cm, for spaced sockets with extra header, lines for gnd and vcc and 2 connectors with 4 rows each, in [version 3.0](https://github.com/agsb/wirewp/tree/62398a8cee20bd1393776733a083bdba2ebc7329/wirewarp%20board%20v3)
+Protoboard type II, for spaced sockets with extra header, lines for gnd and vcc and 2 connectors with 2 rows each, in [version 2.0](https://github.com/agsb/wirewp/tree/40e1aa6ff126634400b46e8b2a6ddee23b6c2398/wirewarp%20board%20v2)
+
+Protoboard type III, for spaced sockets with extra header, conected lines for gnd and vcc and 2 connectors with 4 rows each, in [version 3.0](https://github.com/agsb/wirewp/tree/62398a8cee20bd1393776733a083bdba2ebc7329/wirewarp%20board%20v3)
 
 ### Sockets in Dual in-line Package
 
@@ -162,7 +164,7 @@ The space between two pins (called pitch) is 0.1 inches (2.54 mm).
 The space between two rows of pins depends on how many pins are in the package. 
 Common row spacings are slim with 0.3 inches (7.62 mm) or wide 0.6 inches (15.24 mm)"
 
-Sockets uses a designator with spacing ( 4 or 7 ) and number of pins (slim, 6 to 28 or wide, 24 to 64)
+Sockets uses a designator with spacing ( 1 to 4 or 1 to 7 ) and number of pins (slim, 6 to 28 or wide, 24 to 64)
 
 ### Wire Colors
 
