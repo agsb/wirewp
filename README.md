@@ -76,24 +76,28 @@ Use # at start of line, for comments.
 The sockets of 6 to 28 pins uses slim (0.300") form and 24 to 64 uses wide (0,600") inter rows space.
 
 1. _sock_ 00 is reserved for the board;
-1. _pins_  00 is reserved for specials;
+1. _pins_ 00 is reserved for dimensions of board of type of DIP socket ( 3 or 6) and number of pins;
+1. _pins_ 00,  is reserved for order to place at board;
 1. use _comments_ for more information, eg. sizes, color, datasheet use/name of pin;
 
 Anywhere any pin not connected is marked as nc. 
 
 ### Wires reserved
 
-(still a primitive sintax)
+(still a primitive sintax, NN is a socket desigator)
 
-        "NN, 00, 00, x, y," define the size of unit, top-right origin;    
-        "NN, 00, 01, t," define separation between socket pin and wired pin;    
-        "NN, 00, 02, t," define border ground, 0 none, 1 around, 2 interleaved;    
-        "NN, 00, 03, t," define separation between rows of wired pins;   
-        "NN, 00, 04, color, size," define color and awg of wire, 0 black, 0 30 awg
+- NN, 00, 00, x, y,      define the size of unit, top-right origin;
+- NN, 00, 01, n,         defines the order to place in board 
+- NN, 00, 02, t,         define separation between socket pin and wired pin;    RESERVED, NOT USED
+- NN, 00, 03, t,"        define border ground, 0 none, 1 around, 2 interleaved;    RESEVED, NOT USED
+- NN, 00, 04, t,"        define separation between rows of wired pins;   RESERVED, NOT USED
+- NN, 00, 05, color, size," define color and awg of wire, 0 black,  30 awg; RESERVED, NOT USED
+
+PS. those not used are for future SVG DRAW
 
 ### Power lines
 
-Ussually on circuit we find references for power, as Vcc and Vee refer to circuits built on bipolar transistors, 
+Usually on circuit we find references for power, as Vcc and Vee refer to circuits built on bipolar transistors, 
 hence the letters C (collector, collector) and E (emitter, emitter), and Vdd and Vss refer to circuits built on field-effect transistors,
 hence the letters D (drain, drain) and S (source, source). Usually on old circuits, VCC is  +5 V, VDD is +12 V, VEE is -5 V and VSS is 0V0 (GND)  [^17]
 
@@ -110,8 +114,7 @@ Most of vendor's wirewrap PCB boards does a sequence of
 
     [V V x o o o G G o o o x] or [G G x o o o V V o o o x]
 
-    __V__ vcc, __G__ vss (gnd), __x__ not connect, 
-    __o__ isle for pin of sockets 
+    __V__ vcc, __G__ vss (gnd), __x__ not connect, __o__ isle for pin of sockets 
 
 ### Board
 
@@ -121,13 +124,12 @@ I made a mix over above concepts:
 
     the identification is done at both sides ( component and wire) of board;
 
-    a sequence of (x x o=p3 v o=p2=x g p1=o x) where:
+    a sequence of (x x o=p3 v o=p2 x g p1=o x) at wire wrap side:
             __x__ is not connected, __o__ is for hole for long pin, 
             __p1__, __p2__, are holes socket for slim DIP, 
             __p1__, __p3__, are holes socket for wide DIP,
             __=__, is always conected,
-            __g__, is the vss line,
-            __v__, is the vcc line,
+            __g__, is the vss line, __v__, is the vcc line,
 
             if socket have long pins, __o__ is not connected
 
@@ -191,16 +193,17 @@ PS. Note that color squema is for digital circuits, not and never for home wirin
 
 ## More
 
-# Design Tips (?)
+### Design Tips (?)
 
-1. Do not optimize by calculate the size of wires pin to pin, with some coordenate system.
+Easy way, using blocks of 6 by 6 isles:
+
+1. Do optimize by calculate the size of wires pin to pin, with some coordenate system.
 1. Divide the board in blocks with 6 holes in X and by 6 holes in Y.
 1. Place the sockets, in X, with left row (pin 1) in a odd block and right row in a even block, in Y with 2 rows between sockets.
 1. Group the pins using blocks as coordenates
 1. Count the connections from-into by sockets by blocks 
 1. Then minimize the distance count.
 2. repeat until best minimum count
-
 
 ```
         eg. a 10 x 10 cm board with 37 x 37 holes
@@ -227,7 +230,9 @@ PS. Note that color squema is for digital circuits, not and never for home wirin
 2. Place small passives on a DIP
 3. Place capacitors 100nF Voltage to GND, for each DIP internaly to pins of DIP
 
-What about ?
+PS. Better way, using a script to do the distance "pin to pin", with a coordenate system of isles on board. In development.
+
+### What about ?
 
 1. a library of components (chips, transistors and passives)
 1. auto position of units at board, with defined especifications, 
