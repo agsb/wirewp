@@ -65,14 +65,14 @@ BEGIN {
 
             # wire 00 is for sizes 
             if ($3 == "00") {
-        
-                sock[snt]["s"] = $1
-                sock[snt]["px"] = $4
-                sock[snt]["py"] = $5
+                
+                s = $1
+                slot[s]["px"] = $4
+                slot[s]["py"] = $5
                 
                 #print "sz  " $1 " " sock[snt]["s"] " " sock[snt]["x"] " " sock[snt]["y"]
 
-                order[snt] = snt
+                order[s] = snt
 
                 snt++
 
@@ -86,7 +86,7 @@ BEGIN {
             # wire 01 is for order 
             if ($3 == "01") {
                 order[$4] = $1
-                # print "od  " $4 " " $1
+                print "od  " $4 " " $1
                 }
 
             next
@@ -114,13 +114,15 @@ function do_slots( ) {
         lasty[xn] = yn
 
         for (i = 0; i < snt; i++) {
-                j = order[i];
-                s = sock[j]["s"]
+               
+                s = order[i];
+                               
+                print " number " i " socket: " s
 
                 if (s == "U00") continue
 
-                x = sock[j]["px"]
-                y = sock[j]["py"]
+                x = sock[s]["px"]
+                y = sock[s]["py"]
 
                 # use unit size
                 xm = SSIZE 
@@ -142,8 +144,8 @@ function do_slots( ) {
                         yn = lasty[xn]
                         }
 
-                sock[j]["x"] = xn        
-                sock[j]["y"] = yn        
+                slot[s]["x1"] = xn        
+                slot[s]["y1"] = yn        
                 
                 print " sock: " s " pin: 1  x: " xn " y: " yn
 
@@ -162,22 +164,38 @@ function do_costs( ) {
         y0 = ""
 
         costs = 0
+        ncost = 0
 
         for (n = 0; n < wnt; n++) {
             
             w1 = wire[n]["w"]
             s1 = wire[n]["s"]
             p1 = wire[n]["p"]
-            x1 = sock[n]["x"]
-            y1 = sock[n]["y"]
+
+            x1 = slot[s1]["x1"]
+            y1 = slot[s1]["y1"]
         
+            xd = slot[s1]["px"]
+            yd = slot[s1]["py"]
+            
+            if ( p1 < (y1 / 2) ) { 
+                x1 = x1
+                y1 = y1 + (pin - 1 )
+                }
+            else {    
+                x1 = x1 + xd % 2
+                y1 = y1 + (yd - p1)
+                }
+
             if (w1 == w0) {
 
-                
-                if (n > 1) {
-                    costs = costs + abs(b1 - b0)
-                    }
-                    
+                dist = sqrt ( (x1-x0)*(x1-x0) + (y1-y0)*(y1-y0) )
+
+                costs = costs + dist
+                ncost++
+                }
+            else {
+                print " w: " w1 " costs: " costs " n: " ncost
                 }
 
             w0 = w1
@@ -185,7 +203,6 @@ function do_costs( ) {
             s0 = s1
             x0 = x1
             y0 = y1
-            b0 = b1
 
             }
         }
@@ -202,6 +219,7 @@ END {
 
         do_slots( );
 
+        do_costs();
 
   }
 
