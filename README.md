@@ -151,11 +151,11 @@ Some 10 x 10 cm2 wire wrap protoboards done with kicad, it reserves rows to use 
 
 Those prototypes are still not tested in real FR4. Please check before order.
 
-Protoboard type I, for maximum sockets with triple isles and 2 conectors with 2 rows, in [version 1.0](https://github.com/agsb/wirewp/tree/40e1aa6ff126634400b46e8b2a6ddee23b6c2398/wirewrap%20board%20v1)
+Protoboard type I, for maximum sockets with triple isles and 2 conectors with 2 rows, in [version 1.0](https://github.com/agsb/wirewp/tree/40e1aa6ff126634400b46e8b2a6ddee23b6c2398/wirewrap%20board%20v1) Free socket use.
 
-Protoboard type II, for spaced sockets with extra header, lines for gnd and vcc and 2 connectors with 2 rows each, in [version 2.0](https://github.com/agsb/wirewp/tree/40e1aa6ff126634400b46e8b2a6ddee23b6c2398/wirewarp%20board%20v2)
+Protoboard type II, for spaced sockets with extra header, lines for gnd and vcc and 2 connectors with 2 rows each, in [version 2.0](https://github.com/agsb/wirewp/tree/40e1aa6ff126634400b46e8b2a6ddee23b6c2398/wirewarp%20board%20v2) Use rows K, H, F and B for left side of socket.
 
-Protoboard type III, for spaced sockets with extra header, conected lines for gnd and vcc and 2 connectors with 4 rows each, in [version 3.0](https://github.com/agsb/wirewp/tree/62398a8cee20bd1393776733a083bdba2ebc7329/wirewarp%20board%20v3)
+Protoboard type III, for spaced sockets with extra header, conected lines for gnd and vcc and 2 connectors with 4 rows each, in [version 3.0](https://github.com/agsb/wirewp/tree/62398a8cee20bd1393776733a083bdba2ebc7329/wirewarp%20board%20v3) Use rows I, F and C for left side of socket. 
 
 ### Sockets in Dual in-line Package
 
