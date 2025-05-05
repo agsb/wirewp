@@ -55,6 +55,10 @@ BEGIN {
 # csv orderd by wire, socket, pin        
 # socket, pin, wire, obs...
 
+        if ( $1 ~ /^#/) {
+            next
+            }
+
         # trim spaces
         gsub (" *, ", "," ,$0)
 
@@ -70,35 +74,38 @@ BEGIN {
                 slot[s]["px"] = $4
                 slot[s]["py"] = $5
                 
-                #print "sz  " $1 " " sock[snt]["s"] " " sock[snt]["x"] " " sock[snt]["y"]
-
-                order[s] = snt
-
-                snt++
-
+                # print " s " s " px " slot[s]["px"] " py " slot[s]["py"]
+                
                 # board size
                 if ($1 == "U00") { 
                     xb = $4
                     yb = $5
                     }
+                else {
+                # default order for place
+                    snt++
+                    order[snt] = s
+                    }
+
                 }
 
             # wire 01 is for order 
             if ($3 == "01") {
-                order[$4] = $1
-                print "od  " $4 " " $1
+                # never touch "+0"
+                n = $4 +0
+                order[n] = $1
                 }
 
             next
             }
 
-        # keep in order
+        # keep wires in order
         wire[wnt]["f"] = $0 # full
         wire[wnt]["s"] = $1 # sock
         wire[wnt]["p"] = $2 # pin
         wire[wnt]["w"] = $3 # wire
 
-        #print "> " wnt " " wire[wnt]["s"] " " wire [wnt]["p"] " " wire[wnt]["w"] 
+        # print "> " wnt " " wire[wnt]["s"] " " wire [wnt]["p"] " " wire[wnt]["w"] 
 
         wnt++;
 
@@ -113,24 +120,23 @@ function do_slots( ) {
         yn = 1
         lasty[xn] = yn
 
-        for (i = 0; i < snt; i++) {
+        for (j = 1; j <= snt; j++) {
                
-                s = order[i];
-                               
-                print " number " i " socket: " s
+                i = j
 
+                s = order[i]
+                               
+                # skip board
                 if (s == "U00") continue
 
-                x = sock[s]["px"]
-                y = sock[s]["py"]
+                x = slot[s]["px"]
+                y = slot[s]["py"]
 
                 # use unit size
                 xm = SSIZE 
 
                 # use half size
                 ym = y / 2;
-
-                print "sk " s " " x " " y " " ym
 
                 if ((yn + ym + 1) > yc) {
                         print " y cross "
@@ -147,7 +153,7 @@ function do_slots( ) {
                 slot[s]["x1"] = xn        
                 slot[s]["y1"] = yn        
                 
-                print " sock: " s " pin: 1  x: " xn " y: " yn
+                print  "> " i ", " s ", " x ", " y ", " xn ", " yn
 
                 lasty[xn] = yn + ym + 1
                 xn = xn + xm + 1
@@ -168,34 +174,38 @@ function do_costs( ) {
 
         for (n = 0; n < wnt; n++) {
             
+            # take the wire
             w1 = wire[n]["w"]
             s1 = wire[n]["s"]
             p1 = wire[n]["p"]
 
+            # where starts
             x1 = slot[s1]["x1"]
             y1 = slot[s1]["y1"]
         
+            # what sizes
             xd = slot[s1]["px"]
             yd = slot[s1]["py"]
             
             if ( p1 < (y1 / 2) ) { 
-                x1 = x1
-                y1 = y1 + (pin - 1 )
+                x1 = x1 + 0
+                y1 = y1 - 1 + (pin) 
                 }
             else {    
-                x1 = x1 + xd % 2
-                y1 = y1 + (yd - p1)
+                x1 = x1 + xd
+                y1 = y1 - 1 + (yd - p1)
                 }
 
             if (w1 == w0) {
 
                 dist = sqrt ( (x1-x0)*(x1-x0) + (y1-y0)*(y1-y0) )
 
+                print "= " w0 ", " s0 ", " p0 ", " s1 ", " p1 ", " dist
                 costs = costs + dist
                 ncost++
                 }
             else {
-                print " w: " w1 " costs: " costs " n: " ncost
+                print " w: " w0 " costs: " costs " n: " ncost
                 }
 
             w0 = w1
@@ -205,17 +215,17 @@ function do_costs( ) {
             y0 = y1
 
             }
-        }
+
+        print "= " w0 ", " s0 ", " p0 ", " s1 ", " p1 ", " dist
+        print " w: " w0 " costs: " costs " n: " ncost
+
+}
 
 END {
 
 # sockets
 
-
-# draw svg
-
-        # left-right == 0 or right-left == 1
-        mirror = 1
+        #do_rolette();
 
         do_slots( );
 
