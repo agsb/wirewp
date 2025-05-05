@@ -1,6 +1,6 @@
 # WireWp
 
-( sure not finish, version 0.1 )
+( sure not finish, near to version 0.1 )
 
 Sorry, but this is not about jewels.
 
@@ -116,8 +116,6 @@ Most of vendor's wirewrap PCB boards does a sequence of
 
     __V__ vcc, __G__ vss (gnd), __x__ not connect, __o__ isle for pin of sockets 
 
-### Board
-
 I made a mix over above concepts: 
 
     coordenade X is the smaller side and Y is longest side of board;
@@ -132,6 +130,8 @@ I made a mix over above concepts:
             __g__, is the vss line, __v__, is the vcc line,
 
             if socket have long pins, __o__ is not connected
+
+### Board
 
 The headers and sockets with long pins for wire-wrap boards[^15] are more expensive
 than common round sockets and common pin headers.
@@ -158,6 +158,71 @@ Protoboard type I, for maximum sockets with triple isles and 2 conectors with 2 
 Protoboard type II, for spaced sockets with extra header, lines for gnd and vcc and 2 connectors with 2 rows each, in [version 2.0](https://github.com/agsb/wirewp/tree/40e1aa6ff126634400b46e8b2a6ddee23b6c2398/wirewarp%20board%20v2) Use rows K, H, F and B for left side of socket.
 
 Protoboard type III, for spaced sockets with extra header, conected lines for gnd and vcc and 2 connectors with 4 rows each, in [version 3.0](https://github.com/agsb/wirewp/tree/62398a8cee20bd1393776733a083bdba2ebc7329/wirewarp%20board%20v3) Use rows I, F and C for left side of socket. 
+
+## Places
+
+Where to place the sockets on the board ?
+
+### Easy way 
+
+By using blocks of 6 by 6 isles:
+
+1. Do optimize by calculate the size of wires pin to pin, with some coordenate system.
+1. Divide the board in blocks with 6 holes in X and by 6 holes in Y.
+1. Place the sockets, in X, with left row (pin 1) in a odd block and right row in a even block, in Y with 2 rows between sockets.
+1. Group the pins using blocks as coordenates
+1. Count the connections from-into by sockets by blocks 
+1. Then minimize the distance count.
+2. repeat until best minimum count
+
+```
+        eg. a 10 x 10 cm board with 37 x 37 holes
+                socket 01 is 40 pins and 02, 03 is 8 pins, 04 14 pins
+        1          12          24          36
+        +-----------+-----------+-----------+x
+        |     04    |    01     |    02      |
+        +-----------+-----------+-----------+x
+        |     04    |    01     |    02     |
+        +-----------+-----------+-----------+x12
+        |           |    01     |    03     |
+        +-----------+-----------+-----------+x
+        |           |    01     |    03     |
+        +-----------+-----------+-----------+x24
+        |           |           |           |
+        +-----------+-----------+-----------+x
+        |           |           |           |
+        +-----------+-----------+-----------+x36
+
+
+```
+    
+1. Place the bigger DIP at top and center, and move the others around
+2. Place small passives on a DIP
+3. Place capacitors 100nF Voltage to GND, for each DIP internaly to pins of DIP
+
+PS. Better way, using a script to do the distance "pin to pin", with a coordenate system of isles on board. 
+
+### Script Way
+
+In development.
+
+I made a simple awk script to calculate the position of pins, 
+relative to top left on wire wrap side. 
+
+It loads a list of wire connections, type of sockets and order to place,
+produces a list of board pins connections, with sockets and wires.
+
+That could also be used to evaluate the order of sockets and sum of wire used.
+
+Why do not leave the script find the best permutations ? 
+Just eight sockets does 40320 diferent possibilities. 
+
+Need more rules for evaluate, only the sum of wires is not a unbias criteria.
+
+SUgestions ?
+
+
+## More
 
 ### Sockets in Dual in-line Package
 
@@ -189,50 +254,11 @@ But for wire colors there is a designator, and some tips for using.
 
 adapted from [Table 1-A-5 Colour Code](https://www.casa.gov.au/sites/default/files/2021-09/advisory-circular-21-99-aircraft-wiring-bonding.pdf)
 
-PS. Note that color squema is for digital circuits, not and never for home wiring.
-
-## More
+PS. Note this color squema is for digital circuits, not and never for home wiring.
 
 ### Design Tips (?)
 
-Easy way, using blocks of 6 by 6 isles:
-
-1. Do optimize by calculate the size of wires pin to pin, with some coordenate system.
-1. Divide the board in blocks with 6 holes in X and by 6 holes in Y.
-1. Place the sockets, in X, with left row (pin 1) in a odd block and right row in a even block, in Y with 2 rows between sockets.
-1. Group the pins using blocks as coordenates
-1. Count the connections from-into by sockets by blocks 
-1. Then minimize the distance count.
-2. repeat until best minimum count
-
-```
-        eg. a 10 x 10 cm board with 37 x 37 holes
-                socket 01 is 40 pins and 02, 03 is 8 pins, 04 14 pins
-        1          12          24          36
-        +-----------+-----------+-----------+x
-        |           |    01     |           |
-        +-----------+-----------+-----------+x
-        |     04    |    01     |    02     |
-        +-----------+-----------+-----------+x12
-        |     04    |    01     |    03     |
-        +-----------+-----------+-----------+x
-        |           |    01     |           |
-        +-----------+-----------+-----------+x24
-        |           |           |           |
-        +-----------+-----------+-----------+x
-        |           |           |           |
-        +-----------+-----------+-----------+x36
-        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-
-```
-    
-1. Place the bigger DIP at top and center, and move the others around
-2. Place small passives on a DIP
-3. Place capacitors 100nF Voltage to GND, for each DIP internaly to pins of DIP
-
-PS. Better way, using a script to do the distance "pin to pin", with a coordenate system of isles on board. In development.
-
-### What about ?
+### What about (?)
 
 1. a library of components (chips, transistors and passives)
 1. auto position of units at board, with defined especifications, 
@@ -244,7 +270,6 @@ VCC, VDD, VSS, GND, etc
 1. place headers for extensions boards 
 1. make svg draw of board
 
-   
 ## References
 
 [^1]:(https://schematicsforfree.com/files/Manufacturing%20and%20Design/Prototyping/Wire%20Wrapping%20Techniques.pdf)
