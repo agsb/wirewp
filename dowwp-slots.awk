@@ -233,6 +233,9 @@ function do_costs( ) {
 # 2 to 2 is one cross, passing over a half part of socket
 # No distance take in acount, just sides.
 
+# conections of 1-1 and 2-2 will always be over a half.
+# connections 1-2 could be 2-1 by changed the order ?
+
 function do_reduce( ) {
 
         w0 = ""
