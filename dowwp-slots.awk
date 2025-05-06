@@ -111,6 +111,7 @@ BEGIN {
 
 } 
 
+
 function do_slots( ) {
        
         xc = xb
@@ -221,6 +222,55 @@ function do_costs( ) {
 
 }
 
+# maps the better side for connections
+# DIP left side is 1, DIP right side is 2, representing as [1 2]
+# when connecting two sockets side to side, 
+# the wire could go from each side of left socket to 
+# each side of other socket as: 
+# 1 to 1 is one cross, passing over a half part of socket
+# 1 to 2 is two cross, passing over two half parts of sockets
+# 2 to 1 is no cross,  no passing over any sockets
+# 2 to 2 is one cross, passing over a half part of socket
+# No distance take in acount, just sides.
+
+function do_reduce( ) {
+
+        w0 = ""
+        p0 = ""
+        s0 = ""
+        x0 = ""
+        y0 = ""
+
+        costs = 0
+        ncost = 0
+
+        for (n = 0; n < wnt; n++) {
+            
+            # take the wire
+            w1 = wire[n]["w"]
+            s1 = wire[n]["s"]
+            p1 = wire[n]["p"]
+
+            # what side
+            yd = slot[s1]["py"]
+            
+            d1 = ( p1 < (yd / 2)  ) ? 1 : 2 
+
+            if (w1 == w0) {
+
+                print "@ " w0 ", " s0 ", " p0 ", " s1 ", " p1 ", " d0 "-" d1
+
+                }
+
+            w0 = w1
+            p0 = p1
+            s0 = s1
+            d0 = d1
+
+            }
+
+}
+
 END {
 
 # sockets
@@ -228,6 +278,8 @@ END {
         #do_rolette();
 
         do_slots( );
+
+        do_reduce( );
 
         do_costs();
 
