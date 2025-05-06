@@ -55,7 +55,7 @@ Some images of IBM-PC [^3] [^4] [^7] and first Macintosh [^2]
 
 Make a primary CSV list with: sock, pins, wire, comment,
 
-_sock, the socket to place a unit at board ;_
+_sock, the socket to place a unit at board ;_ Sock is just an abbreviation for socket.
         (numeric) 00 is the board, 01 first unit, etc
 
 _pins, the pin of unit ;_
@@ -71,35 +71,30 @@ Use one line for each wire on pin.
 
 Use # at start of line, for comments.
 
-### List notes
+Anywhere any pin not connected is marked as nc (not connected).
 
 The sockets of 6 to 28 pins uses slim (0.300") form and 24 to 64 uses wide (0,600") inter rows space.
 
-1. _sock_ 00 is reserved for the board;
-1. _pins_ 00 is reserved for dimensions of board of type of DIP socket ( 3 or 6) and number of pins;
-1. _pins_ 00,  is reserved for order to place at board;
-1. use _comments_ for more information, eg. sizes, color, datasheet use/name of pin;
-
-Anywhere any pin not connected is marked as nc. 
+Use _comments_ for more information, eg. sizes, color, datasheet use/name of pin;
 
 ### Wires reserved
 
 (still a primitive sintax, NN is a socket desigator)
 
-- NN, 00, 00, x, y,      define the size of unit, top-right origin;
+- NN, 00, 00, x, y,      define the type of DIP socket ( 3 or 6) and number of pins, top-right origin;
 - NN, 00, 01, n,         defines the order to place in board 
 - NN, 00, 02, t,         define separation between socket pin and wired pin;    RESERVED, NOT USED
 - NN, 00, 03, t,"        define border ground, 0 none, 1 around, 2 interleaved;    RESEVED, NOT USED
 - NN, 00, 04, t,"        define separation between rows of wired pins;   RESERVED, NOT USED
 - NN, 00, 05, color, size," define color and awg of wire, 0 black,  30 awg; RESERVED, NOT USED
 
-PS. those not used are for future SVG DRAW
-
 ### Power lines
 
-Usually on circuit we find references for power, as Vcc and Vee refer to circuits built on bipolar transistors, 
-hence the letters C (collector, collector) and E (emitter, emitter), and Vdd and Vss refer to circuits built on field-effect transistors,
-hence the letters D (drain, drain) and S (source, source). Usually on old circuits, VCC is  +5 V, VDD is +12 V, VEE is -5 V and VSS is 0V0 (GND)  [^17]
+On circuits we find references for power, as Vcc and Vee refer to circuits built on bipolar transistors, 
+hence the letters C (collector, collector) and E (emitter, emitter), and as Vdd and Vss refer to circuits built on field-effect transistors,
+hence the letters D (drain, drain) and S (source, source). 
+
+Usually on old circuits, VCC is  +5 V, VDD is +12 V, VEE is -5 V and VSS is 0V0 (GND)  [^17]
 
 Then I prefer explicity the values as using V for positive 12V0, 5V0, 3V3, 2V7, append a suffix N for negative 12V0N, 5V0N, 3V3N, 2V7N and 
 use GND (0V0) for reference ground potencial.
@@ -110,11 +105,8 @@ To reduce the noise and interference [^6], some boards uses power (V) on compone
 
 Or both at wire side, as lines with two rows (of holes), one with ground (G) and other with power (V).
 
-Most of vendor's wirewrap PCB boards does a sequence of
-
-    [V V x o o o G G o o o x] or [G G x o o o V V o o o x]
-
-    __V__ vcc, __G__ vss (gnd), __x__ not connect, __o__ isle for pin of sockets 
+Most of vendor's wirewrap PCB boards does a sequence of  [V=V x o=o=o G=G o=o=o x] or [G=G x o=o=o V=V o=o=o x],
+where __V__ power, __G__ gnd, __x__ not connect and __o=o__ isle for pin of sockets connected 
 
 I made a mix over above concepts: 
 
@@ -123,13 +115,13 @@ I made a mix over above concepts:
     the identification is done at both sides ( component and wire) of board;
 
     a sequence of (x x o=p3 v o=p2 x g p1=o x) at wire wrap side:
-            __x__ is not connected, __o__ is for hole for long pin, 
-            __p1__, __p2__, are holes socket for slim DIP, 
-            __p1__, __p3__, are holes socket for wide DIP,
-            __=__, is always conected,
-            __g__, is the vss line, __v__, is the vcc line,
+        __x__ is not connected, __o__ is for hole for long pin, 
+        __p1__, __p2__, are holes socket for slim DIP, 
+        __p1__, __p3__, are holes socket for wide DIP,
+        __=__, is always conected,
+        __g__, is the vss line, __v__, is the vcc line,
 
-            if socket have long pins, __o__ is not connected
+        if socket have long pins, __o__ is not used
 
 ### Board
 
@@ -140,16 +132,18 @@ For common pcb protoboards, a FR4 plate with isles in both sides,
 I use long pin headers at sides of common round pin sockets, in paralel, 
 as cheap substitute for special wire-wrap long pins sockets, soldering to fix both and join pins.
 
-The sockets are placed at top of board and the wires at bottom. At the wires side, the sockets are mirrored vertically the pinout of schematics, 
+The sockets are placed at top of board and the wires at bottom. 
+At the wires side, the sockets are mirrored vertically the pinout of schematics, 
 so the first pin is at TOP RIGHT, last pin is at TOP LEFT, counts clockwise;
 
 A prototype SVG drawing of the board, with sockets, connectors and wires, is in the testing phase.
 
-PS. Still no IA for better plannings
-
 ### Protoboard
 
-Some 10 x 10 cm2 wire wrap protoboards done with kicad, it reserves rows to use of headers in paralel with sockets, for "poor man wire wraps" just solder the pins to protoboard. The sockets side are marked as I H G F E D C B A and wire wrap side with A B C D E F G H I, rows for conectors as CON.
+Some 10 x 10 cm2 wire wrap protoboards done with kicad, it reserves rows to use of headers in paralel with sockets, 
+for "poor man wire wraps" just solder the pins to protoboard. 
+
+The sockets side are marked as I H G F E D C B A and wire wrap side with A B C D E F G H I, rows for conectors as CON.
 
 Those prototypes are still not tested in real FR4. Please check before order.
 
@@ -161,7 +155,7 @@ Protoboard type III, for spaced sockets with extra header, conected lines for gn
 
 ## Places
 
-Where to place the sockets on the board ?
+Where or How to place the sockets on the board ?
 
 ### Easy way 
 
@@ -173,11 +167,12 @@ By using blocks of 6 by 6 isles:
 1. Group the pins using blocks as coordenates
 1. Count the connections from-into by sockets by blocks 
 1. Then minimize the distance count.
-2. repeat until best minimum count
+1. repeat 3 until best minimum count
 
 ```
         eg. a 10 x 10 cm board with 37 x 37 holes
-                socket 01 is 40 pins and 02, 03 is 8 pins, 04 14 pins
+        socket 01 is 40 pins and 02, 03 is 8 pins, 04 14 pins
+
         1          12          24          36
         +-----------+-----------+-----------+x
         |     04    |    01     |    02      |
@@ -193,14 +188,13 @@ By using blocks of 6 by 6 isles:
         |           |           |           |
         +-----------+-----------+-----------+x36
 
-
 ```
     
 1. Place the bigger DIP at top and center, and move the others around
 2. Place small passives on a DIP
 3. Place capacitors 100nF Voltage to GND, for each DIP internaly to pins of DIP
 
-PS. Better way, using a script to do the distance "pin to pin", with a coordenate system of isles on board. 
+Better way, using a script to do the distance "pin to pin", with a coordenate system of isles on board. 
 
 ### Script Way
 
@@ -214,13 +208,13 @@ produces a list of board pins connections, with sockets and wires.
 
 That could also be used to evaluate the order of sockets and sum of wire used.
 
-Why do not leave the script find the best permutations ? 
-Just eight sockets does 40320 diferent possibilities. 
+Why do not leave the script find the best form all possible permutations ? 
+Just eight sockets does 40,320 diferent permutations, ten sockets does 3,628,800, 
+so better define some rules to avoid brute force.
 
 Need more rules for evaluate, only the sum of wires is not a unbias criteria.
 
-SUgestions ?
-
+Any sugestions ?
 
 ## More
 
