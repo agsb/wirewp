@@ -218,11 +218,11 @@ Any sugestions ?
 
 ### Simplifly
 
-DIP sockets have a left side (1) and a right side (2), considering only two sockets (A and B), the possible connections between the pins are: a) A1-B1, b) A1-B2, c) A2-B1 and d) A2-B2, depending on which pins are connected.
+DIP sockets have a left side (1) and a right side (2), considering only two sockets (A and B), the possible connections between the pins are: **a**) A1-B1, **b**) A1-B2, **c**) A2-B1 and **d**) A2-B2, depending on which pins are connected.
 
-When the sockets are placed in horizontal sequence, types a and d always pass over another side, regardless of the order, whether A-B or B-A, while type b passes over two other sides, and type c does not pass over any side. The arrangement order A-B or B-A inverts types b and c.
+When the sockets are placed in horizontal sequence, types **a** and **d** always pass over another side, regardless of the order, whether A-B or B-A, while type **b** passes over two other sides, and type **c** does not pass over any side. The arrangement order A-B or B-A inverts types **b** and **c**.
 
-When the sockets are placed in vertical sequence, types a and d never pass over other sides and types b and c always pass over another side, regardless of the order, whether A-B or B-A.
+When the sockets are placed in vertical sequence, types **a** and **d** never pass over other sides and types **b** and **c** always pass over another side, regardless of the order, whether A-B or B-A.
 
 Then classify the list of conections using the type of socks and pins numbers as one of _a, b, c, d_ above, allow to quantify the better orientation for placing the socks, or horizontaly (more b and c), or verticaly (more a and d).
 
