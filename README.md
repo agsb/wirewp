@@ -29,7 +29,7 @@ It uses a simple tool to wrap[^10],  or make one [^11].
 
 Some details[^9], technics[^1], standarts[^12], tips[^13] and guide[^18].
 
-More tips[^19]
+More tips[^19] and completed[^20]
 
 Why use it [^8]?
 
@@ -314,8 +314,8 @@ VCC, VDD, VSS, GND, etc
 
 [^18]:(https://www.jmargolin.com/making/jm_making.htm#p4)
 
-[^19](https://wilsonminesco.com/6502primer/WireWrap.html)
+[^19]:(https://wilsonminesco.com/6502primer/WireWrap.html)
 
-
+[^20]:(https://www.homebrewcpu.com/photo_gallery.htm)
 
 
