@@ -155,9 +155,9 @@ Protoboard type II, for spaced sockets with extra header, lines for gnd and vcc 
 
 Protoboard type III, for spaced sockets with extra header, conected lines for gnd and vcc and 2 connectors with 4 rows each, in [version 3.0](https://github.com/agsb/wirewp/tree/62398a8cee20bd1393776733a083bdba2ebc7329/wirewarp%20board%20v3) Use rows I, F and C for left side of socket. 
 
-Protoboard type IV, for spaced sockets and two connectors with 2 rows each, not connected, in [version 4.0](https://github.com/agsb/wirewp/tree/ee1f298f4d21af5ba2e35af9055edfb70dddc78e/wirewarp%20board%20v4), isles isoleted. 
+Protoboard type IV, for spaced sockets and two connectors with 2 rows each, not connected, in [version 4.0](https://github.com/agsb/wirewp/tree/b91d829078911b922490628466143be949377d0e/wirewarp%20board%20v4), isles isoleted. 
 
-Protoboard type V, for spaced sockets and two connectors with 2 rows each, connected, in [version 5.0](https://github.com/agsb/wirewp/tree/ee1f298f4d21af5ba2e35af9055edfb70dddc78e/wirewarp%20board%20v4), isles isoleted. 
+Protoboard type V, for spaced sockets and two connectors with 2 rows each, connected, in [version 5.0](https://github.com/agsb/wirewp/tree/b91d829078911b922490628466143be949377d0e/wirewarp%20board%20v5), isles isoleted. 
 
 ## Places
 
