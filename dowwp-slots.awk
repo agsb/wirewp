@@ -263,6 +263,9 @@ function do_reduce( ) {
 
                 print "@ " w0 ", " s0 ", " p0 ", " s1 ", " p1 ", " d0 "-" d1
 
+                print "& " d0 "-" d1 ", " s0 ", " p0 ", " n
+                print "& " d0 "-" d1 ", " s1 ", " p1 ", " n
+
                 }
 
             w0 = w1
