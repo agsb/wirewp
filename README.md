@@ -280,6 +280,14 @@ VCC, VDD, VSS, GND, etc
 1. place headers for extensions boards 
 1. make svg draw of board
 
+### MECB
+
+May, 2025:
+
+Just found the [Minimalist Europe Card Bus](https://digicoolthings.com/minimalist-europe-card-bus-mecb/)
+with great ideas and quality designs in github [MECB](https://github.com/DigicoolThings/MECB).
+
+
 ## References
 
 [^1]:(https://schematicsforfree.com/files/Manufacturing%20and%20Design/Prototyping/Wire%20Wrapping%20Techniques.pdf)
