@@ -32,7 +32,6 @@
       "vias",
       "footprint_text",
       "footprint_anchors",
-      "ratsnest",
       "grid",
       "footprints_front",
       "footprints_back",
@@ -58,7 +57,7 @@
     "ssh_key": ""
   },
   "meta": {
-    "filename": "wirewarp board v4.kicad_prl",
+    "filename": "wirewarp board v5.kicad_prl",
     "version": 5
   },
   "net_inspector_panel": {
@@ -87,16 +86,16 @@
       9
     ],
     "col_widths": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
+      10,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10,
+      103
     ],
     "custom_group_rules": [],
     "expanded_rows": [],
