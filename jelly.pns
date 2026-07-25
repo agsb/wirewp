@@ -1,0 +1,300 @@
+#  agsb@2025
+#  wire-wrap lines, jelly
+# glues
+# U8, 74hc393
+# U9, 74hc74
+# U10, 74hc00 
+# U11, lm555
+# U12, zero detector circuit
+# visuals
+# U20, leds data/code byte
+# U21, leds control lines byte
+# U22, leds socket lines  byte
+
+# board
+# order to place
+# board size is U00
+# integraded circuits
+U00, 00, 00, 37, 55, board
+U01, 00, 00,  6, 24, at28c16
+U02, 00, 00,  6, 24, at28c16
+U03, 00, 00,  6, 24, at28c16
+U04, 00, 00,  3, 20, 74hc574
+U05, 00, 00,  3, 20, 74hc574
+U06, 00, 00,  3, 20, 74hc574
+U07, 00, 00,  3, 20, 74hc245
+U08, 00, 00,  3, 14, 74hc393 
+U09, 00, 00,  3, 14, 74hc74 
+U10, 00, 00,  3, 14, 74hc00
+
+# decouple capacitors
+U01, 12, 00, cap04, 100nF
+U01, 24, 00, cap04, 100nF
+U02, 12, 00, cap05, 100nF
+U02, 24, 00, cap05, 100nF
+U03, 12, 00, cap06, 100nF
+U03, 24, 00, cap06, 100nF
+U04, 10, 00, cap07, 100nF
+U04, 20, 00, cap07, 100nF
+U05, 10, 00, cap08, 100nF
+U05, 20, 00, cap08, 100nF
+U06, 10, 00, cap09, 100nF
+U06, 20, 00, cap09, 100nF
+U07, 10, 00, cap10, 100nF
+U07, 20, 00, cap10, 100nF
+U08, 07, 00, cap11, 100nF
+U08, 14, 00, cap11, 100nF
+U09, 07, 00, cap12, 100uF
+U09, 14, 00, cap12, 100uF
+U10, 07, 00, cap13, 100uF
+U10, 14, 00, cap13, 100uF
+
+# data lines
+
+# zero detectors diodes
+
+DN0, anode, d00
+DN0, cathode, dng
+DN1, anode, d01
+DN1, cathode, dng
+DN2, anode, d02
+DN2, cathode, dng
+DN3, anode, d03
+DN3, cathode, dng
+DN4, anode, d04
+DN4, cathode, dng
+DN5, anode, d05
+DN5, cathode, dng
+DN6, anode, d06
+DN6, cathode, dng
+DN7, anode, d07
+DN8, cathode, dng
+
+RSN, p1, dng
+RSN, p2, gnd
+
+# leds data
+
+RS0, p1, d00
+RS0, p2, ld0
+LD0, anode, ld0
+LD0, cathode, gnd
+
+RS1, p1, d01
+RS1, p2, ld1
+LD1, anode, ld1
+LD1, cathode, gnd
+
+RS2, p1, d02
+RS2, p2, ld2
+LD2, anode, ld2
+LD2, cathode, gnd
+
+RS3, p1, d03
+RS3, p2, ld3
+LD3, anode, ld3
+LD3, cathode, gnd
+
+RS4, p1, d04
+RS4, p2, ld4
+LD4, anode, ld4
+LD4, cathode, gnd
+
+RS5, p1, d05
+RS5, p2, ld5
+LD5, anode, ld5
+LD5, cathode, gnd
+
+RS6, p1, d06
+RS6, p2, ld6
+LD6, anode, ld6
+LD6, cathode, gnd
+
+RS7, p1, d07
+RS7, p2, ld7
+LD7, anode, ld7
+LD7, cathode, gnd
+
+# U4 574
+U04, 01, /oe, gnd,
+U04, 02, d1, d00,
+U04, 03, d2, d01,
+U04, 04, d3, d02,
+U04, 05, d4, d03,
+U04, 06, d5, d04,
+U04, 07, d6, d05,
+U04, 08, d7, d06,
+U04, 09, d8, d07, 
+U04, 10, gnd, gnd 
+U04, 11, clk, ck4,
+U04, 12, q8, a10,
+U04, 13, q7, a09,
+U04, 14, q6, a08,
+U04, 15, q5, a07,
+U04, 16, q4, a06, 
+U04, 17, q3, a05, 
+U04, 18, q2, a04, 
+U04, 19, q1, a03, 
+U04, 20, vcc, vcc,
+
+# U5 574
+U05, 01, /oe, gnd,
+U05, 02, d1, d00,
+U05, 03, d2, d01,
+U05, 04, d3, d02,
+U05, 05, d4, d03,
+U05, 06, d5, d04,
+U05, 07, d6, d05,
+U05, 08, d7, d06,
+U05, 09, d8, d07, 
+U05, 10, gnd, gnd 
+U05, 11, clk, ck5,
+U05, 12, q8, n07,
+U05, 13, q7, n06,
+U05, 14, q6, n05,
+U05, 15, q5, n04,
+U05, 16, q4, n03, 
+U05, 17, q3, n02, 
+U05, 18, q2, n01, 
+U05, 19, q1, n00, 
+U05, 20, vcc, vcc,
+
+# U6 574
+U06, 01, /oe, gnd,
+U06, 02, d1, m00,
+U06, 03, d2, m01,
+U06, 04, d3, m02,
+U06, 05, d4, m03,
+U06, 06, d5, m04,
+U06, 07, d6, m05,
+U06, 08, d7, m06,
+U06, 09, d8, m07, 
+U06, 10, gnd, gnd, 
+U06, 11, clk, ck6,
+U06, 12, q8, d07,
+U06, 13, q7, d06,
+U06, 14, q6, d05,
+U06, 15, q5, d04,
+U06, 16, q4, d03, 
+U06, 17, q3, d02, 
+U06, 18, q2, d01, 
+U06, 19, q1, d00, 
+U06, 20, vcc, vcc,
+
+# U7 245
+U07, 01, dir, ds7,
+U07, 02, a0, d00,
+U07, 03, a1, d01,
+U07, 04, a2, d02,
+U07, 05, a3, d03,
+U07, 06, a4, d04,
+U07, 07, a5, d05,
+U07, 08, a6, d06,
+U07, 09, a7, d07,
+U07, 10, gnd, gnd,
+U07, 11, b0, p07,
+U07, 12, b1, p06,
+U07, 13, b2, p05,
+U07, 14, b3, p04,
+U07, 15, b4, p03,
+U07, 16, b5, p02,
+U07, 17, b6, p01,
+U07, 18, b7, p00,
+U07, 19, oe, oe7,
+U07, 20, vcc, vcc,
+
+# U8 393
+U08, 01, clk1, ck8,
+U08, 02, clr2, cr8,
+U08, 03, qa1, a00
+U08, 04, qb1, a01
+U08, 05, qc1, a02
+U08, 06, qd1, clr8
+U08, 07, gnd, gnd
+U08, 08, qd2, nc
+U08, 09, qc2, nc
+U08, 10, qb2, nc
+U08, 11, qa2, nc
+U08, 12, clr2, nc
+U08, 13, clk2, nc
+U08, 14, vcc, vcc
+
+# U1 at28c16
+U01, 01, a7, a07,
+U01, 02, a6, a06,
+U01, 03, a5, a05,
+U01, 04, a4, a04,
+U01, 05, a3, a03,
+U01, 06, a2, a02,
+U01, 07, a1, a01,
+U01, 08, a0, a00,
+U01, 09, d0, ck4, 
+U01, 10, d1, ck5, 
+U01, 11, d2, ck6, 
+U01, 12, gnd, gnd,
+U01, 13, d3, oe6, 
+U01, 14, d4, oe7, 
+U01, 15, d5, ds7, 
+U01, 16, d6, xxx, 
+U01, 17, d7, xxx, 
+U01, 18, ce, gnd,
+U01, 19, a10, a10,
+U01, 20, oe, gnd,
+U01, 21, we, vcc,
+U01, 22, a09, a09,  
+U01, 23, a08, a08,
+U01, 24, vcc, vcc,
+
+# U2 at28c16
+U02, 01, a7, a07,
+U02, 02, a6, a06,
+U02, 03, a5, a05,
+U02, 04, a4, a04,
+U02, 05, a3, a03,
+U02, 06, a2, a02,
+U02, 07, a1, a01,
+U02, 08, a0, a00,
+U02, 09, d0, n08, 
+U02, 10, d1, n09, 
+U02, 11, d2, n10, 
+U02, 12, gnd, gnd,
+U02, 13, d3, xxx, 
+U02, 14, d4, t00, 
+U02, 15, d5, t01, 
+U02, 16, d6, t02, 
+U02, 17, d7, t03, 
+U02, 18, ce, gnd,
+U02, 19, a10, a10,
+U02, 20, oe, gnd,
+U02, 21, we, vcc,
+U02, 22, a09, a09,  
+U02, 23, a08, a08,
+U02, 24, vcc, vcc,
+
+# U3 at28c16
+U03, 01, a7, n07,
+U03, 02, a6, n06,
+U03, 03, a5, n05,
+U03, 04, a4, n04,
+U03, 05, a3, n03,
+U03, 06, a2, n02,
+U03, 07, a1, n01,
+U03, 08, a0, n00,
+U03, 09, d0, m00, 
+U03, 10, d1, m01, 
+U03, 11, d2, m02, 
+U03, 12, gnd, gnd,
+U03, 13, d3, m03, 
+U03, 14, d4, m04, 
+U03, 15, d5, m05, 
+U03, 16, d6, m06, 
+U03, 17, d7, m07, 
+U03, 18, ce, gnd,
+U03, 19, a10, n10,
+U03, 20, oe, gnd,
+U03, 21, we, vcc,
+U03, 22, a09, n09,  
+U03, 23, a08, n08,
+U03, 24, vcc, vcc,
+
+
