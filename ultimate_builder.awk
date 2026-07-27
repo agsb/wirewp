@@ -22,6 +22,32 @@
 #NET RST_LINE TOP MCU 1  R1 1
 #
 
+
+# Troubleshooting
+
+# 1. Identify Spacing and Size Collisions
+# variations
+# K_REPULSE = 50.0  # Boost this value to push component bodies further apart
+# K_ATTRACT = 0.08  # Lower this value to reduce overly aggressive pin pulls
+
+# 2. Verify Pin Numbering and Grid Alignments
+# CHECK INGREDIENTS: If total pins = 14, legal target pins are 1 through 14
+#CHIP MY_IC DIP 14 3
+#NET SPI_DATA TOP MY_IC 7 OTHER_CHIP 2  # Pin 7 is valid (on the bottom row)
+
+# 3. Handle Off-Grid Border Drift
+# Lock large connectors safely away from floating logic spaces
+#ANCHOR POWER_HDR 2  2  # Lower left corner
+#ANCHOR MAIN_MCU  20 10 # Centered target workspace location
+
+# 4. Fix Dual-Layer Trace Crossings (Short Circuits)
+# Route primarily horizontal long runs underneath the board
+#NET BUS_LINE_H BOT MCU 5 RAM 1
+# Route primarily vertical short jumps on top of the board
+#NET BUS_LINE_V TOP MCU 6 RAM 2  
+
+# DO IT
+
 # 1. Initialization and Hyperparameters
 BEGIN {
     ITERATIONS = 120       # Optimization cycles
