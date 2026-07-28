@@ -1,0 +1,6 @@
+id,tipo,pinos,status,pinout
+U1,DIP03,14,dynamic,1:MOSI|2:MISO|7:GND|14:VCC
+U2,DIP06,28,dynamic,1:RX|2:TX|14:GND|28:VCC
+R1,DISC,2,dynamic,1:P1|2:P2
+J1,SIL,4,anchor_1_10,1:PWR_IN|4:GND_IN
+

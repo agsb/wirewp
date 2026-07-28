@@ -1,0 +1,12 @@
+chip,pin,wire
+J1,PWR_IN,VCC
+U1,VCC,VCC
+U2,VCC,VCC
+J1,GND_IN,GND
+U2,GND,GND
+U1,MOSI,data0
+U2,RX,data0
+U1,MISO,data1
+U2,TX,data1
+U2,5,normal
+R1,1,normal

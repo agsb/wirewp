@@ -1,0 +1,26 @@
+
+### Arquivo de Entrada de Teste Completo (`pcb_render_test.txt`)
+
+# Nomes dos pinos
+pinname U1 14 VCC
+pinname U1 7  GND
+pinname U1 1  data0
+pinname U2 24 VCC
+pinname U2 12 GND
+pinname U2 1  data0
+
+# Barreiras e Componentes
+keepout 18 5 4 10
+
+chip J1 SIL 4 anchor
+anchor J1 1 8
+chip U1 DIP03 14
+chip U2 DIP06 24
+
+# Conexões e barramentos de fios
+wire VCC J1.1 U1.14
+wire VCC U1.14 U2.24
+wire GND J1.4 U2.12
+wire data0 U1.data0 U2.data0
+
+
