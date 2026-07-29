@@ -1,0 +1,35 @@
+cob,pin,wire
+
+#board size
+BRD,40,30, 
+
+# components
+COB, U1, AT28C16
+COB, U2, AT28C16
+COB, U3, AT28C16
+
+COB, U4, 74HC574
+COB, U5, 74HC574
+COB, U6, 74HC574
+COB, U7, 74HC245
+
+COB, U8, 74HC393
+COB, U9, 74HC74
+
+COB, U10, 74HC00
+COB, U11, 74HC00
+COB, U12, 74HC00
+
+U1,0,dynamic
+U2,0,dynamic
+U3,0,dynamic
+U4,0,dynamic
+U5,0,dynamic
+U6,0,dynamic
+U7,0,dynamic
+U8,0,dynamic
+U9,0,dynamic
+U10,0,dynamic
+U11,0,dynamic
+U12,0,dynamic
+

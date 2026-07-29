@@ -1,0 +1,28 @@
+
+Quero o desenvolvimento de um compilador/roteador para placas universais de Wire Wrap (matriz de furos de 0.1 inch / 2.54mm) escrito em AWK.
+
+Aqui estão as especificações do sistema:
+
+1. ARQUIVOS DE ENTRADA (CSV separados por vírgula):
+   - componentes.csv: colunas [cob,tipo,pins,name]. cob é o identificador do componente. tipo de componente e pode ser: DIP03 para dip de 0.3 inch, DIP06 para dip de 0.6 inch, SIL para single in line, DSC para componentes discretos de dois pinos e PIN, quando o tipo for PIN, o campo pins indica o numero do pino e o campo name indica a nome conforme o datasheet.
+   - netlist.csv: colunas [cob,pin,wire]. Quando o campo pin for 0, o campo wire indica se o componente é fixo com "anchor_X_Y" sendo X e Y a posição ou para calculo do posicionamento com dynamic. O campo "wire" agrupa os barramentos de forma flexível usando nomes de redes ou nomes de pinos lógicos. se o cob for BRD, indica a PCB board e pin é o tamanho em X e wire é o tamanho em Y.
+
+2. REGRAS DE ROTEAMENTO E SIMULAÇÃO:
+   - Usar no maximo dois fios por pino.
+   - Usar o Espaçamento minimo de 0.3 inch entre os componentes.
+   - Usar o Algoritmo Force-Directed Placement (forças direcionadas) para achar a melhor posição dos componentes em coordenadas (X,Y) contínuas e arredondamento (Snap) para furos discretos inteiros com laço anticolisão secundário.
+   - Cálculo Daisy-Chain (cascata) inteligente ponto a ponto por distância Manhattan para minimizar o comprimento do fio Kynar AWG 30 e evitar acúmulo de fios por pino. 
+   - Ordenação de fiação por níveis estritos de prioridade industrial de montagem: Nível 1 (Power/Energia: VBAT, VREG, VCC, VDD, VSS, GND, DGND, AGND), Nível 2 (Dados: data), Nível 3 (Endereços: address), Nível 4 (Controle: control), Nível 5 (Analogicos: analog), Nível 6 (Sinais Extras/Gerais) e Nível 7 (Diagnóstico de Pinos Flutuantes/Desconectados).
+   - Algoritmo de Roteamento Ortogonal (Manhattan Puro) para a montagem wire-wrap mapeando rotas congestionadas e se necessario usar algoritmo de roteamento A-star.
+   - Validação fisica de empilhamento, com indicação de conexao inferior e superior.
+   - Implementar cálculo de indutância e ruído (Crosstalk).
+
+3. RELATÓRIOS E SAÍDAS:
+   - Relatorio 1: Lista operacional do posicionamento dos componentes na pcb board.
+   - Relatorio 2: Lista operacional de conexoes wire wrap por ordem de prioridade em daisy-chain
+   - Relatório 3: Matriz gráfica ASCII no terminal, onde os furos de alimentação de energia são explicitamente destacados com "+" para VCC, "-" para GND e "1" para o pino 1 dos componentes, representando a visao dos componentes.
+   - Relatório 4: Lista operacional de corte e decapagem (com 25mm de strip automático e 20% de folga) impressa por ordem de prioridade no console e exportada para uma planilha CSV.
+   - Relatório 5 (SVG): Geração síncrona do arquivo vetorial "placa_layout.svg" em escala real de 300 DPI (30 pixels por furo), com réguas numéricas de borda comerciais, corpos de componentes integrados e anéis coloridos de identificação diferencial de energia (Vermelho para VCC, Azul para GND, Prateado para sinais). O SVG aceita o parâmetro "-v MIRROR_X=1" para gerar a perspectiva invertida horizontal do lado das soldas (Bottom view).
+
+gerar o script awk e indicar sugestoes.
+
