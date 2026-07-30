@@ -1,0 +1,63 @@
+
+Você é um engenheiro de software especialista em EDA (Electronic Design Automation) e linguagem AWK. 
+
+Sua tarefa é gerar o código completo e funcional de um Compilador e Roteador de PCBs modular escrito inteiramente em AWK para a tecnologia Wire-Wrap (grade de 0.1" / 2.54mm), capaz de realizar posicionamento, roteamento Manhattan, análise de física/EMI (Twist Pair e Z-Stacking) e geração de diagramas vetoriais SVG em escala real (300 DPI).
+
+---
+
+### 1. REGRAS DA ARQUITETURA E EXECUÇÃO
+1. **Linguagem**: AWK puro (compatível com gawk, mawk e nawk) sem dependências externas.
+2. **Modularidade**: O projeto é composto por 6 módulos sequenciais (`01_parser.awk` até `06_svg.awk`).
+3. **Escopo e Orquestração**:
+   - Apenas o último módulo (`06_svg.awk`) deve conter a cláusula `END`. Ele atua como orquestrador final, invocando as funções de relatório e renderização.
+   - Os módulos 01 a 05 devem conter apenas funções e regras de processamento sem blocos `END` que encerrem a execução prematuramente.
+   - Funções auxiliares de cálculo de coordenadas de pinos devem ser auto-referenciadas localmente em módulos que dependem delas para garantir autonomia.
+
+---
+
+### 2. ESPECIFICAÇÃO DOS MÓDULOS
+
+#### Módulo 01: `01_parser.awk` (Parser de Netlist e Biblioteca)
+- Processa os arquivos CSV de entrada (`componentes.csv` e `netlist.csv`).
+- Carrega a biblioteca de encapsulamentos (DIP8, DIP14, DIP16, SIP, Passivos).
+- Mapeia o de-para entre nomes de pinos simbólicos (ex: VCC, GND, IN1) e seus números físicos.
+- Estrutura as instâncias de componentes e lista de redes com níveis de prioridade (1 a 7).
+
+#### Módulo 02: `02_validator.awk` (Validador de Regras Elétricas / DRC)
+- Valida o netlist contra curto-circuitos e pinos flutuantes.
+- Garante distância mínima de folga (clearance de 3 furos na grade).
+- Checa consistência de encapsulamentos definidos na biblioteca.
+
+#### Módulo 03: `03_placement.awk` (Posicionador Físico)
+- Posiciona componentes na matriz universal de 0.1" usando force-directed/grid allocation.
+- Calcula automaticamente as dimensões totais da placa (`board_w`, `board_h`).
+- Implementa a função global/local `get_pin_grid_coords(part, pin_id, out_coords)` para traduzir `Componente-Pino` em coordenadas físicas `(X, Y)` na grade.
+
+#### Módulo 04: `04_router.awk` (Roteador de Conexões)
+- Aplica roteamento Manhattan com algoritmo de otimização Daisy-Chain (TSP) por rede.
+- Determina as conexões ponto-a-ponto entre os pinos das redes.
+- Identifica redes de alta frequência (Prioridade >= 4) que exigem par trançado (Twist Pair) com GND para mitigação de EMI/Crosstalk.
+
+#### Módulo 05: `05_report.awk` (Física, Z-Stacking e Análise EMI)
+- Contém a função `generate_report()`.
+- **Cálculo Físico**: Mede a distância Manhattan exata em furos ($0.1"$) e converte para comprimento real de fio em polegadas e centímetros.
+- **Z-Stacking**: Controla o empilhamento vertical nos pinos de Wire-Wrap (máximo de 2 níveis por coluna de pino). Emite alertas `[ALERTA: Z>2!]` se a capacidade física for violada.
+- **Relatório**: Exibe a tabela detalhada de conexões, distâncias, níveis Z e indicação de Par Trançado (Twist).
+
+#### Módulo 06: `06_svg.awk` (Renderizador Vetorial 300 DPI e Orquestrador)
+- Define parâmetros para 300 DPI ($0.1" = 30\text{px}$, margem $= 60\text{px}$, raio do furo $= 6\text{px}$).
+- Função `render_svg("top")`: Renderiza o lado dos componentes (silkscreen, corpos DIP/SIP, chanfro do pino 1, nomes dos CIs e matriz de pads/furos).
+- Função `render_svg("bottom")`: Renderiza o lado das conexões com **espelhamento horizontal no eixo X** (visão real de montagem Wire-Wrap) e linhas coloridas codificadas por prioridade.
+- **Bloco `END` Único**: Chame `generate_report()`, `render_svg("top")` e `render_svg("bottom")`.
+
+---
+
+### 3. FORMATO DOS ARQUIVOS DE ENTRADA (CSVs)
+
+**`componentes.csv`**:
+```csv
+Instancia,Encapsulamento
+U1,DIP14
+U2,DIP16
+R1,SIP2
+C1,SIP2
