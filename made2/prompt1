@@ -1,0 +1,69 @@
+Crie um script completo em AWK modularizado e bem comentado para processamento, validação e roteamento físico de netlists e componentes em placas universais de wire wrap (furos com espaçamento padrão de 0.1'').
+
+O script deve ler dois arquivos passados na linha de comando (`ARGV[1]` e `ARGV[2]`) e executar o fluxo descrito a seguir:
+
+---
+
+### 1. Leitura do Arquivo de Componentes (`ARGV[1]`)
+Processar linhas de 4 campos separadas por espaços/abas (`name type pins pack`):
+
+* **Cabeçalho do Componente (`type` em DIP, SIL, DSC):**
+  - Armazenar o invólucro (`type`), total de pinos (`pins`) e tamanho da embalagem (`pack`) associados ao componente base.
+* **Mapeamento de Pinos (`type == "PIN"`):**
+  - `p3` indica o número do pino e `p4` indica o nome/alias do pino (ex: VCC, GND, IN1).
+  - **Regra Crucial:** As linhas `PIN` não devem sobrescrever o tipo do componente base (DIP/SIL/DSC).
+  - Criar mapeamento bidirecional para busca rápida:
+    1. `(componente_base + numero_pino) -> nome_pino`
+    2. `(componente_base + nome_pino) -> numero_pino`
+
+---
+
+### 2. Leitura da Netlist (`ARGV[2]`)
+Processar linhas de 3 campos (`code pin wire`):
+
+* **Configuração da Placa (`code == "BRD"`):**
+  - Registrar as dimensões X e Y da placa universal em furos.
+* **Instanciação de Componente (`code == "COB"`):**
+  - `pin` é o ID da instância (ex: IC1) e `wire` é o componente base na biblioteca. Validar se o componente base foi declarado no Arquivo 1.
+* **Posicionamento e Conexões por Instância:**
+  - **Se `pin == "0"` (Posicionamento):**
+    - Se `wire` for no formato `anchor_X_Y`, extrair as coordenadas inteiras X e Y e marcar como `FIXO`.
+    - Se `wire` for `dynamic`, marcar a instância como `DINÂMICO`.
+    - Linhas de pino 0 não entram nas listas de redes elétricas (nets).
+  - **Se `pin != "0"` (Conexão Elétrica / Net):**
+    - `pin` pode ser tanto o NÚMERO quanto o NOME do pino.
+    - Fazer a busca bidirecional usando a biblioteca para descobrir ambos (NÚMERO e NOME do pino).
+    - Registrar a conexão associando ao nome da rede (`wire`).
+
+---
+
+### 3. Algoritmo de Posicionamento FDP (Force-Directed Placement)
+No bloco `END`, executar o algoritmo de simulação física antes de gerar o relatório:
+
+1. **Forças de Atração:** Conexões de redes elétricas (nets) atraem os componentes para minimizar o comprimento dos fios de wire wrap.
+2. **Forças de Repulsão:** Todos os componentes repelem-se mutuamente para evitar aglomerações.
+3. **Garantia de Anticolisão Secundária:** Garantir uma distância mínima rigorosa de **0.3 polegadas (3 furos de grid)** entre quaisquer pinos ou corpos de componentes.
+4. **Discretização (Snap to Grid):** Converter as coordenadas contínuas calculadas pela física em coordenadas inteiras discretas $(X, Y)$ correspondentes aos furos da placa.
+
+---
+
+### 4. Relatórios e Formatação da Saída (Bloco `END`)
+Exibir um relatório legível no terminal composto por 5 seções sequenciais:
+
+1. **Especificações da Placa (BRD):** Dimensões X, Y e total de furos da placa.
+2. **Componentes Instanciados (COB):** Tabela contendo `INSTÂNCIA | BASE | TIPO | PINOS | POSICIONAMENTO`.
+3. **Layout Final e Posição X,Y de Todos os Pinos:**
+   - Exibir a coordenada base $(X,Y)$ de cada instância.
+   - **Mapear pino a pino:** Calcular e detalhar a posição física exata $(X, Y)$ de **cada pino individual** do componente de acordo com a geometria do seu invólucro (ex: distribuição das duas fileiras para DIPs com largura de 0.3", ou alinhamento para SILs/DSCs).
+4. **Resumo das Redes Mapeadas (Nets):** Tabela detalhada das redes de wire wrap exibindo `REDE | COMPONENTE | Nº PINO | NOME DO PINO`.
+5. **Representação Gráfica ASCII da Placa:**
+   - Renderizar o mapa/matriz de furos da placa universal usando caracteres no terminal.
+   - Furos vazios devem ser representados por pontos (`.`) e furos ocupados por pinos de componentes devem exibir a inicial identificadora da instância.
+
+---
+
+### Requisitos Técnicos
+- Utilizar `FS = "[ \t]+"` para lidar com múltiplos espaços ou tabulações.
+- Garantir escopo seguro de funções AWK com variáveis locais declaradas no cabeçalho.
+- Utilizar `SUBSEP` para chaves compostas em arrays multidimensionais simulados.
+

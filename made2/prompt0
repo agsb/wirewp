@@ -1,0 +1,81 @@
+Crie um script em AWK modularizado e comentado para processamento e validação de netlists e componentes voltados para roteamento de wire wrap em placa universal (com furos de 0,1'').
+
+O script deve ler dois arquivos passados pela linha de comando (`ARGV[1]` e `ARGV[2]`) e seguir estritamente o fluxo e as regras abaixo:
+
+---
+
+### 1. Leitura do Arquivo de Componentes (`ARGV[1]`)
+Cada linha pode conter 4 campos separados por espaços ou tabulações (`name type pins pack`):
+
+* **Linhas de Cabeçalho/Encapsulamento (`type` em DIP, SIL, DSC):**
+  - `name`: Nome/designativo do componente base na biblioteca.
+  - `type`: Tipo do invólucro ("DIP", "SIL", "DSC").
+  - `pins`: Número total de pinos.
+  - `pack`: Tamanho em décimos de polegada ($0,1'').
+  - *Regra:* Armazenar o tipo, total de pinos e tamanho associados ao componente base.
+
+* **Linhas de Pinos (`type == "PIN"`):**
+  - `name`: Designativo do componente base.
+  - `type`: Literal "PIN".
+  - `pins`: Número do pino individual no componente.
+  - `pack`: Nome/Alias do pino conforme o datasheet (ex: `VCC`, `GND`, `IN1`).
+  - *Regra Importante:* As linhas PIN NÃO devem sobrescrever o tipo de encapsulamento principal (DIP/SIL/DSC). Deve-se armazenar um mapeamento bidirecional para o componente base:
+    1. `(componente_base + numero_pino) -> nome_pino`
+    2. `(componente_base + nome_pino) -> numero_pino`
+
+---
+
+### 2. Leitura do Arquivo de Netlist (`ARGV[2]`)
+Contém linhas com 3 campos (`code pin wire`):
+
+* **Configuração da Placa (`code == "BRD"`):**
+  - `pin`: Tamanho em X (furos).
+  - `wire`: Tamanho em Y (furos).
+  - *Regra:* Armazenar as dimensões da placa universal.
+
+* **Instanciação de Componente (`code == "COB"`):**
+  - `pin`: Identificador da instância na placa (ex: `IC1`, `RES1`).
+  - `wire`: Nome do componente base definido na biblioteca (`ARGV[1]`).
+  - *Regra/Validação:* Verificar se o componente base existe na biblioteca carregada no Arquivo 1. Exibir alerta no `stderr` caso não exista.
+
+* **Posicionamento e Conexões Elétricas (`code` igual a um ID instanciado por COB):**
+  - **Se `pin == "0"` (Posicionamento):**
+    - Se `wire` estiver no padrão `anchor_X_Y`, extrair as coordenadas inteiras X e Y (usando uma função customizada com `split()` seguro).
+    - Se `wire == "dynamic"`, registrar como posição dinâmica.
+    - *Regra:* Linhas com `pin == "0"` NÃO entram na tabela de redes elétricas (nets).
+  - **Se `pin != "0"` (Conexão Elétrica / Net):**
+    - `pin`: Pode ser o número do pino (ex: `14`) OU o nome do pino (ex: `VCC`).
+    - `wire`: Nome da rede (net) de wire wrap.
+    - *Regra de Busca Bidirecional:* O script deve usar o componente base da instância para resolver o pino no Arquivo 1:
+      - Se a netlist passar o NOME do pino, o script busca o NÚMERO do pino correspondente no Arquivo 1.
+      - Se a netlist passar o NÚMERO do pino, o script busca o NOME do pino correspondente no Arquivo 1.
+      - Se não encontrar, preencher o campo faltante com `"N/A"`.
+
+* **Tratamento de Alertas:**
+  - Exibir avisos no `stderr` para códigos ou instâncias não declaradas previamente, ou linhas malformadas.
+
+---
+
+### 3. Formatação da Saída (Bloco `END`)
+Exibir um relatório legível no terminal contendo 3 seções:
+
+1. **Especificações da Placa (BRD):**
+   - Exibir dimensões X e Y em furos e o total de furos da área útil.
+
+2. **Tabela de Instâncias Declaradas (COB):**
+   - Colunas: `INSTÂNCIA | BASE | TIPO | PINOS | POSICIONAMENTO`
+   - O campo `TIPO` deve obrigatoriamente exibir o invólucro correto (DIP/SIL/DSC) vindo do Arquivo 1.
+   - O campo `POSICIONAMENTO` deve indicar `FIXO (X:..., Y:...)` ou `DINÂMICO`.
+
+3. **Resumo das Redes Mapeadas (Nets):**
+   - Colunas: `REDE (NET) | COMPONENTE | Nº PINO | NOME DO PINO`
+   - Exibir com clareza o número físico do pino na coluna `Nº PINO` e o nome correspondente do datasheet na coluna `NOME DO PINO`.
+
+---
+
+### Requisitos Técnicos
+- O código deve ser modularizado (usar funções para parsing de anchors).
+- Uso correto e seguro de `SUBSEP` para chaves multidimensionais simuladas em arrays AWK.
+- Tratar variáveis locais em funções AWK (declarando-as após espaços no cabeçalho da função).
+- Código totalmente comentado em português.
+
