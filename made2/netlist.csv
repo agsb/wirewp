@@ -2,7 +2,7 @@
 # cob pin wire
 
 #board size
-BRD 40 30 
+BRD 60 40 
 
 # components
 COB U1 AT28C16
