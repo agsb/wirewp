@@ -1,0 +1,94 @@
+
+Atue como um Engenheiro de Hardware, Especialista em Automação EDA e Programador AWK Sênior. Sua tarefa é analisar o conjunto de especificações e criar a documentação completa / especificação técnica para o desenvolvimento de um compilador e roteador de PCBs universais de Wire-Wrap (matriz de furos de 0,1 polegada / 2,54 mm) escrito inteiramente em AWK.
+
+Abaixo estão as definições dos arquivos de entrada, regras de negócio, algoritmos de cálculo, parâmetros físicos e saídas esperadas:
+
+================================================================================
+1. ESPECIFICAÇÃO DOS ARQUIVOS DE ENTRADA (SSV)
+================================================================================
+
+O script deve processar dois arquivos, com campos separados por espaços, como argumento de linha de comando:
+
+A) componentes.csv:
+   - Estrutura de colunas: [pack, type, pins, name]
+   - 'pack': Identificador comercial do componente (ex: 74HC00, 74HC74, AT28C16, AT28C128).
+   - 'type': Formato físico do encapsulamento. Deve aceitar apenas:
+     * DIP: Dual In-line Package (fileira dupla de pinos).
+     * CON: Conector Package (conectores de fios paralelos).
+     * SIL: Single In-line Package (fileira única de pinos).
+     * DSC: Componente discreto de 2 ou mais pinos (resistores, capacitores, indutores, transistores,).
+     * PIN: Identificação dos pinos do componente.
+     Se o type for "PIN", entao pins é o numero do pino e name é o nome do pino, conforme o datasheet, e o pack deve ter sido definido antes
+     Se o type for "DIP", "CON", "SIL" ou "DSC" entao pins é o numero de pinos e name é a largura entre fileiras em 0.1 inch.
+     
+B) netlist.csv:
+   - Estrutura de colunas: [part, pin, wire]
+   - `part`: Identificador do componente no circuito (ex: U1, U2, R1, C1)
+   - `pin`: Nome do pino no componente. 
+   - `wire`: Nome da rede ou barramento associado ao pino.
+
+    Se o part for "BRD", entao o 'pin' é a largura em furos da placa (board_w) e o 'wire' é a altura em furos (board_h).
+    Se o part for "COB", entao o `pin` é o identificador do componente no circuito e o 'wire' é o identificador comercial do componente no arquivo de componentes.csv. validar se o componente existe no arquivo componentes.csv
+    Se o part for for um identificador de componente no circuito, definido com "COB":
+        Se o 'pin' for "0" entao se o 'wire' for "anchor_X_Y", o componente é considerado FIXO na coordenada de grid (X, Y), ou se 'wire' for "dynamic", o componente deve ter sua posição calculada automaticamente pelo roteador.
+        Se o 'pin' nao for "0" entao o 'pin' é o nome do pino do componente e 'wire' é o nome do barramento associado ao pino. Validar se o nome do pino esta definido como PIN do componente no arquivo de componentes.
+
+O script deve gerar relatorio dos componentes e circuitos, validando as informaçoes.
+
+
+================================================================================
+2. REGRAS DE ROTEAMENTO, FÍSICA E ALGORITMOS DE SIMULAÇÃO
+================================================================================
+
+A) Posicionamento e Geometria (Placement):
+   - Algoritmo Force-Directed Placement: Calcular forças atrativas (molas para pinos conectados na mesma net) e repulsivas (para evitar sobreposição de componentes).
+   - Snap-to-Grid: Arredondar as coordenadas contínuas para furos inteiros do grid (2.54mm / 0.1").
+   - Restrição Anticolisão Secundária: Manter espaçamento mínimo físico de 0.3 polegadas (3 furos) entre corpos de componentes não ancorados.
+
+B) Roteamento e Empilhamento de Pinos (Routing & Stacking):
+   - Daisy-Chain Inteligente (TSP / Nearest-Neighbor): Agrupar pontos da mesma rede minimizando a distância Manhattan total ($|x_1 - x_2| + |y_1 - y_2|$).
+   - Limite Físico de Pinos: No máximo 2 fios empilhados por pino físico (Nível 1 inferior, Nível 2 superior). Alertar 'OVERWRAP' se exceder.
+   - Algoritmo Ortogonal (Manhattan Puro): Roteamento em ângulos retos ($X_1, Y_1 \to X_1, Y_2 \to X_2, Y_2$).
+
+C) Hierarquia Estrita de Prioridades de Montagem (1 a 7):
+   - Nível 1 (Power): Nets contendo VBAT, VREG, VCC, VDD, VSS, GND, DGND, AGND.
+   - Nível 2 (Dados): Nets D0-D7, DATA, etc.
+   - Nível 3 (Endereço): Nets A0-A15, ADDR, etc.
+   - Nível 4 (Controle): CS, CLK, WR, RD, EN, RESET, etc.
+   - Nível 5 (Analógicos): ANALOG, AIN, etc.
+   - Nível 6 (Gerais/Extras): Todas as outras conexões não classificadas.
+   - Nível 7 (Diagnóstico): Pinos flutuantes e desconectados.
+
+D) Estratégia Antiruído (Par Trançado / Twist) e Simulação Eletromagnética:
+   - Fios de Nível 4 (Controle/Clock) e Nível 5 (Analógicos) devem acoplar um fio paralelo de GND conectado ao pino de GND mais próximo (Par Trançado).
+   - O fio de par trançado deve ter uma margem geométrica adicional de +15% no seu comprimento devido à torção física.
+   - Cálculo de Indutância Estimada: $L \approx \text{comprimento\_mm} \times 0.82\text{ nH/mm}$.
+   - Cálculo de Crosstalk (Ruído): Fios normais recebem fator de $0.15\text{ mV/nH}$, enquanto pares trançados (Twist) sofrem redução drástica para $0.02\text{ mV/nH}$.
+
+================================================================================
+3. ESTRUTURA DE RELATÓRIOS E SAÍDAS OBRIGATÓRIAS
+================================================================================
+
+O script deve gerar automaticamente no terminal e exportar arquivos nas seguintes saídas:
+
+1. Relatório 1 (Console): Tabela operacional de posicionamento dos componentes (COB, Tipo, Pinos, Posição Grid X,Y e Status Fixo/Auto).
+2. Relatório 2 (Console): Lista operacional de conexões Wire-Wrap ordenada por prioridade (Nível 1 a 6), indicando Net, Origem, Destino, Nível de Empilhamento (Ex: S:1->D:2), Indutância, Crosstalk e Status.
+3. Relatório 3 (Console): Matriz gráfica em arte ASCII da placa (Visão dos Componentes/Top View). Destacar:
+   - '+' para furos de VCC/Alimentação
+   - '-' para furos de GND
+   - '1' para o Pino 1 dos CIs
+   - 'o' para pinos conectados comuns
+   - '?' para pinos flutuantes/desconectados
+   - '.' para furos livres da perfboard
+4. Relatório 4 (Console + CSV): Guia operacional de corte e decapagem para fio Kynar AWG 30:
+   - Posição no console + Exportação síncrona do arquivo 'corte_decapagem.csv'.
+   - Regra de Corte: Comprimento da Rota com 20% de folga extra + 25mm de decapagem automática para cada ponta ($2 \times 25\text{ mm} = 50\text{ mm}$).
+5. Relatório de Diagnóstico (Nível 7) (Console): Varredura completa de todos os componentes listados para alertar pinos sem nenhuma conexão vinculada no netlist (Pinos Flutuantes).
+6. Relatório 5 (Arquivo SVG "placa_layout.svg"):
+   - Geração vetorial síncrona em escala 1:1 a 300 DPI (30 pixels por furo / 0,1").
+   - Réguas numéricas de borda físicas graduadas.
+   - Desenho do corpo dos componentes (CIs DIP, conectores SIL).
+   - Anéis coloridos e rotas diferenciais: Vermelho para VCC, Azul para GND, Turquesa pontilhado para Pares Trançados (Twist) e Prateado para sinais gerais.
+   - Suporte ao argumento de execução AWK `-v MIRROR_X=1` para gerar a vista horizontalmente invertida do lado da fiação/solda (Bottom View / Wire-Wrap Side).
+
+Com base em todos os parâmetros acima, gere a documentação e especificação arquitetural completa deste compilador em AWK.
