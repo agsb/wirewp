@@ -1,120 +1,89 @@
 # ==============================================================================
-# MÓDULO 5: SIMULAÇÃO ELETROMAAGNÉTICA (EMI) E RELATÓRIO TÉCNICO
+# MÓDULO 5: ANÁLISE DE FÍSICA/EMI, Z-STACKING E GERADOR DE RELATÓRIO
 # ==============================================================================
 
-# Bloco final que dispara todo o fluxo computacional
-END {
-    # 1. Executa Validação
-    validate_system()
-
-    # 2. Executa Posicionamento Físico
-    run_placement()
-
-    # 3. Executa Roteamento
-    run_router()
-
-    # --- EMISSÃO DE RELATÓRIO COMPLETO ---
-    print "================================================================================"
-    print "            ESPECIFICAÇÃO DE MONTAGEM E RELATÓRIO WIRE-WRAP DE PCB              "
-    print "================================================================================"
-    print "TAMANHO DA PLACA: " board_w " x " board_h " furos (Matriz 0.1\" / 2.54mm)"
-    print "COMPONENTES INSTANCIADOS: " inst_count
-    print "================================================================================\n"
-
-    # --- SEÇÃO 1: BILL OF MATERIALS (BOM) & PLACEMENT ---
-    print "--- 1. POSICIONAMENTO FINAL DOS COMPONENTES (PLACEMENT) ---"
-    printf "%-8s %-12s %-8s %-10s %-12s\n", "PART", "PACOTE", "TIPO", "STATUS", "POSIÇÃO (X,Y)"
-    print "--------------------------------------------------------------------------------"
-    for (i = 1; i <= inst_count; i++) {
-        p = inst_list[i]
-        pack = inst_pack[p]
-        printf "%-8s %-12s %-8s %-10s (%d, %d)\n", p, pack, lib_type[pack], inst_status[p], inst_x[p], inst_y[p]
-    }
-    print "\n"
-
-    # --- SEÇÃO 2: INSTRUÇÕES DE FIAÇÃO WIRE-WRAP ---
-    print "--- 2. LISTA DE FIAÇÃO ORDENADA POR PRIORIDADE ---"
-    printf "%-6s %-10s %-14s %-14s %-8s %-8s %-10s\n", "PRIO", "NET", "ORIGEM (Z)", "DESTINO (Z)", "DIST(mm)", "TIPO", "ESTADO"
-    print "--------------------------------------------------------------------------------"
-
-    total_wire_len_mm = 0
-    max_crosstalk_mv = 0
-    critical_net = "N/A"
-
-    for (r = 1; r <= route_total; r++) {
-        net     = routes[r, "net"]
-        prio    = routes[r, "prio"]
-        from    = routes[r, "from"]
-        to      = routes[r, "to"]
-        g_len   = routes[r, "grid_len"]
-        is_tw   = routes[r, "is_twist"]
-        z1      = routes[r, "z1"]
-        z2      = routes[r, "z2"]
-
-        # Conversão de grid para mm (1 furo = 2.54mm)
-        len_mm = g_len * 2.54
-
-        # Se for Par Trançado, aplica o acréscimo de +20% no comprimento
-        if (is_tw == 1) {
-            len_mm *= 1.20
-            wire_type = "TWIST+GND"
-        } else {
-            wire_type = "NORMAL"
-        }
-
-        total_wire_len_mm += len_mm
-
-        # Cálculos de Simulação Eletromagnética
-        inductance_nH = len_mm * 0.82
-        if (is_tw == 1) {
-            crosstalk_mV = inductance_nH * 0.02
-        } else {
-            crosstalk_mV = inductance_nH * 0.15
-        }
-
-        if (crosstalk_mV > max_crosstalk_mv) {
-            max_crosstalk_mv = crosstalk_mV
-            critical_net = net
-        }
-
-        # Checagem de Erro de Empilhamento (Limite: 2 voltas por pino)
-        status_z = "OK"
-        if (z1 > 2 || z2 > 2) {
-            status_z = "OVERWRAP!"
-            ERR_COUNT++
-        }
-
-        from_str = sprintf("%s (Z%d)", from, z1)
-        to_str   = sprintf("%s (Z%d)", to, z2)
-
-        printf "NIVEL %d %-10s %-14s %-14s %-8.1f %-10s %-10s\n", prio, net, from_str, to_str, len_mm, wire_type, status_z
-    }
-    print "\n"
-
-    # --- SEÇÃO 3: DIAGNÓSTICO E ELETROMAGNETISMO ---
-    print "--- 3. SUMÁRIO ELETROMAGNÉTICO (EMI) E RECURSOS ---"
-    print "--------------------------------------------------------------------------------"
-    printf "COMPRIMENTO TOTAL DE FIO REQUERIDO : %.2f mm (%.2f metros)\n", total_wire_len_mm, total_wire_len_mm / 1000.0
-    printf "MAIOR NÍVEL DE RUÍDO (CROSSTALK)   : %.3f mV (Net: %s)\n", max_crosstalk_mv, critical_net
+# Calcula a distância Manhattan entre dois pinos
+function calc_manhattan_dist(f_part, f_pin, t_part, t_pin,    c1, c2) {
+    get_pin_grid_coords(f_part, f_pin, c1)
+    get_pin_grid_coords(t_part, t_pin, c2)
     
-    # Checagem final de pinos isolados / desconectados (Nível 7)
-    unconnected_count = 0
-    for (n = 1; n <= net_count; n++) {
-        net = net_list[n]
-        if (net_node_count[net] == 1) {
-            p = net_node_part[net, 1]
-            pin = net_node_pin[net, 1]
-            print "ALERTA [NÍVEL 7]: Pino isolado sem conexão -> Componente: " p ", Pino: " pin " (Net: " net ")"
-            unconnected_count++
-        }
-    }
-
-    print "================================================================================"
-    if (ERR_COUNT > 0) {
-        print "STATUS FINAL: CONCLUÍDO COM ALERTAS/ERROS (" ERR_COUNT " erros de Overwrap/Sistema)"
-    } else {
-        print "STATUS FINAL: ROTEAMENTO CONCLUÍDO COM SUCESSO (0 Erros Físicos)"
-    }
-    print "================================================================================"
+    dx = c1["x"] - c2["x"]
+    dy = c1["y"] - c2["y"]
+    if (dx < 0) dx = -dx
+    if (dy < 0) dy = -dy
+    return dx + dy
 }
 
+# Análise de Física, Verificação de Regras Wire-Wrap e EMI
+function generate_report(    r, net, prio, from, to, f_arr, t_arr, dist, total_len, wire_count) {
+    total_len = 0
+    wire_count = route_total
+    
+    # Limpa contadores de Z-stacking por pino
+    delete pin_z_stack
+
+    print "\n================================================================================"
+    print "                 RELATÓRIO COMPLETO DE COMPILAÇÃO E ANÁLISE EMI                 "
+    print "================================================================================"
+    printf "Dimensão da Placa: %d x %d furos (0.1\" / 2.54mm Grid Wire-Wrap)\n", board_w, board_h
+    printf "Total de Componentes: %d | Total de Conexões (Roteamentos): %d\n", inst_count, route_total
+    print "--------------------------------------------------------------------------------"
+    print "ID | REDE       | PRIO | DE          | PARA        | DIST(furos) | Z-LEVEL | TWIST?"
+    print "--------------------------------------------------------------------------------"
+
+    for (r = 1; r <= route_total; r++) {
+        net  = routes[r, "net"]
+        prio = routes[r, "prio"]
+        from = routes[r, "from"]
+        to   = routes[r, "to"]
+
+        split(from, f_arr, "-")
+        split(to, t_arr, "-")
+
+        # 1. Análise Físico-Espacial (Distância real na grade de 0.1")
+        dist = calc_manhattan_dist(f_arr[1], f_arr[2], t_arr[1], t_arr[2])
+        total_len += dist
+
+        # 2. Controle de Empilhamento Z (Z-Stacking: máximo 2 níveis por pino)
+        pin_z_stack[from]++
+        pin_z_stack[to]++
+        
+        z_level_f = pin_z_stack[from]
+        z_level_t = pin_z_stack[to]
+        
+        # Define nível máximo atingido nesta conexão
+        z_display = (z_level_f > z_level_t) ? z_level_f : z_level_t
+
+        # Flag de verificação de violação de limite físico do pino
+        z_warn = (z_level_f > 2 || z_level_t > 2) ? " [ALERTA: Z>2!]" : ""
+
+        # 3. Lógica EMI / Par Trançado (Twist Pair)
+        # Sinais de altíssima prioridade (Prio 4/5 - Relógios/Alta Frequência) exigem par trançado com GND
+        is_high_freq = (prio >= 4)
+        has_twist = (is_high_freq || routes[r, "twist"] == 1) ? "SIM (GND)" : "NÃO"
+
+        printf("%02d | %-10s |  %d   | %-11s | %-11s | %-11d | L%-6d%s | %s\n", 
+            r, net, prio, from, to, dist, z_display, z_warn, has_twist)
+    }
+
+    print "--------------------------------------------------------------------------------"
+    print "=== RESUMO DE ENGENHARIA E FÍSICA DA PLACA ==="
+    printf "Comprimento Total de Fio Requerido: %.2f polegadas (%.2f cm)\n", (total_len * 0.1), (total_len * 0.254)
+    printf "Média de Comprimento por Ligação:  %.2f polegadas\n", (wire_count > 0 ? (total_len / wire_count) * 0.1 : 0)
+    
+    # Validação de Segurança Física dos Pinos
+    violations = 0
+    for (p in pin_z_stack) {
+        if (pin_z_stack[p] > 2) {
+            print " [ERRO DE FISICA] Pino " p " excedeu o limite de 2 conexões Wire-Wrap (Empilhou " pin_z_stack[p] ")!"
+            violations++
+        }
+    }
+    
+    if (violations == 0) {
+        print " [OK] Verificação de Z-Stacking concluída sem violações físicas de pinos."
+    } else {
+        printf(" [FALHA] Encontradas %d violações de limite físico nos pinos!\n", violations)
+    }
+    print "================================================================================\n"
+}

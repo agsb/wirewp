@@ -52,7 +52,7 @@ awk -f 01_parser.awk \
     -f 03_placement.awk \
     -f 04_router.awk \
     -f 05_report.awk \
-    -f 06_svg.awk \
+     -f 06_svg.awk \
     "$COMP_FILE" "$NET_FILE"
 
 echo "--------------------------------------------------------------------------------"

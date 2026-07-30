@@ -1,24 +1,67 @@
 
 # ==============================================================================
-# MÓDULO 6: RENDERIZADOR VETORIAL SVG EM ESCALA REAL (300 DPI)
+# MÓDULO 6: RENDERIZADOR VETORIAL SVG EM ESCALA REAL (300 DPI) & ORQUESTRADOR
 # ==============================================================================
 
-function render_svg(view_mode) {
-    # Constantes físicas para 300 DPI
-    dpi = 300
-    pitch = 30           # 0.1 inch = 30px a 300 DPI
-    margin = 60          # Borda de 0.2 inch na imagem
-    pad_size = 24        # Tamanho do pad metálico da matriz
-    hole_r = 6           # Raio do furo (1.016mm / 0.04" de diâmetro)
+# Função auxiliar local para determinação de coordenadas de pinos na grade
+function svg_calc_pin_coords(part, pin_id, out_coords) {
+    pack = inst_pack[part]
+    
+    # Resolve se é nome simbólico (ex: VCC, GND) ou número direto do pino
+    if ((pack, pin_id) in lib_pin_num) {
+        p_num = lib_pin_num[pack, pin_id]
+    } else {
+        p_num = pin_id + 0
+    }
 
-    # Dimensões totais em pixels
+    base_x = inst_x[part]
+    base_y = inst_y[part]
+    type = lib_type[pack]
+    pins_tot = lib_pins_count[pack]
+    width = lib_width[pack]
+
+    if (type == "DIP") {
+        half = pins_tot / 2
+        if (p_num <= half) {
+            # Lado esquerdo do CI (descendo)
+            out_coords["x"] = base_x
+            out_coords["y"] = base_y + (p_num - 1)
+        } else {
+            # Lado direito do CI (subindo)
+            out_coords["x"] = base_x + width
+            out_coords["y"] = base_y + (pins_tot - p_num)
+        }
+    } else {
+        # Componente SIP ou Passivo
+        out_coords["x"] = base_x
+        out_coords["y"] = base_y + (p_num - 1)
+    }
+}
+
+# Gerador Vetorial SVG
+function render_svg(view_mode,    dpi, pitch, margin, pad_size, hole_r, svg_w, svg_h, 
+                                 filename, gx, gy, vx, px, py, r, prio, from, to, 
+                                 f_arr, t_arr, c1, c2, vx1, vx2, x1, y1, x2, y2, 
+                                 i, p, pack, type, pins_tot, width, bx, by, 
+                                 comp_w, comp_h, notch_x, notch_y, text_x, text_y) {
+    
+    # Parâmetros Físicos em 300 DPI
+    pitch = 30           # 0.1 inch = 30px
+    margin = 60          # Margem de borda de 0.2 inch (60px)
+    pad_size = 24        # Tamanho do ilhó/pad de solda
+    hole_r = 6           # Raio do furo passante
+
+    # Fallback de segurança para enquadramento da placa
+    if (board_w < 1) board_w = 20
+    if (board_h < 1) board_h = 20
+
     svg_w = (board_w * pitch) + (margin * 2)
     svg_h = (board_h * pitch) + (margin * 2)
 
     filename = "pcb_" view_mode ".svg"
-    print "=== GERANDO SVG: " filename " (Visão: " view_mode ", Resolução: 300 DPI) ===" > "/dev/stderr"
+    print "=== GERANDO VETOR SVG: " filename " (Visão: " view_mode ") ===" > "/dev/stderr"
 
-    # Cabeçalho SVG
+    # Cabeçalho do arquivo SVG
     print "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>" > filename
     print "<svg width=\"" svg_w "\" height=\"" svg_h "\" viewBox=\"0 0 " svg_w " " svg_h "\" xmlns=\"http://www.w3.org/2000/svg\">" > filename
     print "  <defs>" > filename
@@ -37,41 +80,39 @@ function render_svg(view_mode) {
     print "    </style>" > filename
     print "  </defs>" > filename
 
-    # 1. Placa de Fenolite / Epóxi
-    print "  <!-- PCB Base -->" > filename
+    # 1. Corpo da Placa (Placa de Circuito Universal)
+    print "  <!-- Base da PCB -->" > filename
     print "  <rect class=\"board\" x=\"0\" y=\"0\" width=\"" svg_w "\" height=\"" svg_h "\" rx=\"15\" />" > filename
 
-    # 2. Matriz Universal de Pads e Furos (Grid 0.1")
-    print "  <!-- Matriz de Pads e Furos Wire-Wrap -->" > filename
+    # 2. Matriz de Ilhós e Furos (Grade de 0.1")
+    print "  <!-- Matriz Universal Wire-Wrap -->" > filename
     for (gx = 1; gx <= board_w; gx++) {
         for (gy = 1; gy <= board_h; gy++) {
-            # Se a visão for BOTTOM (Mirror X), inverte a coordenada X visual da matriz
+            # Se for visão BOTTOM, espelha o eixo X para Wire-Wrap
             vx = (view_mode == "bottom") ? (board_w - gx + 1) : gx
             px = margin + ((vx - 1) * pitch)
             py = margin + ((gy - 1) * pitch)
 
-            # Desenha Pad Ilha de Solda + Furo
             print "  <rect class=\"pad\" x=\"" (px - pad_size/2) "\" y=\"" (py - pad_size/2) "\" width=\"" pad_size "\" height=\"" pad_size "\" rx=\"3\" />" > filename
             print "  <circle class=\"hole\" cx=\"" px "\" cy=\"" py "\" r=\"" hole_r "\" />" > filename
         }
     }
 
-    # 3. Renderização de Fiação se for Lado das Conexões (BOTTOM)
+    # 3. Lado das Conexões (BOTTOM / Wire-Wrap com Espelhamento)
     if (view_mode == "bottom") {
-        print "  <!-- Redes e Fiação Wire-Wrap (Lado Inferior) -->" > filename
+        print "  <!-- Fiação Wire-Wrap (Lado Inferior Espelhado) -->" > filename
         for (r = 1; r <= route_total; r++) {
-            net   = routes[r, "net"]
-            prio  = routes[r, "prio"]
-            from  = routes[r, "from"]
-            to    = routes[r, "to"]
+            prio = routes[r, "prio"]
+            from = routes[r, "from"]
+            to   = routes[r, "to"]
 
             split(from, f_arr, "-")
             split(to, t_arr, "-")
 
-            # Resolve Coordenadas Reais dos Pinos
-            get_pin_grid_coords(f_arr[1], f_arr[2], c1)
-            get_pin_grid_coords(t_arr[1], t_arr[2], c2)
+            svg_calc_pin_coords(f_arr[1], f_arr[2], c1)
+            svg_calc_pin_coords(t_arr[1], t_arr[2], c2)
 
+            # Aplicação de espelhamento horizontal no lado inferior
             vx1 = (board_w - c1["x"] + 1)
             vx2 = (board_w - c2["x"] + 1)
 
@@ -80,12 +121,11 @@ function render_svg(view_mode) {
             x2 = margin + ((vx2 - 1) * pitch)
             y2 = margin + ((c2["y"] - 1) * pitch)
 
-            # Desenha linha de fiação no canal
             print "  <line class=\"wire-" prio "\" x1=\"" x1 "\" y1=\"" y1 "\" x2=\"" x2 "\" y2=\"" y2 "\" />" > filename
         }
     }
 
-    # 4. Renderização dos Corpos dos Componentes (TOP VIEW)
+    # 4. Lado dos Componentes (TOP / Silkscreen)
     if (view_mode == "top") {
         print "  <!-- Silkscreen e Encapsulamento dos Componentes -->" > filename
         for (i = 1; i <= inst_count; i++) {
@@ -104,18 +144,16 @@ function render_svg(view_mode) {
             comp_w = (type == "DIP") ? ((width + 1) * pitch) : (1.5 * pitch)
             comp_h = (type == "DIP") ? (((pins_tot / 2) + 0.5) * pitch) : ((pins_tot + 0.5) * pitch)
 
-            # Corpo do Componente
             print "  <g id=\"" p "\">" > filename
             print "    <rect class=\"comp-body\" x=\"" px "\" y=\"" py "\" width=\"" comp_w "\" height=\"" comp_h "\" rx=\"5\" />" > filename
             
-            # Marcação do Pino 1 (Notch / Id)
+            # Chafrro/Marca do Pino 1 para CIs DIP
             if (type == "DIP") {
                 notch_x = px + (comp_w / 2)
                 notch_y = py
                 print "    <path d=\"M " (notch_x - 10) " " notch_y " A 10 10 0 0 0 " (notch_x + 10) " " notch_y "\" fill=\"#1a1a1a\" stroke=\"#444444\" />" > filename
             }
 
-            # Nome do Componente no Centro
             text_x = px + (comp_w / 2)
             text_y = py + (comp_h / 2) + 5
             print "    <text class=\"comp-text\" x=\"" text_x "\" y=\"" text_y "\">" p " (" pack ")</text>" > filename
@@ -127,10 +165,14 @@ function render_svg(view_mode) {
     close(filename)
 }
 
-# Invocação Automática no Bloco END estendido
+# ==============================================================================
+# ÚNICO PONTO DE ENTRADA E ORQUESTRADOR DO PIPELINE
+# ==============================================================================
 END {
-    # Gera ambas as vistas automaticamente
-    render_svg("top")      # Visão Superior
-    render_svg("bottom")   # Visão Inferior Espelhada em X (Fiação Wire-Wrap)
-}
+    # 1. Gera o relatório completo de física, rotas e análise EMI (Módulo 5)
+    generate_report()
 
+    # 2. Renderiza as saídas vetoriais em escala real (Módulo 6)
+    render_svg("top")
+    render_svg("bottom")
+}
