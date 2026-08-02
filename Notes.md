@@ -1,5 +1,11 @@
 # Notes
 
+## GEMINI
+
+tests with Google GEMINI in directory makes. The make9 have working AWK scripts 
+
+gemini insists to not use xmlns="http://www.w3.org/2000/svg"
+
 ## References
 
 https://www.allelcoelec.com/blog/wire-wrapping-a-comprehensive-guide.html
