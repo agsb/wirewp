@@ -1,5 +1,5 @@
 # ==============================================================================
-# MÓDULO 07: EXPORTADOR DE SUMÁRIO HIERÁRQUICO DE FIAÇÃO (07_export.awk)
+# MÓDULO 07: EXPORTADOR DE SUMÁRIO HIERÁRQUICO DE FIAÇÃO SEQUENCIAL (07_export.awk)
 # ==============================================================================
 
 # Função auxiliar para arredondamento para o próximo múltiplo inteiro superior (Ceil)
@@ -11,19 +11,22 @@ function round_to_ceil_cm(value,    int_part) {
     return int_part == 0 ? 1 : int_part
 }
 
-function generate_routing_summary(    i, u_net, prio, p1, p2, dist_grid, dist_inch, dist_cm, dist_slack_cm, part1, pin1, part2, pin2, model1, model2, phys_pin1, phys_pin2, sum_file, txt_color, current_prio_group, z1, z2, z1_label, z2_label, z_alert, final_std_cm, final_slack_cm, wrap_wrap_hardware_allowance_cm, SUM_TOTAL_STD, SUM_TOTAL_SLACK) {
+function generate_routing_summary(    i, u_net, prio, p1, p2, dist_grid, dist_inch, dist_cm, dist_slack_cm, part1, pin1, part2, pin2, model1, model2, phys_pin1, phys_pin2, sum_file, txt_color, current_prio_group, z1, z2, z1_label, z2_label, z_alert, final_std_cm, final_slack_cm, wrap_wrap_hardware_allowance_cm, SUM_TOTAL_STD, SUM_TOTAL_SLACK, WIRE_INDEX) {
     
     sum_file = "board_routing_summary.txt"
     SUM_TOTAL_STD = 0
     SUM_TOTAL_SLACK = 0
+    
+    # REQUISITO EXIGIDO: Inicialização do contador de execução sequencial de fiação
+    WIRE_INDEX = 0
 
-    print "==================================================================================================================" > sum_file
-    print "                     SUMÁRIO DE DIRETRIZES DE FIAÇÃO E ENROLAMENTO MANUAL WIRE-WRAP" > sum_file
-    print "                         (ORDENADO POR PRIORIDADE CLASSE DE BARRAMENTOS HIERÁRQUICOS)" > sum_file
-    print "                   [INCLUSO: 6 VOLTAS NUAS + 2 VOLTAS ENCAPADAS POR EXTREMIDADE DE CONEXÃO]" > sum_file
-    print "==================================================================================================================" > sum_file
-    printf "%-12s %-8s %-12s %-6s %-8s %-12s %-6s %-12s %-12s %-10s %-10s\n", "REDE", "DE_COMP", "PIN_1(DS)", "Z1_POS", "PARA_CMP", "PIN_2(DS)", "Z2_POS", "COMP_STD(cm)", "FOLGA_20%(cm)", "COR_FIO", "STATUS_P" >> sum_file
-    print "------------------------------------------------------------------------------------------------------------------" >> sum_file
+    print "==========================================================================================================================" > sum_file
+    print "                          SUMÁRIO DE DIRETRIZES DE FIAÇÃO E ENROLAMENTO MANUAL WIRE-WRAP" >> sum_file
+    print "                              (GUIA COMPILADO PASSO-A-PASSO EM ORDEM CRONOLÓGICA DE EXECUÇÃO)" >> sum_file
+    print "                        [INCLUSO: 6 VOLTAS NUAS + 2 VOLTAS ENCAPADAS POR EXTREMIDADE DE CONEXÃO]" >> sum_file
+    print "==========================================================================================================================" >> sum_file
+    printf "%-6s %-12s %-8s %-12s %-6s %-8s %-12s %-6s %-12s %-12s %-10s %-10s\n", "PASSO", "REDE", "DE_COMP", "PIN_1(DS)", "Z1_POS", "PARA_CMP", "PIN_2(DS)", "Z2_POS", "COMP_STD(cm)", "FOLGA_20%(cm)", "COR_FIO", "STATUS_P" >> sum_file
+    print "--------------------------------------------------------------------------------------------------------------------------" >> sum_file
 
     # Constante física industrial de hardware por segmento (2 pinos): 4.544 cm
     wrap_wrap_hardware_allowance_cm = 4.544
@@ -35,9 +38,9 @@ function generate_routing_summary(    i, u_net, prio, p1, p2, dist_grid, dist_in
         else if (current_prio_group == 3) print "\n[ CLASSE 3 - BARRAMENTO DE ENDEREÇAMENTO ]" >> sum_file
         else if (current_prio_group == 4) print "\n[ CLASSE 4 - LINHAS DE CONTROLE CRÍTICO / CLOCK ]" >> sum_file
         else if (current_prio_group == 5) print "\n[ CLASSE 5 - SINAIS ANALÓGICOS SENSÍVEIS (TWIST) ]" >> sum_file
-        else if (current_prio_group == 6) print "\n[ CLASSE 6 - REDES LOGICAS GERAIS E INTERCONEXÕES ]" >> sum_file
+        else if (current_prio_group == 6) print "\n[ CLASSE 6 - REDES LÓGICAS GERAIS E INTERCONEXÕES ]" >> sum_file
         else if (current_prio_group == 7) print "\n[ CLASSE 7 - DIAGNÓSTICOS / TERMINAIS ISOLADOS ]" >> sum_file
-        print "------------------------------------------------------------------------------------------------------------------" >> sum_file
+        print "--------------------------------------------------------------------------------------------------------------------------" >> sum_file
 
         for (i = 1; i <= ROUTE_COUNT; i++) {
             u_net = ROUTES[i, "net"]
@@ -50,8 +53,9 @@ function generate_routing_summary(    i, u_net, prio, p1, p2, dist_grid, dist_in
             part2 = ROUTES[i, "p2_part"]
             pin2  = ROUTES[i, "p2_pin_num"]
             
-            # CORREÇÃO CRÍTICA: Remove o bloqueio anterior 'continue' e permite processar as rotas de capacitores.
-            # No entanto, os capacitores apenas entram na Classe 1 (Alimentação). Isolamos as regras cromáticas e Z deles:
+            # Incrementa o número do passo atual de fiação cronológica
+            WIRE_INDEX++
+
             if (part1 ~ /^C_/ || part2 ~ /^C_/) {
                 model1 = COMP_INST_MODEL[part1]
                 model2 = COMP_INST_MODEL[part2]
@@ -61,12 +65,10 @@ function generate_routing_summary(    i, u_net, prio, p1, p2, dist_grid, dist_in
                 if (u_net ~ /^(GND|DGND|VSS|AGND)$/) txt_color = "PRETO";
                 else txt_color = "VERMELHO";
                 
-                # Força o capacitor a fixar-se na base para melhor barreira contra ruídos EMI
                 z1_label = "BAIXO"
                 z2_label = "BAIXO"
                 z_alert = "OK"
             } else {
-                # Fluxo normal para Circuitos Integrados Reais
                 model1 = COMP_INST_MODEL[part1]
                 model2 = COMP_INST_MODEL[part2]
                 
@@ -111,12 +113,13 @@ function generate_routing_summary(    i, u_net, prio, p1, p2, dist_grid, dist_in
             SUM_TOTAL_STD   += final_std_cm
             SUM_TOTAL_SLACK += final_slack_cm
 
-            printf "%-12s %-8s %-12s %-6s %-8s %-12s %-6s %-12d %-12d %-10s %-10s\n",
-                u_net, part1, phys_pin1 " (" pin1 ")", z1_label, part2, phys_pin2 " (" pin2 ")", z2_label, final_std_cm, final_slack_cm, txt_color, z_alert >> sum_file
+            # Adicionada a coluna %-6d referenciando o número sequencial WIRE_INDEX
+            printf "%-6d %-12s %-8s %-12s %-6s %-8s %-12s %-6s %-12d %-12d %-10s %-10s\n",
+                WIRE_INDEX, u_net, part1, phys_pin1 " (" pin1 ")", z1_label, part2, phys_pin2 " (" pin2 ")", z2_label, final_std_cm, final_slack_cm, txt_color, z_alert >> sum_file
         }
     }
     
-    print "\n------------------------------------------------------------------------------------------------------------------" >> sum_file
+    print "\n--------------------------------------------------------------------------------------------------------------------------" >> sum_file
     close(sum_file)
     
     print "------------------------------------------------------------------------------------------------------"

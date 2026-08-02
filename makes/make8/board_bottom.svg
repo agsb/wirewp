@@ -1,0 +1,1600 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="360px" height="3210px" viewBox="0 0 360 3210">
+  <defs>
+    <style type="text/css">
+      text { font-family: 'Courier New', Courier, monospace; user-select: none; text-rendering: optimizeLegibility; }
+      .wire-trace { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .pad-hole { fill: rgb(17,17,11); stroke: rgb(212,175,55); stroke-width: 1; }
+    </style>
+  </defs>
+  <g id="pcb-substrate">
+    <rect width='360' height='3210' fill='rgb(26,51,30)' stroke='rgb(15,31,18)' stroke-width='4'/>
+  </g>
+  <g id="universal-grid-matrix">
+    <circle cx='330' cy='30' r='3' class='pad-hole'/>
+    <circle cx='330' cy='60' r='3' class='pad-hole'/>
+    <circle cx='330' cy='90' r='3' class='pad-hole'/>
+    <circle cx='330' cy='120' r='3' class='pad-hole'/>
+    <circle cx='330' cy='150' r='3' class='pad-hole'/>
+    <circle cx='330' cy='180' r='3' class='pad-hole'/>
+    <circle cx='330' cy='210' r='3' class='pad-hole'/>
+    <circle cx='330' cy='240' r='3' class='pad-hole'/>
+    <circle cx='330' cy='270' r='3' class='pad-hole'/>
+    <circle cx='330' cy='300' r='3' class='pad-hole'/>
+    <circle cx='330' cy='330' r='3' class='pad-hole'/>
+    <circle cx='330' cy='360' r='3' class='pad-hole'/>
+    <circle cx='330' cy='390' r='3' class='pad-hole'/>
+    <circle cx='330' cy='420' r='3' class='pad-hole'/>
+    <circle cx='330' cy='450' r='3' class='pad-hole'/>
+    <circle cx='330' cy='480' r='3' class='pad-hole'/>
+    <circle cx='330' cy='510' r='3' class='pad-hole'/>
+    <circle cx='330' cy='540' r='3' class='pad-hole'/>
+    <circle cx='330' cy='570' r='3' class='pad-hole'/>
+    <circle cx='330' cy='600' r='3' class='pad-hole'/>
+    <circle cx='330' cy='630' r='3' class='pad-hole'/>
+    <circle cx='330' cy='660' r='3' class='pad-hole'/>
+    <circle cx='330' cy='690' r='3' class='pad-hole'/>
+    <circle cx='330' cy='720' r='3' class='pad-hole'/>
+    <circle cx='330' cy='750' r='3' class='pad-hole'/>
+    <circle cx='330' cy='780' r='3' class='pad-hole'/>
+    <circle cx='330' cy='810' r='3' class='pad-hole'/>
+    <circle cx='330' cy='840' r='3' class='pad-hole'/>
+    <circle cx='330' cy='870' r='3' class='pad-hole'/>
+    <circle cx='330' cy='900' r='3' class='pad-hole'/>
+    <circle cx='330' cy='930' r='3' class='pad-hole'/>
+    <circle cx='330' cy='960' r='3' class='pad-hole'/>
+    <circle cx='330' cy='990' r='3' class='pad-hole'/>
+    <circle cx='330' cy='1020' r='3' class='pad-hole'/>
+    <circle cx='330' cy='1050' r='3' class='pad-hole'/>
+    <circle cx='330' cy='1080' r='3' class='pad-hole'/>
+    <circle cx='330' cy='1110' r='3' class='pad-hole'/>
+    <circle cx='330' cy='1140' r='3' class='pad-hole'/>
+    <circle cx='330' cy='1170' r='3' class='pad-hole'/>
+    <circle cx='330' cy='1200' r='3' class='pad-hole'/>
+    <circle cx='330' cy='1230' r='3' class='pad-hole'/>
+    <circle cx='330' cy='1260' r='3' class='pad-hole'/>
+    <circle cx='330' cy='1290' r='3' class='pad-hole'/>
+    <circle cx='330' cy='1320' r='3' class='pad-hole'/>
+    <circle cx='330' cy='1350' r='3' class='pad-hole'/>
+    <circle cx='330' cy='1380' r='3' class='pad-hole'/>
+    <circle cx='330' cy='1410' r='3' class='pad-hole'/>
+    <circle cx='330' cy='1440' r='3' class='pad-hole'/>
+    <circle cx='330' cy='1470' r='3' class='pad-hole'/>
+    <circle cx='330' cy='1500' r='3' class='pad-hole'/>
+    <circle cx='330' cy='1530' r='3' class='pad-hole'/>
+    <circle cx='330' cy='1560' r='3' class='pad-hole'/>
+    <circle cx='330' cy='1590' r='3' class='pad-hole'/>
+    <circle cx='330' cy='1620' r='3' class='pad-hole'/>
+    <circle cx='330' cy='1650' r='3' class='pad-hole'/>
+    <circle cx='330' cy='1680' r='3' class='pad-hole'/>
+    <circle cx='330' cy='1710' r='3' class='pad-hole'/>
+    <circle cx='330' cy='1740' r='3' class='pad-hole'/>
+    <circle cx='330' cy='1770' r='3' class='pad-hole'/>
+    <circle cx='330' cy='1800' r='3' class='pad-hole'/>
+    <circle cx='330' cy='1830' r='3' class='pad-hole'/>
+    <circle cx='330' cy='1860' r='3' class='pad-hole'/>
+    <circle cx='330' cy='1890' r='3' class='pad-hole'/>
+    <circle cx='330' cy='1920' r='3' class='pad-hole'/>
+    <circle cx='330' cy='1950' r='3' class='pad-hole'/>
+    <circle cx='330' cy='1980' r='3' class='pad-hole'/>
+    <circle cx='330' cy='2010' r='3' class='pad-hole'/>
+    <circle cx='330' cy='2040' r='3' class='pad-hole'/>
+    <circle cx='330' cy='2070' r='3' class='pad-hole'/>
+    <circle cx='330' cy='2100' r='3' class='pad-hole'/>
+    <circle cx='330' cy='2130' r='3' class='pad-hole'/>
+    <circle cx='330' cy='2160' r='3' class='pad-hole'/>
+    <circle cx='330' cy='2190' r='3' class='pad-hole'/>
+    <circle cx='330' cy='2220' r='3' class='pad-hole'/>
+    <circle cx='330' cy='2250' r='3' class='pad-hole'/>
+    <circle cx='330' cy='2280' r='3' class='pad-hole'/>
+    <circle cx='330' cy='2310' r='3' class='pad-hole'/>
+    <circle cx='330' cy='2340' r='3' class='pad-hole'/>
+    <circle cx='330' cy='2370' r='3' class='pad-hole'/>
+    <circle cx='330' cy='2400' r='3' class='pad-hole'/>
+    <circle cx='330' cy='2430' r='3' class='pad-hole'/>
+    <circle cx='330' cy='2460' r='3' class='pad-hole'/>
+    <circle cx='330' cy='2490' r='3' class='pad-hole'/>
+    <circle cx='330' cy='2520' r='3' class='pad-hole'/>
+    <circle cx='330' cy='2550' r='3' class='pad-hole'/>
+    <circle cx='330' cy='2580' r='3' class='pad-hole'/>
+    <circle cx='330' cy='2610' r='3' class='pad-hole'/>
+    <circle cx='330' cy='2640' r='3' class='pad-hole'/>
+    <circle cx='330' cy='2670' r='3' class='pad-hole'/>
+    <circle cx='330' cy='2700' r='3' class='pad-hole'/>
+    <circle cx='330' cy='2730' r='3' class='pad-hole'/>
+    <circle cx='330' cy='2760' r='3' class='pad-hole'/>
+    <circle cx='330' cy='2790' r='3' class='pad-hole'/>
+    <circle cx='330' cy='2820' r='3' class='pad-hole'/>
+    <circle cx='330' cy='2850' r='3' class='pad-hole'/>
+    <circle cx='330' cy='2880' r='3' class='pad-hole'/>
+    <circle cx='330' cy='2910' r='3' class='pad-hole'/>
+    <circle cx='330' cy='2940' r='3' class='pad-hole'/>
+    <circle cx='330' cy='2970' r='3' class='pad-hole'/>
+    <circle cx='330' cy='3000' r='3' class='pad-hole'/>
+    <circle cx='330' cy='3030' r='3' class='pad-hole'/>
+    <circle cx='330' cy='3060' r='3' class='pad-hole'/>
+    <circle cx='330' cy='3090' r='3' class='pad-hole'/>
+    <circle cx='330' cy='3120' r='3' class='pad-hole'/>
+    <circle cx='330' cy='3150' r='3' class='pad-hole'/>
+    <circle cx='330' cy='3180' r='3' class='pad-hole'/>
+    <circle cx='300' cy='30' r='3' class='pad-hole'/>
+    <circle cx='300' cy='60' r='3' class='pad-hole'/>
+    <circle cx='300' cy='90' r='3' class='pad-hole'/>
+    <circle cx='300' cy='120' r='3' class='pad-hole'/>
+    <circle cx='300' cy='150' r='3' class='pad-hole'/>
+    <circle cx='300' cy='180' r='3' class='pad-hole'/>
+    <circle cx='300' cy='210' r='3' class='pad-hole'/>
+    <circle cx='300' cy='240' r='3' class='pad-hole'/>
+    <circle cx='300' cy='270' r='3' class='pad-hole'/>
+    <circle cx='300' cy='300' r='3' class='pad-hole'/>
+    <circle cx='300' cy='330' r='3' class='pad-hole'/>
+    <circle cx='300' cy='360' r='3' class='pad-hole'/>
+    <circle cx='300' cy='390' r='3' class='pad-hole'/>
+    <circle cx='300' cy='420' r='3' class='pad-hole'/>
+    <circle cx='300' cy='450' r='3' class='pad-hole'/>
+    <circle cx='300' cy='480' r='3' class='pad-hole'/>
+    <circle cx='300' cy='510' r='3' class='pad-hole'/>
+    <circle cx='300' cy='540' r='3' class='pad-hole'/>
+    <circle cx='300' cy='570' r='3' class='pad-hole'/>
+    <circle cx='300' cy='600' r='3' class='pad-hole'/>
+    <circle cx='300' cy='630' r='3' class='pad-hole'/>
+    <circle cx='300' cy='660' r='3' class='pad-hole'/>
+    <circle cx='300' cy='690' r='3' class='pad-hole'/>
+    <circle cx='300' cy='720' r='3' class='pad-hole'/>
+    <circle cx='300' cy='750' r='3' class='pad-hole'/>
+    <circle cx='300' cy='780' r='3' class='pad-hole'/>
+    <circle cx='300' cy='810' r='3' class='pad-hole'/>
+    <circle cx='300' cy='840' r='3' class='pad-hole'/>
+    <circle cx='300' cy='870' r='3' class='pad-hole'/>
+    <circle cx='300' cy='900' r='3' class='pad-hole'/>
+    <circle cx='300' cy='930' r='3' class='pad-hole'/>
+    <circle cx='300' cy='960' r='3' class='pad-hole'/>
+    <circle cx='300' cy='990' r='3' class='pad-hole'/>
+    <circle cx='300' cy='1020' r='3' class='pad-hole'/>
+    <circle cx='300' cy='1050' r='3' class='pad-hole'/>
+    <circle cx='300' cy='1080' r='3' class='pad-hole'/>
+    <circle cx='300' cy='1110' r='3' class='pad-hole'/>
+    <circle cx='300' cy='1140' r='3' class='pad-hole'/>
+    <circle cx='300' cy='1170' r='3' class='pad-hole'/>
+    <circle cx='300' cy='1200' r='3' class='pad-hole'/>
+    <circle cx='300' cy='1230' r='3' class='pad-hole'/>
+    <circle cx='300' cy='1260' r='3' class='pad-hole'/>
+    <circle cx='300' cy='1290' r='3' class='pad-hole'/>
+    <circle cx='300' cy='1320' r='3' class='pad-hole'/>
+    <circle cx='300' cy='1350' r='3' class='pad-hole'/>
+    <circle cx='300' cy='1380' r='3' class='pad-hole'/>
+    <circle cx='300' cy='1410' r='3' class='pad-hole'/>
+    <circle cx='300' cy='1440' r='3' class='pad-hole'/>
+    <circle cx='300' cy='1470' r='3' class='pad-hole'/>
+    <circle cx='300' cy='1500' r='3' class='pad-hole'/>
+    <circle cx='300' cy='1530' r='3' class='pad-hole'/>
+    <circle cx='300' cy='1560' r='3' class='pad-hole'/>
+    <circle cx='300' cy='1590' r='3' class='pad-hole'/>
+    <circle cx='300' cy='1620' r='3' class='pad-hole'/>
+    <circle cx='300' cy='1650' r='3' class='pad-hole'/>
+    <circle cx='300' cy='1680' r='3' class='pad-hole'/>
+    <circle cx='300' cy='1710' r='3' class='pad-hole'/>
+    <circle cx='300' cy='1740' r='3' class='pad-hole'/>
+    <circle cx='300' cy='1770' r='3' class='pad-hole'/>
+    <circle cx='300' cy='1800' r='3' class='pad-hole'/>
+    <circle cx='300' cy='1830' r='3' class='pad-hole'/>
+    <circle cx='300' cy='1860' r='3' class='pad-hole'/>
+    <circle cx='300' cy='1890' r='3' class='pad-hole'/>
+    <circle cx='300' cy='1920' r='3' class='pad-hole'/>
+    <circle cx='300' cy='1950' r='3' class='pad-hole'/>
+    <circle cx='300' cy='1980' r='3' class='pad-hole'/>
+    <circle cx='300' cy='2010' r='3' class='pad-hole'/>
+    <circle cx='300' cy='2040' r='3' class='pad-hole'/>
+    <circle cx='300' cy='2070' r='3' class='pad-hole'/>
+    <circle cx='300' cy='2100' r='3' class='pad-hole'/>
+    <circle cx='300' cy='2130' r='3' class='pad-hole'/>
+    <circle cx='300' cy='2160' r='3' class='pad-hole'/>
+    <circle cx='300' cy='2190' r='3' class='pad-hole'/>
+    <circle cx='300' cy='2220' r='3' class='pad-hole'/>
+    <circle cx='300' cy='2250' r='3' class='pad-hole'/>
+    <circle cx='300' cy='2280' r='3' class='pad-hole'/>
+    <circle cx='300' cy='2310' r='3' class='pad-hole'/>
+    <circle cx='300' cy='2340' r='3' class='pad-hole'/>
+    <circle cx='300' cy='2370' r='3' class='pad-hole'/>
+    <circle cx='300' cy='2400' r='3' class='pad-hole'/>
+    <circle cx='300' cy='2430' r='3' class='pad-hole'/>
+    <circle cx='300' cy='2460' r='3' class='pad-hole'/>
+    <circle cx='300' cy='2490' r='3' class='pad-hole'/>
+    <circle cx='300' cy='2520' r='3' class='pad-hole'/>
+    <circle cx='300' cy='2550' r='3' class='pad-hole'/>
+    <circle cx='300' cy='2580' r='3' class='pad-hole'/>
+    <circle cx='300' cy='2610' r='3' class='pad-hole'/>
+    <circle cx='300' cy='2640' r='3' class='pad-hole'/>
+    <circle cx='300' cy='2670' r='3' class='pad-hole'/>
+    <circle cx='300' cy='2700' r='3' class='pad-hole'/>
+    <circle cx='300' cy='2730' r='3' class='pad-hole'/>
+    <circle cx='300' cy='2760' r='3' class='pad-hole'/>
+    <circle cx='300' cy='2790' r='3' class='pad-hole'/>
+    <circle cx='300' cy='2820' r='3' class='pad-hole'/>
+    <circle cx='300' cy='2850' r='3' class='pad-hole'/>
+    <circle cx='300' cy='2880' r='3' class='pad-hole'/>
+    <circle cx='300' cy='2910' r='3' class='pad-hole'/>
+    <circle cx='300' cy='2940' r='3' class='pad-hole'/>
+    <circle cx='300' cy='2970' r='3' class='pad-hole'/>
+    <circle cx='300' cy='3000' r='3' class='pad-hole'/>
+    <circle cx='300' cy='3030' r='3' class='pad-hole'/>
+    <circle cx='300' cy='3060' r='3' class='pad-hole'/>
+    <circle cx='300' cy='3090' r='3' class='pad-hole'/>
+    <circle cx='300' cy='3120' r='3' class='pad-hole'/>
+    <circle cx='300' cy='3150' r='3' class='pad-hole'/>
+    <circle cx='300' cy='3180' r='3' class='pad-hole'/>
+    <circle cx='270' cy='30' r='3' class='pad-hole'/>
+    <circle cx='270' cy='60' r='3' class='pad-hole'/>
+    <circle cx='270' cy='90' r='3' class='pad-hole'/>
+    <circle cx='270' cy='120' r='3' class='pad-hole'/>
+    <circle cx='270' cy='150' r='3' class='pad-hole'/>
+    <circle cx='270' cy='180' r='3' class='pad-hole'/>
+    <circle cx='270' cy='210' r='3' class='pad-hole'/>
+    <circle cx='270' cy='240' r='3' class='pad-hole'/>
+    <circle cx='270' cy='270' r='3' class='pad-hole'/>
+    <circle cx='270' cy='300' r='3' class='pad-hole'/>
+    <circle cx='270' cy='330' r='3' class='pad-hole'/>
+    <circle cx='270' cy='360' r='3' class='pad-hole'/>
+    <circle cx='270' cy='390' r='3' class='pad-hole'/>
+    <circle cx='270' cy='420' r='3' class='pad-hole'/>
+    <circle cx='270' cy='450' r='3' class='pad-hole'/>
+    <circle cx='270' cy='480' r='3' class='pad-hole'/>
+    <circle cx='270' cy='510' r='3' class='pad-hole'/>
+    <circle cx='270' cy='540' r='3' class='pad-hole'/>
+    <circle cx='270' cy='570' r='3' class='pad-hole'/>
+    <circle cx='270' cy='600' r='3' class='pad-hole'/>
+    <circle cx='270' cy='630' r='3' class='pad-hole'/>
+    <circle cx='270' cy='660' r='3' class='pad-hole'/>
+    <circle cx='270' cy='690' r='3' class='pad-hole'/>
+    <circle cx='270' cy='720' r='3' class='pad-hole'/>
+    <circle cx='270' cy='750' r='3' class='pad-hole'/>
+    <circle cx='270' cy='780' r='3' class='pad-hole'/>
+    <circle cx='270' cy='810' r='3' class='pad-hole'/>
+    <circle cx='270' cy='840' r='3' class='pad-hole'/>
+    <circle cx='270' cy='870' r='3' class='pad-hole'/>
+    <circle cx='270' cy='900' r='3' class='pad-hole'/>
+    <circle cx='270' cy='930' r='3' class='pad-hole'/>
+    <circle cx='270' cy='960' r='3' class='pad-hole'/>
+    <circle cx='270' cy='990' r='3' class='pad-hole'/>
+    <circle cx='270' cy='1020' r='3' class='pad-hole'/>
+    <circle cx='270' cy='1050' r='3' class='pad-hole'/>
+    <circle cx='270' cy='1080' r='3' class='pad-hole'/>
+    <circle cx='270' cy='1110' r='3' class='pad-hole'/>
+    <circle cx='270' cy='1140' r='3' class='pad-hole'/>
+    <circle cx='270' cy='1170' r='3' class='pad-hole'/>
+    <circle cx='270' cy='1200' r='3' class='pad-hole'/>
+    <circle cx='270' cy='1230' r='3' class='pad-hole'/>
+    <circle cx='270' cy='1260' r='3' class='pad-hole'/>
+    <circle cx='270' cy='1290' r='3' class='pad-hole'/>
+    <circle cx='270' cy='1320' r='3' class='pad-hole'/>
+    <circle cx='270' cy='1350' r='3' class='pad-hole'/>
+    <circle cx='270' cy='1380' r='3' class='pad-hole'/>
+    <circle cx='270' cy='1410' r='3' class='pad-hole'/>
+    <circle cx='270' cy='1440' r='3' class='pad-hole'/>
+    <circle cx='270' cy='1470' r='3' class='pad-hole'/>
+    <circle cx='270' cy='1500' r='3' class='pad-hole'/>
+    <circle cx='270' cy='1530' r='3' class='pad-hole'/>
+    <circle cx='270' cy='1560' r='3' class='pad-hole'/>
+    <circle cx='270' cy='1590' r='3' class='pad-hole'/>
+    <circle cx='270' cy='1620' r='3' class='pad-hole'/>
+    <circle cx='270' cy='1650' r='3' class='pad-hole'/>
+    <circle cx='270' cy='1680' r='3' class='pad-hole'/>
+    <circle cx='270' cy='1710' r='3' class='pad-hole'/>
+    <circle cx='270' cy='1740' r='3' class='pad-hole'/>
+    <circle cx='270' cy='1770' r='3' class='pad-hole'/>
+    <circle cx='270' cy='1800' r='3' class='pad-hole'/>
+    <circle cx='270' cy='1830' r='3' class='pad-hole'/>
+    <circle cx='270' cy='1860' r='3' class='pad-hole'/>
+    <circle cx='270' cy='1890' r='3' class='pad-hole'/>
+    <circle cx='270' cy='1920' r='3' class='pad-hole'/>
+    <circle cx='270' cy='1950' r='3' class='pad-hole'/>
+    <circle cx='270' cy='1980' r='3' class='pad-hole'/>
+    <circle cx='270' cy='2010' r='3' class='pad-hole'/>
+    <circle cx='270' cy='2040' r='3' class='pad-hole'/>
+    <circle cx='270' cy='2070' r='3' class='pad-hole'/>
+    <circle cx='270' cy='2100' r='3' class='pad-hole'/>
+    <circle cx='270' cy='2130' r='3' class='pad-hole'/>
+    <circle cx='270' cy='2160' r='3' class='pad-hole'/>
+    <circle cx='270' cy='2190' r='3' class='pad-hole'/>
+    <circle cx='270' cy='2220' r='3' class='pad-hole'/>
+    <circle cx='270' cy='2250' r='3' class='pad-hole'/>
+    <circle cx='270' cy='2280' r='3' class='pad-hole'/>
+    <circle cx='270' cy='2310' r='3' class='pad-hole'/>
+    <circle cx='270' cy='2340' r='3' class='pad-hole'/>
+    <circle cx='270' cy='2370' r='3' class='pad-hole'/>
+    <circle cx='270' cy='2400' r='3' class='pad-hole'/>
+    <circle cx='270' cy='2430' r='3' class='pad-hole'/>
+    <circle cx='270' cy='2460' r='3' class='pad-hole'/>
+    <circle cx='270' cy='2490' r='3' class='pad-hole'/>
+    <circle cx='270' cy='2520' r='3' class='pad-hole'/>
+    <circle cx='270' cy='2550' r='3' class='pad-hole'/>
+    <circle cx='270' cy='2580' r='3' class='pad-hole'/>
+    <circle cx='270' cy='2610' r='3' class='pad-hole'/>
+    <circle cx='270' cy='2640' r='3' class='pad-hole'/>
+    <circle cx='270' cy='2670' r='3' class='pad-hole'/>
+    <circle cx='270' cy='2700' r='3' class='pad-hole'/>
+    <circle cx='270' cy='2730' r='3' class='pad-hole'/>
+    <circle cx='270' cy='2760' r='3' class='pad-hole'/>
+    <circle cx='270' cy='2790' r='3' class='pad-hole'/>
+    <circle cx='270' cy='2820' r='3' class='pad-hole'/>
+    <circle cx='270' cy='2850' r='3' class='pad-hole'/>
+    <circle cx='270' cy='2880' r='3' class='pad-hole'/>
+    <circle cx='270' cy='2910' r='3' class='pad-hole'/>
+    <circle cx='270' cy='2940' r='3' class='pad-hole'/>
+    <circle cx='270' cy='2970' r='3' class='pad-hole'/>
+    <circle cx='270' cy='3000' r='3' class='pad-hole'/>
+    <circle cx='270' cy='3030' r='3' class='pad-hole'/>
+    <circle cx='270' cy='3060' r='3' class='pad-hole'/>
+    <circle cx='270' cy='3090' r='3' class='pad-hole'/>
+    <circle cx='270' cy='3120' r='3' class='pad-hole'/>
+    <circle cx='270' cy='3150' r='3' class='pad-hole'/>
+    <circle cx='270' cy='3180' r='3' class='pad-hole'/>
+    <circle cx='240' cy='30' r='3' class='pad-hole'/>
+    <circle cx='240' cy='60' r='3' class='pad-hole'/>
+    <circle cx='240' cy='90' r='3' class='pad-hole'/>
+    <circle cx='240' cy='120' r='3' class='pad-hole'/>
+    <circle cx='240' cy='150' r='3' class='pad-hole'/>
+    <circle cx='240' cy='180' r='3' class='pad-hole'/>
+    <circle cx='240' cy='210' r='3' class='pad-hole'/>
+    <circle cx='240' cy='240' r='3' class='pad-hole'/>
+    <circle cx='240' cy='270' r='3' class='pad-hole'/>
+    <circle cx='240' cy='300' r='3' class='pad-hole'/>
+    <circle cx='240' cy='330' r='3' class='pad-hole'/>
+    <circle cx='240' cy='360' r='3' class='pad-hole'/>
+    <circle cx='240' cy='390' r='3' class='pad-hole'/>
+    <circle cx='240' cy='420' r='3' class='pad-hole'/>
+    <circle cx='240' cy='450' r='3' class='pad-hole'/>
+    <circle cx='240' cy='480' r='3' class='pad-hole'/>
+    <circle cx='240' cy='510' r='3' class='pad-hole'/>
+    <circle cx='240' cy='540' r='3' class='pad-hole'/>
+    <circle cx='240' cy='570' r='3' class='pad-hole'/>
+    <circle cx='240' cy='600' r='3' class='pad-hole'/>
+    <circle cx='240' cy='630' r='3' class='pad-hole'/>
+    <circle cx='240' cy='660' r='3' class='pad-hole'/>
+    <circle cx='240' cy='690' r='3' class='pad-hole'/>
+    <circle cx='240' cy='720' r='3' class='pad-hole'/>
+    <circle cx='240' cy='750' r='3' class='pad-hole'/>
+    <circle cx='240' cy='780' r='3' class='pad-hole'/>
+    <circle cx='240' cy='810' r='3' class='pad-hole'/>
+    <circle cx='240' cy='840' r='3' class='pad-hole'/>
+    <circle cx='240' cy='870' r='3' class='pad-hole'/>
+    <circle cx='240' cy='900' r='3' class='pad-hole'/>
+    <circle cx='240' cy='930' r='3' class='pad-hole'/>
+    <circle cx='240' cy='960' r='3' class='pad-hole'/>
+    <circle cx='240' cy='990' r='3' class='pad-hole'/>
+    <circle cx='240' cy='1020' r='3' class='pad-hole'/>
+    <circle cx='240' cy='1050' r='3' class='pad-hole'/>
+    <circle cx='240' cy='1080' r='3' class='pad-hole'/>
+    <circle cx='240' cy='1110' r='3' class='pad-hole'/>
+    <circle cx='240' cy='1140' r='3' class='pad-hole'/>
+    <circle cx='240' cy='1170' r='3' class='pad-hole'/>
+    <circle cx='240' cy='1200' r='3' class='pad-hole'/>
+    <circle cx='240' cy='1230' r='3' class='pad-hole'/>
+    <circle cx='240' cy='1260' r='3' class='pad-hole'/>
+    <circle cx='240' cy='1290' r='3' class='pad-hole'/>
+    <circle cx='240' cy='1320' r='3' class='pad-hole'/>
+    <circle cx='240' cy='1350' r='3' class='pad-hole'/>
+    <circle cx='240' cy='1380' r='3' class='pad-hole'/>
+    <circle cx='240' cy='1410' r='3' class='pad-hole'/>
+    <circle cx='240' cy='1440' r='3' class='pad-hole'/>
+    <circle cx='240' cy='1470' r='3' class='pad-hole'/>
+    <circle cx='240' cy='1500' r='3' class='pad-hole'/>
+    <circle cx='240' cy='1530' r='3' class='pad-hole'/>
+    <circle cx='240' cy='1560' r='3' class='pad-hole'/>
+    <circle cx='240' cy='1590' r='3' class='pad-hole'/>
+    <circle cx='240' cy='1620' r='3' class='pad-hole'/>
+    <circle cx='240' cy='1650' r='3' class='pad-hole'/>
+    <circle cx='240' cy='1680' r='3' class='pad-hole'/>
+    <circle cx='240' cy='1710' r='3' class='pad-hole'/>
+    <circle cx='240' cy='1740' r='3' class='pad-hole'/>
+    <circle cx='240' cy='1770' r='3' class='pad-hole'/>
+    <circle cx='240' cy='1800' r='3' class='pad-hole'/>
+    <circle cx='240' cy='1830' r='3' class='pad-hole'/>
+    <circle cx='240' cy='1860' r='3' class='pad-hole'/>
+    <circle cx='240' cy='1890' r='3' class='pad-hole'/>
+    <circle cx='240' cy='1920' r='3' class='pad-hole'/>
+    <circle cx='240' cy='1950' r='3' class='pad-hole'/>
+    <circle cx='240' cy='1980' r='3' class='pad-hole'/>
+    <circle cx='240' cy='2010' r='3' class='pad-hole'/>
+    <circle cx='240' cy='2040' r='3' class='pad-hole'/>
+    <circle cx='240' cy='2070' r='3' class='pad-hole'/>
+    <circle cx='240' cy='2100' r='3' class='pad-hole'/>
+    <circle cx='240' cy='2130' r='3' class='pad-hole'/>
+    <circle cx='240' cy='2160' r='3' class='pad-hole'/>
+    <circle cx='240' cy='2190' r='3' class='pad-hole'/>
+    <circle cx='240' cy='2220' r='3' class='pad-hole'/>
+    <circle cx='240' cy='2250' r='3' class='pad-hole'/>
+    <circle cx='240' cy='2280' r='3' class='pad-hole'/>
+    <circle cx='240' cy='2310' r='3' class='pad-hole'/>
+    <circle cx='240' cy='2340' r='3' class='pad-hole'/>
+    <circle cx='240' cy='2370' r='3' class='pad-hole'/>
+    <circle cx='240' cy='2400' r='3' class='pad-hole'/>
+    <circle cx='240' cy='2430' r='3' class='pad-hole'/>
+    <circle cx='240' cy='2460' r='3' class='pad-hole'/>
+    <circle cx='240' cy='2490' r='3' class='pad-hole'/>
+    <circle cx='240' cy='2520' r='3' class='pad-hole'/>
+    <circle cx='240' cy='2550' r='3' class='pad-hole'/>
+    <circle cx='240' cy='2580' r='3' class='pad-hole'/>
+    <circle cx='240' cy='2610' r='3' class='pad-hole'/>
+    <circle cx='240' cy='2640' r='3' class='pad-hole'/>
+    <circle cx='240' cy='2670' r='3' class='pad-hole'/>
+    <circle cx='240' cy='2700' r='3' class='pad-hole'/>
+    <circle cx='240' cy='2730' r='3' class='pad-hole'/>
+    <circle cx='240' cy='2760' r='3' class='pad-hole'/>
+    <circle cx='240' cy='2790' r='3' class='pad-hole'/>
+    <circle cx='240' cy='2820' r='3' class='pad-hole'/>
+    <circle cx='240' cy='2850' r='3' class='pad-hole'/>
+    <circle cx='240' cy='2880' r='3' class='pad-hole'/>
+    <circle cx='240' cy='2910' r='3' class='pad-hole'/>
+    <circle cx='240' cy='2940' r='3' class='pad-hole'/>
+    <circle cx='240' cy='2970' r='3' class='pad-hole'/>
+    <circle cx='240' cy='3000' r='3' class='pad-hole'/>
+    <circle cx='240' cy='3030' r='3' class='pad-hole'/>
+    <circle cx='240' cy='3060' r='3' class='pad-hole'/>
+    <circle cx='240' cy='3090' r='3' class='pad-hole'/>
+    <circle cx='240' cy='3120' r='3' class='pad-hole'/>
+    <circle cx='240' cy='3150' r='3' class='pad-hole'/>
+    <circle cx='240' cy='3180' r='3' class='pad-hole'/>
+    <circle cx='210' cy='30' r='3' class='pad-hole'/>
+    <circle cx='210' cy='60' r='3' class='pad-hole'/>
+    <circle cx='210' cy='90' r='3' class='pad-hole'/>
+    <circle cx='210' cy='120' r='3' class='pad-hole'/>
+    <circle cx='210' cy='150' r='3' class='pad-hole'/>
+    <circle cx='210' cy='180' r='3' class='pad-hole'/>
+    <circle cx='210' cy='210' r='3' class='pad-hole'/>
+    <circle cx='210' cy='240' r='3' class='pad-hole'/>
+    <circle cx='210' cy='270' r='3' class='pad-hole'/>
+    <circle cx='210' cy='300' r='3' class='pad-hole'/>
+    <circle cx='210' cy='330' r='3' class='pad-hole'/>
+    <circle cx='210' cy='360' r='3' class='pad-hole'/>
+    <circle cx='210' cy='390' r='3' class='pad-hole'/>
+    <circle cx='210' cy='420' r='3' class='pad-hole'/>
+    <circle cx='210' cy='450' r='3' class='pad-hole'/>
+    <circle cx='210' cy='480' r='3' class='pad-hole'/>
+    <circle cx='210' cy='510' r='3' class='pad-hole'/>
+    <circle cx='210' cy='540' r='3' class='pad-hole'/>
+    <circle cx='210' cy='570' r='3' class='pad-hole'/>
+    <circle cx='210' cy='600' r='3' class='pad-hole'/>
+    <circle cx='210' cy='630' r='3' class='pad-hole'/>
+    <circle cx='210' cy='660' r='3' class='pad-hole'/>
+    <circle cx='210' cy='690' r='3' class='pad-hole'/>
+    <circle cx='210' cy='720' r='3' class='pad-hole'/>
+    <circle cx='210' cy='750' r='3' class='pad-hole'/>
+    <circle cx='210' cy='780' r='3' class='pad-hole'/>
+    <circle cx='210' cy='810' r='3' class='pad-hole'/>
+    <circle cx='210' cy='840' r='3' class='pad-hole'/>
+    <circle cx='210' cy='870' r='3' class='pad-hole'/>
+    <circle cx='210' cy='900' r='3' class='pad-hole'/>
+    <circle cx='210' cy='930' r='3' class='pad-hole'/>
+    <circle cx='210' cy='960' r='3' class='pad-hole'/>
+    <circle cx='210' cy='990' r='3' class='pad-hole'/>
+    <circle cx='210' cy='1020' r='3' class='pad-hole'/>
+    <circle cx='210' cy='1050' r='3' class='pad-hole'/>
+    <circle cx='210' cy='1080' r='3' class='pad-hole'/>
+    <circle cx='210' cy='1110' r='3' class='pad-hole'/>
+    <circle cx='210' cy='1140' r='3' class='pad-hole'/>
+    <circle cx='210' cy='1170' r='3' class='pad-hole'/>
+    <circle cx='210' cy='1200' r='3' class='pad-hole'/>
+    <circle cx='210' cy='1230' r='3' class='pad-hole'/>
+    <circle cx='210' cy='1260' r='3' class='pad-hole'/>
+    <circle cx='210' cy='1290' r='3' class='pad-hole'/>
+    <circle cx='210' cy='1320' r='3' class='pad-hole'/>
+    <circle cx='210' cy='1350' r='3' class='pad-hole'/>
+    <circle cx='210' cy='1380' r='3' class='pad-hole'/>
+    <circle cx='210' cy='1410' r='3' class='pad-hole'/>
+    <circle cx='210' cy='1440' r='3' class='pad-hole'/>
+    <circle cx='210' cy='1470' r='3' class='pad-hole'/>
+    <circle cx='210' cy='1500' r='3' class='pad-hole'/>
+    <circle cx='210' cy='1530' r='3' class='pad-hole'/>
+    <circle cx='210' cy='1560' r='3' class='pad-hole'/>
+    <circle cx='210' cy='1590' r='3' class='pad-hole'/>
+    <circle cx='210' cy='1620' r='3' class='pad-hole'/>
+    <circle cx='210' cy='1650' r='3' class='pad-hole'/>
+    <circle cx='210' cy='1680' r='3' class='pad-hole'/>
+    <circle cx='210' cy='1710' r='3' class='pad-hole'/>
+    <circle cx='210' cy='1740' r='3' class='pad-hole'/>
+    <circle cx='210' cy='1770' r='3' class='pad-hole'/>
+    <circle cx='210' cy='1800' r='3' class='pad-hole'/>
+    <circle cx='210' cy='1830' r='3' class='pad-hole'/>
+    <circle cx='210' cy='1860' r='3' class='pad-hole'/>
+    <circle cx='210' cy='1890' r='3' class='pad-hole'/>
+    <circle cx='210' cy='1920' r='3' class='pad-hole'/>
+    <circle cx='210' cy='1950' r='3' class='pad-hole'/>
+    <circle cx='210' cy='1980' r='3' class='pad-hole'/>
+    <circle cx='210' cy='2010' r='3' class='pad-hole'/>
+    <circle cx='210' cy='2040' r='3' class='pad-hole'/>
+    <circle cx='210' cy='2070' r='3' class='pad-hole'/>
+    <circle cx='210' cy='2100' r='3' class='pad-hole'/>
+    <circle cx='210' cy='2130' r='3' class='pad-hole'/>
+    <circle cx='210' cy='2160' r='3' class='pad-hole'/>
+    <circle cx='210' cy='2190' r='3' class='pad-hole'/>
+    <circle cx='210' cy='2220' r='3' class='pad-hole'/>
+    <circle cx='210' cy='2250' r='3' class='pad-hole'/>
+    <circle cx='210' cy='2280' r='3' class='pad-hole'/>
+    <circle cx='210' cy='2310' r='3' class='pad-hole'/>
+    <circle cx='210' cy='2340' r='3' class='pad-hole'/>
+    <circle cx='210' cy='2370' r='3' class='pad-hole'/>
+    <circle cx='210' cy='2400' r='3' class='pad-hole'/>
+    <circle cx='210' cy='2430' r='3' class='pad-hole'/>
+    <circle cx='210' cy='2460' r='3' class='pad-hole'/>
+    <circle cx='210' cy='2490' r='3' class='pad-hole'/>
+    <circle cx='210' cy='2520' r='3' class='pad-hole'/>
+    <circle cx='210' cy='2550' r='3' class='pad-hole'/>
+    <circle cx='210' cy='2580' r='3' class='pad-hole'/>
+    <circle cx='210' cy='2610' r='3' class='pad-hole'/>
+    <circle cx='210' cy='2640' r='3' class='pad-hole'/>
+    <circle cx='210' cy='2670' r='3' class='pad-hole'/>
+    <circle cx='210' cy='2700' r='3' class='pad-hole'/>
+    <circle cx='210' cy='2730' r='3' class='pad-hole'/>
+    <circle cx='210' cy='2760' r='3' class='pad-hole'/>
+    <circle cx='210' cy='2790' r='3' class='pad-hole'/>
+    <circle cx='210' cy='2820' r='3' class='pad-hole'/>
+    <circle cx='210' cy='2850' r='3' class='pad-hole'/>
+    <circle cx='210' cy='2880' r='3' class='pad-hole'/>
+    <circle cx='210' cy='2910' r='3' class='pad-hole'/>
+    <circle cx='210' cy='2940' r='3' class='pad-hole'/>
+    <circle cx='210' cy='2970' r='3' class='pad-hole'/>
+    <circle cx='210' cy='3000' r='3' class='pad-hole'/>
+    <circle cx='210' cy='3030' r='3' class='pad-hole'/>
+    <circle cx='210' cy='3060' r='3' class='pad-hole'/>
+    <circle cx='210' cy='3090' r='3' class='pad-hole'/>
+    <circle cx='210' cy='3120' r='3' class='pad-hole'/>
+    <circle cx='210' cy='3150' r='3' class='pad-hole'/>
+    <circle cx='210' cy='3180' r='3' class='pad-hole'/>
+    <circle cx='180' cy='30' r='3' class='pad-hole'/>
+    <circle cx='180' cy='60' r='3' class='pad-hole'/>
+    <circle cx='180' cy='90' r='3' class='pad-hole'/>
+    <circle cx='180' cy='120' r='3' class='pad-hole'/>
+    <circle cx='180' cy='150' r='3' class='pad-hole'/>
+    <circle cx='180' cy='180' r='3' class='pad-hole'/>
+    <circle cx='180' cy='210' r='3' class='pad-hole'/>
+    <circle cx='180' cy='240' r='3' class='pad-hole'/>
+    <circle cx='180' cy='270' r='3' class='pad-hole'/>
+    <circle cx='180' cy='300' r='3' class='pad-hole'/>
+    <circle cx='180' cy='330' r='3' class='pad-hole'/>
+    <circle cx='180' cy='360' r='3' class='pad-hole'/>
+    <circle cx='180' cy='390' r='3' class='pad-hole'/>
+    <circle cx='180' cy='420' r='3' class='pad-hole'/>
+    <circle cx='180' cy='450' r='3' class='pad-hole'/>
+    <circle cx='180' cy='480' r='3' class='pad-hole'/>
+    <circle cx='180' cy='510' r='3' class='pad-hole'/>
+    <circle cx='180' cy='540' r='3' class='pad-hole'/>
+    <circle cx='180' cy='570' r='3' class='pad-hole'/>
+    <circle cx='180' cy='600' r='3' class='pad-hole'/>
+    <circle cx='180' cy='630' r='3' class='pad-hole'/>
+    <circle cx='180' cy='660' r='3' class='pad-hole'/>
+    <circle cx='180' cy='690' r='3' class='pad-hole'/>
+    <circle cx='180' cy='720' r='3' class='pad-hole'/>
+    <circle cx='180' cy='750' r='3' class='pad-hole'/>
+    <circle cx='180' cy='780' r='3' class='pad-hole'/>
+    <circle cx='180' cy='810' r='3' class='pad-hole'/>
+    <circle cx='180' cy='840' r='3' class='pad-hole'/>
+    <circle cx='180' cy='870' r='3' class='pad-hole'/>
+    <circle cx='180' cy='900' r='3' class='pad-hole'/>
+    <circle cx='180' cy='930' r='3' class='pad-hole'/>
+    <circle cx='180' cy='960' r='3' class='pad-hole'/>
+    <circle cx='180' cy='990' r='3' class='pad-hole'/>
+    <circle cx='180' cy='1020' r='3' class='pad-hole'/>
+    <circle cx='180' cy='1050' r='3' class='pad-hole'/>
+    <circle cx='180' cy='1080' r='3' class='pad-hole'/>
+    <circle cx='180' cy='1110' r='3' class='pad-hole'/>
+    <circle cx='180' cy='1140' r='3' class='pad-hole'/>
+    <circle cx='180' cy='1170' r='3' class='pad-hole'/>
+    <circle cx='180' cy='1200' r='3' class='pad-hole'/>
+    <circle cx='180' cy='1230' r='3' class='pad-hole'/>
+    <circle cx='180' cy='1260' r='3' class='pad-hole'/>
+    <circle cx='180' cy='1290' r='3' class='pad-hole'/>
+    <circle cx='180' cy='1320' r='3' class='pad-hole'/>
+    <circle cx='180' cy='1350' r='3' class='pad-hole'/>
+    <circle cx='180' cy='1380' r='3' class='pad-hole'/>
+    <circle cx='180' cy='1410' r='3' class='pad-hole'/>
+    <circle cx='180' cy='1440' r='3' class='pad-hole'/>
+    <circle cx='180' cy='1470' r='3' class='pad-hole'/>
+    <circle cx='180' cy='1500' r='3' class='pad-hole'/>
+    <circle cx='180' cy='1530' r='3' class='pad-hole'/>
+    <circle cx='180' cy='1560' r='3' class='pad-hole'/>
+    <circle cx='180' cy='1590' r='3' class='pad-hole'/>
+    <circle cx='180' cy='1620' r='3' class='pad-hole'/>
+    <circle cx='180' cy='1650' r='3' class='pad-hole'/>
+    <circle cx='180' cy='1680' r='3' class='pad-hole'/>
+    <circle cx='180' cy='1710' r='3' class='pad-hole'/>
+    <circle cx='180' cy='1740' r='3' class='pad-hole'/>
+    <circle cx='180' cy='1770' r='3' class='pad-hole'/>
+    <circle cx='180' cy='1800' r='3' class='pad-hole'/>
+    <circle cx='180' cy='1830' r='3' class='pad-hole'/>
+    <circle cx='180' cy='1860' r='3' class='pad-hole'/>
+    <circle cx='180' cy='1890' r='3' class='pad-hole'/>
+    <circle cx='180' cy='1920' r='3' class='pad-hole'/>
+    <circle cx='180' cy='1950' r='3' class='pad-hole'/>
+    <circle cx='180' cy='1980' r='3' class='pad-hole'/>
+    <circle cx='180' cy='2010' r='3' class='pad-hole'/>
+    <circle cx='180' cy='2040' r='3' class='pad-hole'/>
+    <circle cx='180' cy='2070' r='3' class='pad-hole'/>
+    <circle cx='180' cy='2100' r='3' class='pad-hole'/>
+    <circle cx='180' cy='2130' r='3' class='pad-hole'/>
+    <circle cx='180' cy='2160' r='3' class='pad-hole'/>
+    <circle cx='180' cy='2190' r='3' class='pad-hole'/>
+    <circle cx='180' cy='2220' r='3' class='pad-hole'/>
+    <circle cx='180' cy='2250' r='3' class='pad-hole'/>
+    <circle cx='180' cy='2280' r='3' class='pad-hole'/>
+    <circle cx='180' cy='2310' r='3' class='pad-hole'/>
+    <circle cx='180' cy='2340' r='3' class='pad-hole'/>
+    <circle cx='180' cy='2370' r='3' class='pad-hole'/>
+    <circle cx='180' cy='2400' r='3' class='pad-hole'/>
+    <circle cx='180' cy='2430' r='3' class='pad-hole'/>
+    <circle cx='180' cy='2460' r='3' class='pad-hole'/>
+    <circle cx='180' cy='2490' r='3' class='pad-hole'/>
+    <circle cx='180' cy='2520' r='3' class='pad-hole'/>
+    <circle cx='180' cy='2550' r='3' class='pad-hole'/>
+    <circle cx='180' cy='2580' r='3' class='pad-hole'/>
+    <circle cx='180' cy='2610' r='3' class='pad-hole'/>
+    <circle cx='180' cy='2640' r='3' class='pad-hole'/>
+    <circle cx='180' cy='2670' r='3' class='pad-hole'/>
+    <circle cx='180' cy='2700' r='3' class='pad-hole'/>
+    <circle cx='180' cy='2730' r='3' class='pad-hole'/>
+    <circle cx='180' cy='2760' r='3' class='pad-hole'/>
+    <circle cx='180' cy='2790' r='3' class='pad-hole'/>
+    <circle cx='180' cy='2820' r='3' class='pad-hole'/>
+    <circle cx='180' cy='2850' r='3' class='pad-hole'/>
+    <circle cx='180' cy='2880' r='3' class='pad-hole'/>
+    <circle cx='180' cy='2910' r='3' class='pad-hole'/>
+    <circle cx='180' cy='2940' r='3' class='pad-hole'/>
+    <circle cx='180' cy='2970' r='3' class='pad-hole'/>
+    <circle cx='180' cy='3000' r='3' class='pad-hole'/>
+    <circle cx='180' cy='3030' r='3' class='pad-hole'/>
+    <circle cx='180' cy='3060' r='3' class='pad-hole'/>
+    <circle cx='180' cy='3090' r='3' class='pad-hole'/>
+    <circle cx='180' cy='3120' r='3' class='pad-hole'/>
+    <circle cx='180' cy='3150' r='3' class='pad-hole'/>
+    <circle cx='180' cy='3180' r='3' class='pad-hole'/>
+    <circle cx='150' cy='30' r='3' class='pad-hole'/>
+    <circle cx='150' cy='60' r='3' class='pad-hole'/>
+    <circle cx='150' cy='90' r='3' class='pad-hole'/>
+    <circle cx='150' cy='120' r='3' class='pad-hole'/>
+    <circle cx='150' cy='150' r='3' class='pad-hole'/>
+    <circle cx='150' cy='180' r='3' class='pad-hole'/>
+    <circle cx='150' cy='210' r='3' class='pad-hole'/>
+    <circle cx='150' cy='240' r='3' class='pad-hole'/>
+    <circle cx='150' cy='270' r='3' class='pad-hole'/>
+    <circle cx='150' cy='300' r='3' class='pad-hole'/>
+    <circle cx='150' cy='330' r='3' class='pad-hole'/>
+    <circle cx='150' cy='360' r='3' class='pad-hole'/>
+    <circle cx='150' cy='390' r='3' class='pad-hole'/>
+    <circle cx='150' cy='420' r='3' class='pad-hole'/>
+    <circle cx='150' cy='450' r='3' class='pad-hole'/>
+    <circle cx='150' cy='480' r='3' class='pad-hole'/>
+    <circle cx='150' cy='510' r='3' class='pad-hole'/>
+    <circle cx='150' cy='540' r='3' class='pad-hole'/>
+    <circle cx='150' cy='570' r='3' class='pad-hole'/>
+    <circle cx='150' cy='600' r='3' class='pad-hole'/>
+    <circle cx='150' cy='630' r='3' class='pad-hole'/>
+    <circle cx='150' cy='660' r='3' class='pad-hole'/>
+    <circle cx='150' cy='690' r='3' class='pad-hole'/>
+    <circle cx='150' cy='720' r='3' class='pad-hole'/>
+    <circle cx='150' cy='750' r='3' class='pad-hole'/>
+    <circle cx='150' cy='780' r='3' class='pad-hole'/>
+    <circle cx='150' cy='810' r='3' class='pad-hole'/>
+    <circle cx='150' cy='840' r='3' class='pad-hole'/>
+    <circle cx='150' cy='870' r='3' class='pad-hole'/>
+    <circle cx='150' cy='900' r='3' class='pad-hole'/>
+    <circle cx='150' cy='930' r='3' class='pad-hole'/>
+    <circle cx='150' cy='960' r='3' class='pad-hole'/>
+    <circle cx='150' cy='990' r='3' class='pad-hole'/>
+    <circle cx='150' cy='1020' r='3' class='pad-hole'/>
+    <circle cx='150' cy='1050' r='3' class='pad-hole'/>
+    <circle cx='150' cy='1080' r='3' class='pad-hole'/>
+    <circle cx='150' cy='1110' r='3' class='pad-hole'/>
+    <circle cx='150' cy='1140' r='3' class='pad-hole'/>
+    <circle cx='150' cy='1170' r='3' class='pad-hole'/>
+    <circle cx='150' cy='1200' r='3' class='pad-hole'/>
+    <circle cx='150' cy='1230' r='3' class='pad-hole'/>
+    <circle cx='150' cy='1260' r='3' class='pad-hole'/>
+    <circle cx='150' cy='1290' r='3' class='pad-hole'/>
+    <circle cx='150' cy='1320' r='3' class='pad-hole'/>
+    <circle cx='150' cy='1350' r='3' class='pad-hole'/>
+    <circle cx='150' cy='1380' r='3' class='pad-hole'/>
+    <circle cx='150' cy='1410' r='3' class='pad-hole'/>
+    <circle cx='150' cy='1440' r='3' class='pad-hole'/>
+    <circle cx='150' cy='1470' r='3' class='pad-hole'/>
+    <circle cx='150' cy='1500' r='3' class='pad-hole'/>
+    <circle cx='150' cy='1530' r='3' class='pad-hole'/>
+    <circle cx='150' cy='1560' r='3' class='pad-hole'/>
+    <circle cx='150' cy='1590' r='3' class='pad-hole'/>
+    <circle cx='150' cy='1620' r='3' class='pad-hole'/>
+    <circle cx='150' cy='1650' r='3' class='pad-hole'/>
+    <circle cx='150' cy='1680' r='3' class='pad-hole'/>
+    <circle cx='150' cy='1710' r='3' class='pad-hole'/>
+    <circle cx='150' cy='1740' r='3' class='pad-hole'/>
+    <circle cx='150' cy='1770' r='3' class='pad-hole'/>
+    <circle cx='150' cy='1800' r='3' class='pad-hole'/>
+    <circle cx='150' cy='1830' r='3' class='pad-hole'/>
+    <circle cx='150' cy='1860' r='3' class='pad-hole'/>
+    <circle cx='150' cy='1890' r='3' class='pad-hole'/>
+    <circle cx='150' cy='1920' r='3' class='pad-hole'/>
+    <circle cx='150' cy='1950' r='3' class='pad-hole'/>
+    <circle cx='150' cy='1980' r='3' class='pad-hole'/>
+    <circle cx='150' cy='2010' r='3' class='pad-hole'/>
+    <circle cx='150' cy='2040' r='3' class='pad-hole'/>
+    <circle cx='150' cy='2070' r='3' class='pad-hole'/>
+    <circle cx='150' cy='2100' r='3' class='pad-hole'/>
+    <circle cx='150' cy='2130' r='3' class='pad-hole'/>
+    <circle cx='150' cy='2160' r='3' class='pad-hole'/>
+    <circle cx='150' cy='2190' r='3' class='pad-hole'/>
+    <circle cx='150' cy='2220' r='3' class='pad-hole'/>
+    <circle cx='150' cy='2250' r='3' class='pad-hole'/>
+    <circle cx='150' cy='2280' r='3' class='pad-hole'/>
+    <circle cx='150' cy='2310' r='3' class='pad-hole'/>
+    <circle cx='150' cy='2340' r='3' class='pad-hole'/>
+    <circle cx='150' cy='2370' r='3' class='pad-hole'/>
+    <circle cx='150' cy='2400' r='3' class='pad-hole'/>
+    <circle cx='150' cy='2430' r='3' class='pad-hole'/>
+    <circle cx='150' cy='2460' r='3' class='pad-hole'/>
+    <circle cx='150' cy='2490' r='3' class='pad-hole'/>
+    <circle cx='150' cy='2520' r='3' class='pad-hole'/>
+    <circle cx='150' cy='2550' r='3' class='pad-hole'/>
+    <circle cx='150' cy='2580' r='3' class='pad-hole'/>
+    <circle cx='150' cy='2610' r='3' class='pad-hole'/>
+    <circle cx='150' cy='2640' r='3' class='pad-hole'/>
+    <circle cx='150' cy='2670' r='3' class='pad-hole'/>
+    <circle cx='150' cy='2700' r='3' class='pad-hole'/>
+    <circle cx='150' cy='2730' r='3' class='pad-hole'/>
+    <circle cx='150' cy='2760' r='3' class='pad-hole'/>
+    <circle cx='150' cy='2790' r='3' class='pad-hole'/>
+    <circle cx='150' cy='2820' r='3' class='pad-hole'/>
+    <circle cx='150' cy='2850' r='3' class='pad-hole'/>
+    <circle cx='150' cy='2880' r='3' class='pad-hole'/>
+    <circle cx='150' cy='2910' r='3' class='pad-hole'/>
+    <circle cx='150' cy='2940' r='3' class='pad-hole'/>
+    <circle cx='150' cy='2970' r='3' class='pad-hole'/>
+    <circle cx='150' cy='3000' r='3' class='pad-hole'/>
+    <circle cx='150' cy='3030' r='3' class='pad-hole'/>
+    <circle cx='150' cy='3060' r='3' class='pad-hole'/>
+    <circle cx='150' cy='3090' r='3' class='pad-hole'/>
+    <circle cx='150' cy='3120' r='3' class='pad-hole'/>
+    <circle cx='150' cy='3150' r='3' class='pad-hole'/>
+    <circle cx='150' cy='3180' r='3' class='pad-hole'/>
+    <circle cx='120' cy='30' r='3' class='pad-hole'/>
+    <circle cx='120' cy='60' r='3' class='pad-hole'/>
+    <circle cx='120' cy='90' r='3' class='pad-hole'/>
+    <circle cx='120' cy='120' r='3' class='pad-hole'/>
+    <circle cx='120' cy='150' r='3' class='pad-hole'/>
+    <circle cx='120' cy='180' r='3' class='pad-hole'/>
+    <circle cx='120' cy='210' r='3' class='pad-hole'/>
+    <circle cx='120' cy='240' r='3' class='pad-hole'/>
+    <circle cx='120' cy='270' r='3' class='pad-hole'/>
+    <circle cx='120' cy='300' r='3' class='pad-hole'/>
+    <circle cx='120' cy='330' r='3' class='pad-hole'/>
+    <circle cx='120' cy='360' r='3' class='pad-hole'/>
+    <circle cx='120' cy='390' r='3' class='pad-hole'/>
+    <circle cx='120' cy='420' r='3' class='pad-hole'/>
+    <circle cx='120' cy='450' r='3' class='pad-hole'/>
+    <circle cx='120' cy='480' r='3' class='pad-hole'/>
+    <circle cx='120' cy='510' r='3' class='pad-hole'/>
+    <circle cx='120' cy='540' r='3' class='pad-hole'/>
+    <circle cx='120' cy='570' r='3' class='pad-hole'/>
+    <circle cx='120' cy='600' r='3' class='pad-hole'/>
+    <circle cx='120' cy='630' r='3' class='pad-hole'/>
+    <circle cx='120' cy='660' r='3' class='pad-hole'/>
+    <circle cx='120' cy='690' r='3' class='pad-hole'/>
+    <circle cx='120' cy='720' r='3' class='pad-hole'/>
+    <circle cx='120' cy='750' r='3' class='pad-hole'/>
+    <circle cx='120' cy='780' r='3' class='pad-hole'/>
+    <circle cx='120' cy='810' r='3' class='pad-hole'/>
+    <circle cx='120' cy='840' r='3' class='pad-hole'/>
+    <circle cx='120' cy='870' r='3' class='pad-hole'/>
+    <circle cx='120' cy='900' r='3' class='pad-hole'/>
+    <circle cx='120' cy='930' r='3' class='pad-hole'/>
+    <circle cx='120' cy='960' r='3' class='pad-hole'/>
+    <circle cx='120' cy='990' r='3' class='pad-hole'/>
+    <circle cx='120' cy='1020' r='3' class='pad-hole'/>
+    <circle cx='120' cy='1050' r='3' class='pad-hole'/>
+    <circle cx='120' cy='1080' r='3' class='pad-hole'/>
+    <circle cx='120' cy='1110' r='3' class='pad-hole'/>
+    <circle cx='120' cy='1140' r='3' class='pad-hole'/>
+    <circle cx='120' cy='1170' r='3' class='pad-hole'/>
+    <circle cx='120' cy='1200' r='3' class='pad-hole'/>
+    <circle cx='120' cy='1230' r='3' class='pad-hole'/>
+    <circle cx='120' cy='1260' r='3' class='pad-hole'/>
+    <circle cx='120' cy='1290' r='3' class='pad-hole'/>
+    <circle cx='120' cy='1320' r='3' class='pad-hole'/>
+    <circle cx='120' cy='1350' r='3' class='pad-hole'/>
+    <circle cx='120' cy='1380' r='3' class='pad-hole'/>
+    <circle cx='120' cy='1410' r='3' class='pad-hole'/>
+    <circle cx='120' cy='1440' r='3' class='pad-hole'/>
+    <circle cx='120' cy='1470' r='3' class='pad-hole'/>
+    <circle cx='120' cy='1500' r='3' class='pad-hole'/>
+    <circle cx='120' cy='1530' r='3' class='pad-hole'/>
+    <circle cx='120' cy='1560' r='3' class='pad-hole'/>
+    <circle cx='120' cy='1590' r='3' class='pad-hole'/>
+    <circle cx='120' cy='1620' r='3' class='pad-hole'/>
+    <circle cx='120' cy='1650' r='3' class='pad-hole'/>
+    <circle cx='120' cy='1680' r='3' class='pad-hole'/>
+    <circle cx='120' cy='1710' r='3' class='pad-hole'/>
+    <circle cx='120' cy='1740' r='3' class='pad-hole'/>
+    <circle cx='120' cy='1770' r='3' class='pad-hole'/>
+    <circle cx='120' cy='1800' r='3' class='pad-hole'/>
+    <circle cx='120' cy='1830' r='3' class='pad-hole'/>
+    <circle cx='120' cy='1860' r='3' class='pad-hole'/>
+    <circle cx='120' cy='1890' r='3' class='pad-hole'/>
+    <circle cx='120' cy='1920' r='3' class='pad-hole'/>
+    <circle cx='120' cy='1950' r='3' class='pad-hole'/>
+    <circle cx='120' cy='1980' r='3' class='pad-hole'/>
+    <circle cx='120' cy='2010' r='3' class='pad-hole'/>
+    <circle cx='120' cy='2040' r='3' class='pad-hole'/>
+    <circle cx='120' cy='2070' r='3' class='pad-hole'/>
+    <circle cx='120' cy='2100' r='3' class='pad-hole'/>
+    <circle cx='120' cy='2130' r='3' class='pad-hole'/>
+    <circle cx='120' cy='2160' r='3' class='pad-hole'/>
+    <circle cx='120' cy='2190' r='3' class='pad-hole'/>
+    <circle cx='120' cy='2220' r='3' class='pad-hole'/>
+    <circle cx='120' cy='2250' r='3' class='pad-hole'/>
+    <circle cx='120' cy='2280' r='3' class='pad-hole'/>
+    <circle cx='120' cy='2310' r='3' class='pad-hole'/>
+    <circle cx='120' cy='2340' r='3' class='pad-hole'/>
+    <circle cx='120' cy='2370' r='3' class='pad-hole'/>
+    <circle cx='120' cy='2400' r='3' class='pad-hole'/>
+    <circle cx='120' cy='2430' r='3' class='pad-hole'/>
+    <circle cx='120' cy='2460' r='3' class='pad-hole'/>
+    <circle cx='120' cy='2490' r='3' class='pad-hole'/>
+    <circle cx='120' cy='2520' r='3' class='pad-hole'/>
+    <circle cx='120' cy='2550' r='3' class='pad-hole'/>
+    <circle cx='120' cy='2580' r='3' class='pad-hole'/>
+    <circle cx='120' cy='2610' r='3' class='pad-hole'/>
+    <circle cx='120' cy='2640' r='3' class='pad-hole'/>
+    <circle cx='120' cy='2670' r='3' class='pad-hole'/>
+    <circle cx='120' cy='2700' r='3' class='pad-hole'/>
+    <circle cx='120' cy='2730' r='3' class='pad-hole'/>
+    <circle cx='120' cy='2760' r='3' class='pad-hole'/>
+    <circle cx='120' cy='2790' r='3' class='pad-hole'/>
+    <circle cx='120' cy='2820' r='3' class='pad-hole'/>
+    <circle cx='120' cy='2850' r='3' class='pad-hole'/>
+    <circle cx='120' cy='2880' r='3' class='pad-hole'/>
+    <circle cx='120' cy='2910' r='3' class='pad-hole'/>
+    <circle cx='120' cy='2940' r='3' class='pad-hole'/>
+    <circle cx='120' cy='2970' r='3' class='pad-hole'/>
+    <circle cx='120' cy='3000' r='3' class='pad-hole'/>
+    <circle cx='120' cy='3030' r='3' class='pad-hole'/>
+    <circle cx='120' cy='3060' r='3' class='pad-hole'/>
+    <circle cx='120' cy='3090' r='3' class='pad-hole'/>
+    <circle cx='120' cy='3120' r='3' class='pad-hole'/>
+    <circle cx='120' cy='3150' r='3' class='pad-hole'/>
+    <circle cx='120' cy='3180' r='3' class='pad-hole'/>
+    <circle cx='90' cy='30' r='3' class='pad-hole'/>
+    <circle cx='90' cy='60' r='3' class='pad-hole'/>
+    <circle cx='90' cy='90' r='3' class='pad-hole'/>
+    <circle cx='90' cy='120' r='3' class='pad-hole'/>
+    <circle cx='90' cy='150' r='3' class='pad-hole'/>
+    <circle cx='90' cy='180' r='3' class='pad-hole'/>
+    <circle cx='90' cy='210' r='3' class='pad-hole'/>
+    <circle cx='90' cy='240' r='3' class='pad-hole'/>
+    <circle cx='90' cy='270' r='3' class='pad-hole'/>
+    <circle cx='90' cy='300' r='3' class='pad-hole'/>
+    <circle cx='90' cy='330' r='3' class='pad-hole'/>
+    <circle cx='90' cy='360' r='3' class='pad-hole'/>
+    <circle cx='90' cy='390' r='3' class='pad-hole'/>
+    <circle cx='90' cy='420' r='3' class='pad-hole'/>
+    <circle cx='90' cy='450' r='3' class='pad-hole'/>
+    <circle cx='90' cy='480' r='3' class='pad-hole'/>
+    <circle cx='90' cy='510' r='3' class='pad-hole'/>
+    <circle cx='90' cy='540' r='3' class='pad-hole'/>
+    <circle cx='90' cy='570' r='3' class='pad-hole'/>
+    <circle cx='90' cy='600' r='3' class='pad-hole'/>
+    <circle cx='90' cy='630' r='3' class='pad-hole'/>
+    <circle cx='90' cy='660' r='3' class='pad-hole'/>
+    <circle cx='90' cy='690' r='3' class='pad-hole'/>
+    <circle cx='90' cy='720' r='3' class='pad-hole'/>
+    <circle cx='90' cy='750' r='3' class='pad-hole'/>
+    <circle cx='90' cy='780' r='3' class='pad-hole'/>
+    <circle cx='90' cy='810' r='3' class='pad-hole'/>
+    <circle cx='90' cy='840' r='3' class='pad-hole'/>
+    <circle cx='90' cy='870' r='3' class='pad-hole'/>
+    <circle cx='90' cy='900' r='3' class='pad-hole'/>
+    <circle cx='90' cy='930' r='3' class='pad-hole'/>
+    <circle cx='90' cy='960' r='3' class='pad-hole'/>
+    <circle cx='90' cy='990' r='3' class='pad-hole'/>
+    <circle cx='90' cy='1020' r='3' class='pad-hole'/>
+    <circle cx='90' cy='1050' r='3' class='pad-hole'/>
+    <circle cx='90' cy='1080' r='3' class='pad-hole'/>
+    <circle cx='90' cy='1110' r='3' class='pad-hole'/>
+    <circle cx='90' cy='1140' r='3' class='pad-hole'/>
+    <circle cx='90' cy='1170' r='3' class='pad-hole'/>
+    <circle cx='90' cy='1200' r='3' class='pad-hole'/>
+    <circle cx='90' cy='1230' r='3' class='pad-hole'/>
+    <circle cx='90' cy='1260' r='3' class='pad-hole'/>
+    <circle cx='90' cy='1290' r='3' class='pad-hole'/>
+    <circle cx='90' cy='1320' r='3' class='pad-hole'/>
+    <circle cx='90' cy='1350' r='3' class='pad-hole'/>
+    <circle cx='90' cy='1380' r='3' class='pad-hole'/>
+    <circle cx='90' cy='1410' r='3' class='pad-hole'/>
+    <circle cx='90' cy='1440' r='3' class='pad-hole'/>
+    <circle cx='90' cy='1470' r='3' class='pad-hole'/>
+    <circle cx='90' cy='1500' r='3' class='pad-hole'/>
+    <circle cx='90' cy='1530' r='3' class='pad-hole'/>
+    <circle cx='90' cy='1560' r='3' class='pad-hole'/>
+    <circle cx='90' cy='1590' r='3' class='pad-hole'/>
+    <circle cx='90' cy='1620' r='3' class='pad-hole'/>
+    <circle cx='90' cy='1650' r='3' class='pad-hole'/>
+    <circle cx='90' cy='1680' r='3' class='pad-hole'/>
+    <circle cx='90' cy='1710' r='3' class='pad-hole'/>
+    <circle cx='90' cy='1740' r='3' class='pad-hole'/>
+    <circle cx='90' cy='1770' r='3' class='pad-hole'/>
+    <circle cx='90' cy='1800' r='3' class='pad-hole'/>
+    <circle cx='90' cy='1830' r='3' class='pad-hole'/>
+    <circle cx='90' cy='1860' r='3' class='pad-hole'/>
+    <circle cx='90' cy='1890' r='3' class='pad-hole'/>
+    <circle cx='90' cy='1920' r='3' class='pad-hole'/>
+    <circle cx='90' cy='1950' r='3' class='pad-hole'/>
+    <circle cx='90' cy='1980' r='3' class='pad-hole'/>
+    <circle cx='90' cy='2010' r='3' class='pad-hole'/>
+    <circle cx='90' cy='2040' r='3' class='pad-hole'/>
+    <circle cx='90' cy='2070' r='3' class='pad-hole'/>
+    <circle cx='90' cy='2100' r='3' class='pad-hole'/>
+    <circle cx='90' cy='2130' r='3' class='pad-hole'/>
+    <circle cx='90' cy='2160' r='3' class='pad-hole'/>
+    <circle cx='90' cy='2190' r='3' class='pad-hole'/>
+    <circle cx='90' cy='2220' r='3' class='pad-hole'/>
+    <circle cx='90' cy='2250' r='3' class='pad-hole'/>
+    <circle cx='90' cy='2280' r='3' class='pad-hole'/>
+    <circle cx='90' cy='2310' r='3' class='pad-hole'/>
+    <circle cx='90' cy='2340' r='3' class='pad-hole'/>
+    <circle cx='90' cy='2370' r='3' class='pad-hole'/>
+    <circle cx='90' cy='2400' r='3' class='pad-hole'/>
+    <circle cx='90' cy='2430' r='3' class='pad-hole'/>
+    <circle cx='90' cy='2460' r='3' class='pad-hole'/>
+    <circle cx='90' cy='2490' r='3' class='pad-hole'/>
+    <circle cx='90' cy='2520' r='3' class='pad-hole'/>
+    <circle cx='90' cy='2550' r='3' class='pad-hole'/>
+    <circle cx='90' cy='2580' r='3' class='pad-hole'/>
+    <circle cx='90' cy='2610' r='3' class='pad-hole'/>
+    <circle cx='90' cy='2640' r='3' class='pad-hole'/>
+    <circle cx='90' cy='2670' r='3' class='pad-hole'/>
+    <circle cx='90' cy='2700' r='3' class='pad-hole'/>
+    <circle cx='90' cy='2730' r='3' class='pad-hole'/>
+    <circle cx='90' cy='2760' r='3' class='pad-hole'/>
+    <circle cx='90' cy='2790' r='3' class='pad-hole'/>
+    <circle cx='90' cy='2820' r='3' class='pad-hole'/>
+    <circle cx='90' cy='2850' r='3' class='pad-hole'/>
+    <circle cx='90' cy='2880' r='3' class='pad-hole'/>
+    <circle cx='90' cy='2910' r='3' class='pad-hole'/>
+    <circle cx='90' cy='2940' r='3' class='pad-hole'/>
+    <circle cx='90' cy='2970' r='3' class='pad-hole'/>
+    <circle cx='90' cy='3000' r='3' class='pad-hole'/>
+    <circle cx='90' cy='3030' r='3' class='pad-hole'/>
+    <circle cx='90' cy='3060' r='3' class='pad-hole'/>
+    <circle cx='90' cy='3090' r='3' class='pad-hole'/>
+    <circle cx='90' cy='3120' r='3' class='pad-hole'/>
+    <circle cx='90' cy='3150' r='3' class='pad-hole'/>
+    <circle cx='90' cy='3180' r='3' class='pad-hole'/>
+    <circle cx='60' cy='30' r='3' class='pad-hole'/>
+    <circle cx='60' cy='60' r='3' class='pad-hole'/>
+    <circle cx='60' cy='90' r='3' class='pad-hole'/>
+    <circle cx='60' cy='120' r='3' class='pad-hole'/>
+    <circle cx='60' cy='150' r='3' class='pad-hole'/>
+    <circle cx='60' cy='180' r='3' class='pad-hole'/>
+    <circle cx='60' cy='210' r='3' class='pad-hole'/>
+    <circle cx='60' cy='240' r='3' class='pad-hole'/>
+    <circle cx='60' cy='270' r='3' class='pad-hole'/>
+    <circle cx='60' cy='300' r='3' class='pad-hole'/>
+    <circle cx='60' cy='330' r='3' class='pad-hole'/>
+    <circle cx='60' cy='360' r='3' class='pad-hole'/>
+    <circle cx='60' cy='390' r='3' class='pad-hole'/>
+    <circle cx='60' cy='420' r='3' class='pad-hole'/>
+    <circle cx='60' cy='450' r='3' class='pad-hole'/>
+    <circle cx='60' cy='480' r='3' class='pad-hole'/>
+    <circle cx='60' cy='510' r='3' class='pad-hole'/>
+    <circle cx='60' cy='540' r='3' class='pad-hole'/>
+    <circle cx='60' cy='570' r='3' class='pad-hole'/>
+    <circle cx='60' cy='600' r='3' class='pad-hole'/>
+    <circle cx='60' cy='630' r='3' class='pad-hole'/>
+    <circle cx='60' cy='660' r='3' class='pad-hole'/>
+    <circle cx='60' cy='690' r='3' class='pad-hole'/>
+    <circle cx='60' cy='720' r='3' class='pad-hole'/>
+    <circle cx='60' cy='750' r='3' class='pad-hole'/>
+    <circle cx='60' cy='780' r='3' class='pad-hole'/>
+    <circle cx='60' cy='810' r='3' class='pad-hole'/>
+    <circle cx='60' cy='840' r='3' class='pad-hole'/>
+    <circle cx='60' cy='870' r='3' class='pad-hole'/>
+    <circle cx='60' cy='900' r='3' class='pad-hole'/>
+    <circle cx='60' cy='930' r='3' class='pad-hole'/>
+    <circle cx='60' cy='960' r='3' class='pad-hole'/>
+    <circle cx='60' cy='990' r='3' class='pad-hole'/>
+    <circle cx='60' cy='1020' r='3' class='pad-hole'/>
+    <circle cx='60' cy='1050' r='3' class='pad-hole'/>
+    <circle cx='60' cy='1080' r='3' class='pad-hole'/>
+    <circle cx='60' cy='1110' r='3' class='pad-hole'/>
+    <circle cx='60' cy='1140' r='3' class='pad-hole'/>
+    <circle cx='60' cy='1170' r='3' class='pad-hole'/>
+    <circle cx='60' cy='1200' r='3' class='pad-hole'/>
+    <circle cx='60' cy='1230' r='3' class='pad-hole'/>
+    <circle cx='60' cy='1260' r='3' class='pad-hole'/>
+    <circle cx='60' cy='1290' r='3' class='pad-hole'/>
+    <circle cx='60' cy='1320' r='3' class='pad-hole'/>
+    <circle cx='60' cy='1350' r='3' class='pad-hole'/>
+    <circle cx='60' cy='1380' r='3' class='pad-hole'/>
+    <circle cx='60' cy='1410' r='3' class='pad-hole'/>
+    <circle cx='60' cy='1440' r='3' class='pad-hole'/>
+    <circle cx='60' cy='1470' r='3' class='pad-hole'/>
+    <circle cx='60' cy='1500' r='3' class='pad-hole'/>
+    <circle cx='60' cy='1530' r='3' class='pad-hole'/>
+    <circle cx='60' cy='1560' r='3' class='pad-hole'/>
+    <circle cx='60' cy='1590' r='3' class='pad-hole'/>
+    <circle cx='60' cy='1620' r='3' class='pad-hole'/>
+    <circle cx='60' cy='1650' r='3' class='pad-hole'/>
+    <circle cx='60' cy='1680' r='3' class='pad-hole'/>
+    <circle cx='60' cy='1710' r='3' class='pad-hole'/>
+    <circle cx='60' cy='1740' r='3' class='pad-hole'/>
+    <circle cx='60' cy='1770' r='3' class='pad-hole'/>
+    <circle cx='60' cy='1800' r='3' class='pad-hole'/>
+    <circle cx='60' cy='1830' r='3' class='pad-hole'/>
+    <circle cx='60' cy='1860' r='3' class='pad-hole'/>
+    <circle cx='60' cy='1890' r='3' class='pad-hole'/>
+    <circle cx='60' cy='1920' r='3' class='pad-hole'/>
+    <circle cx='60' cy='1950' r='3' class='pad-hole'/>
+    <circle cx='60' cy='1980' r='3' class='pad-hole'/>
+    <circle cx='60' cy='2010' r='3' class='pad-hole'/>
+    <circle cx='60' cy='2040' r='3' class='pad-hole'/>
+    <circle cx='60' cy='2070' r='3' class='pad-hole'/>
+    <circle cx='60' cy='2100' r='3' class='pad-hole'/>
+    <circle cx='60' cy='2130' r='3' class='pad-hole'/>
+    <circle cx='60' cy='2160' r='3' class='pad-hole'/>
+    <circle cx='60' cy='2190' r='3' class='pad-hole'/>
+    <circle cx='60' cy='2220' r='3' class='pad-hole'/>
+    <circle cx='60' cy='2250' r='3' class='pad-hole'/>
+    <circle cx='60' cy='2280' r='3' class='pad-hole'/>
+    <circle cx='60' cy='2310' r='3' class='pad-hole'/>
+    <circle cx='60' cy='2340' r='3' class='pad-hole'/>
+    <circle cx='60' cy='2370' r='3' class='pad-hole'/>
+    <circle cx='60' cy='2400' r='3' class='pad-hole'/>
+    <circle cx='60' cy='2430' r='3' class='pad-hole'/>
+    <circle cx='60' cy='2460' r='3' class='pad-hole'/>
+    <circle cx='60' cy='2490' r='3' class='pad-hole'/>
+    <circle cx='60' cy='2520' r='3' class='pad-hole'/>
+    <circle cx='60' cy='2550' r='3' class='pad-hole'/>
+    <circle cx='60' cy='2580' r='3' class='pad-hole'/>
+    <circle cx='60' cy='2610' r='3' class='pad-hole'/>
+    <circle cx='60' cy='2640' r='3' class='pad-hole'/>
+    <circle cx='60' cy='2670' r='3' class='pad-hole'/>
+    <circle cx='60' cy='2700' r='3' class='pad-hole'/>
+    <circle cx='60' cy='2730' r='3' class='pad-hole'/>
+    <circle cx='60' cy='2760' r='3' class='pad-hole'/>
+    <circle cx='60' cy='2790' r='3' class='pad-hole'/>
+    <circle cx='60' cy='2820' r='3' class='pad-hole'/>
+    <circle cx='60' cy='2850' r='3' class='pad-hole'/>
+    <circle cx='60' cy='2880' r='3' class='pad-hole'/>
+    <circle cx='60' cy='2910' r='3' class='pad-hole'/>
+    <circle cx='60' cy='2940' r='3' class='pad-hole'/>
+    <circle cx='60' cy='2970' r='3' class='pad-hole'/>
+    <circle cx='60' cy='3000' r='3' class='pad-hole'/>
+    <circle cx='60' cy='3030' r='3' class='pad-hole'/>
+    <circle cx='60' cy='3060' r='3' class='pad-hole'/>
+    <circle cx='60' cy='3090' r='3' class='pad-hole'/>
+    <circle cx='60' cy='3120' r='3' class='pad-hole'/>
+    <circle cx='60' cy='3150' r='3' class='pad-hole'/>
+    <circle cx='60' cy='3180' r='3' class='pad-hole'/>
+    <circle cx='30' cy='30' r='3' class='pad-hole'/>
+    <circle cx='30' cy='60' r='3' class='pad-hole'/>
+    <circle cx='30' cy='90' r='3' class='pad-hole'/>
+    <circle cx='30' cy='120' r='3' class='pad-hole'/>
+    <circle cx='30' cy='150' r='3' class='pad-hole'/>
+    <circle cx='30' cy='180' r='3' class='pad-hole'/>
+    <circle cx='30' cy='210' r='3' class='pad-hole'/>
+    <circle cx='30' cy='240' r='3' class='pad-hole'/>
+    <circle cx='30' cy='270' r='3' class='pad-hole'/>
+    <circle cx='30' cy='300' r='3' class='pad-hole'/>
+    <circle cx='30' cy='330' r='3' class='pad-hole'/>
+    <circle cx='30' cy='360' r='3' class='pad-hole'/>
+    <circle cx='30' cy='390' r='3' class='pad-hole'/>
+    <circle cx='30' cy='420' r='3' class='pad-hole'/>
+    <circle cx='30' cy='450' r='3' class='pad-hole'/>
+    <circle cx='30' cy='480' r='3' class='pad-hole'/>
+    <circle cx='30' cy='510' r='3' class='pad-hole'/>
+    <circle cx='30' cy='540' r='3' class='pad-hole'/>
+    <circle cx='30' cy='570' r='3' class='pad-hole'/>
+    <circle cx='30' cy='600' r='3' class='pad-hole'/>
+    <circle cx='30' cy='630' r='3' class='pad-hole'/>
+    <circle cx='30' cy='660' r='3' class='pad-hole'/>
+    <circle cx='30' cy='690' r='3' class='pad-hole'/>
+    <circle cx='30' cy='720' r='3' class='pad-hole'/>
+    <circle cx='30' cy='750' r='3' class='pad-hole'/>
+    <circle cx='30' cy='780' r='3' class='pad-hole'/>
+    <circle cx='30' cy='810' r='3' class='pad-hole'/>
+    <circle cx='30' cy='840' r='3' class='pad-hole'/>
+    <circle cx='30' cy='870' r='3' class='pad-hole'/>
+    <circle cx='30' cy='900' r='3' class='pad-hole'/>
+    <circle cx='30' cy='930' r='3' class='pad-hole'/>
+    <circle cx='30' cy='960' r='3' class='pad-hole'/>
+    <circle cx='30' cy='990' r='3' class='pad-hole'/>
+    <circle cx='30' cy='1020' r='3' class='pad-hole'/>
+    <circle cx='30' cy='1050' r='3' class='pad-hole'/>
+    <circle cx='30' cy='1080' r='3' class='pad-hole'/>
+    <circle cx='30' cy='1110' r='3' class='pad-hole'/>
+    <circle cx='30' cy='1140' r='3' class='pad-hole'/>
+    <circle cx='30' cy='1170' r='3' class='pad-hole'/>
+    <circle cx='30' cy='1200' r='3' class='pad-hole'/>
+    <circle cx='30' cy='1230' r='3' class='pad-hole'/>
+    <circle cx='30' cy='1260' r='3' class='pad-hole'/>
+    <circle cx='30' cy='1290' r='3' class='pad-hole'/>
+    <circle cx='30' cy='1320' r='3' class='pad-hole'/>
+    <circle cx='30' cy='1350' r='3' class='pad-hole'/>
+    <circle cx='30' cy='1380' r='3' class='pad-hole'/>
+    <circle cx='30' cy='1410' r='3' class='pad-hole'/>
+    <circle cx='30' cy='1440' r='3' class='pad-hole'/>
+    <circle cx='30' cy='1470' r='3' class='pad-hole'/>
+    <circle cx='30' cy='1500' r='3' class='pad-hole'/>
+    <circle cx='30' cy='1530' r='3' class='pad-hole'/>
+    <circle cx='30' cy='1560' r='3' class='pad-hole'/>
+    <circle cx='30' cy='1590' r='3' class='pad-hole'/>
+    <circle cx='30' cy='1620' r='3' class='pad-hole'/>
+    <circle cx='30' cy='1650' r='3' class='pad-hole'/>
+    <circle cx='30' cy='1680' r='3' class='pad-hole'/>
+    <circle cx='30' cy='1710' r='3' class='pad-hole'/>
+    <circle cx='30' cy='1740' r='3' class='pad-hole'/>
+    <circle cx='30' cy='1770' r='3' class='pad-hole'/>
+    <circle cx='30' cy='1800' r='3' class='pad-hole'/>
+    <circle cx='30' cy='1830' r='3' class='pad-hole'/>
+    <circle cx='30' cy='1860' r='3' class='pad-hole'/>
+    <circle cx='30' cy='1890' r='3' class='pad-hole'/>
+    <circle cx='30' cy='1920' r='3' class='pad-hole'/>
+    <circle cx='30' cy='1950' r='3' class='pad-hole'/>
+    <circle cx='30' cy='1980' r='3' class='pad-hole'/>
+    <circle cx='30' cy='2010' r='3' class='pad-hole'/>
+    <circle cx='30' cy='2040' r='3' class='pad-hole'/>
+    <circle cx='30' cy='2070' r='3' class='pad-hole'/>
+    <circle cx='30' cy='2100' r='3' class='pad-hole'/>
+    <circle cx='30' cy='2130' r='3' class='pad-hole'/>
+    <circle cx='30' cy='2160' r='3' class='pad-hole'/>
+    <circle cx='30' cy='2190' r='3' class='pad-hole'/>
+    <circle cx='30' cy='2220' r='3' class='pad-hole'/>
+    <circle cx='30' cy='2250' r='3' class='pad-hole'/>
+    <circle cx='30' cy='2280' r='3' class='pad-hole'/>
+    <circle cx='30' cy='2310' r='3' class='pad-hole'/>
+    <circle cx='30' cy='2340' r='3' class='pad-hole'/>
+    <circle cx='30' cy='2370' r='3' class='pad-hole'/>
+    <circle cx='30' cy='2400' r='3' class='pad-hole'/>
+    <circle cx='30' cy='2430' r='3' class='pad-hole'/>
+    <circle cx='30' cy='2460' r='3' class='pad-hole'/>
+    <circle cx='30' cy='2490' r='3' class='pad-hole'/>
+    <circle cx='30' cy='2520' r='3' class='pad-hole'/>
+    <circle cx='30' cy='2550' r='3' class='pad-hole'/>
+    <circle cx='30' cy='2580' r='3' class='pad-hole'/>
+    <circle cx='30' cy='2610' r='3' class='pad-hole'/>
+    <circle cx='30' cy='2640' r='3' class='pad-hole'/>
+    <circle cx='30' cy='2670' r='3' class='pad-hole'/>
+    <circle cx='30' cy='2700' r='3' class='pad-hole'/>
+    <circle cx='30' cy='2730' r='3' class='pad-hole'/>
+    <circle cx='30' cy='2760' r='3' class='pad-hole'/>
+    <circle cx='30' cy='2790' r='3' class='pad-hole'/>
+    <circle cx='30' cy='2820' r='3' class='pad-hole'/>
+    <circle cx='30' cy='2850' r='3' class='pad-hole'/>
+    <circle cx='30' cy='2880' r='3' class='pad-hole'/>
+    <circle cx='30' cy='2910' r='3' class='pad-hole'/>
+    <circle cx='30' cy='2940' r='3' class='pad-hole'/>
+    <circle cx='30' cy='2970' r='3' class='pad-hole'/>
+    <circle cx='30' cy='3000' r='3' class='pad-hole'/>
+    <circle cx='30' cy='3030' r='3' class='pad-hole'/>
+    <circle cx='30' cy='3060' r='3' class='pad-hole'/>
+    <circle cx='30' cy='3090' r='3' class='pad-hole'/>
+    <circle cx='30' cy='3120' r='3' class='pad-hole'/>
+    <circle cx='30' cy='3150' r='3' class='pad-hole'/>
+    <circle cx='30' cy='3180' r='3' class='pad-hole'/>
+  </g>
+  <g id='routing-bottom-layer'>
+    <path d='M 180 1950 L 270 1950 L 270 630' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='186' y='1954' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='634' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 1980 L 270 1980 L 270 600' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='186' y='1984' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='604' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 2010 L 270 2010 L 270 570' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='186' y='2014' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='574' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 2040 L 270 2040 L 270 540' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='186' y='2044' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='544' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 2070 L 270 2070 L 270 510' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='186' y='2074' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='514' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 2100 L 270 2100 L 270 480' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='186' y='2104' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='484' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 2130 L 270 2130 L 270 450' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='186' y='2134' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='454' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 2160 L 270 2160 L 270 420' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='186' y='2164' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='424' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 1440 L 90 1440 L 90 450' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='276' y='1444' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='96' y='454' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 1470 L 90 1470 L 90 480' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='276' y='1474' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='96' y='484' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 1740 L 180 1740 L 180 1770' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='186' y='1744' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='186' y='1774' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 1770 L 180 1770 L 180 1800' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='186' y='1774' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='186' y='1804' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 1800 L 180 1800 L 180 1830' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='186' y='1804' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='186' y='1834' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 1830 L 180 1830 L 180 3000' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='186' y='1834' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='186' y='3004' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 3000 L 180 3000 L 180 3030' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='186' y='3004' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='186' y='3034' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 3030 L 180 3030 L 180 3060' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='186' y='3034' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='186' y='3064' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 3060 L 180 3060 L 180 3090' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='186' y='3064' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='186' y='3094' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 90 1530 L 210 1530 L 210 360' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='96' y='1534' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='216' y='364' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 1500 L 90 1500 L 90 570' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='276' y='1504' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='96' y='574' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 2580 L 90 2580 L 90 1080' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='276' y='2584' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='96' y='1084' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 2910 L 270 2910 L 270 90' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='276' y='2914' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='94' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 2250 L 270 2250 L 270 1110' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='276' y='2254' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='1114' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 1620 L 270 1620 L 270 1950' class='wire-trace' stroke='rgb(0,0,255)' stroke-width='3' opacity='0.8'/>
+    <text x='276' y='1624' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='1954' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 1950 L 180 1950 L 180 2280' class='wire-trace' stroke='rgb(0,0,255)' stroke-width='3' opacity='0.8'/>
+    <text x='276' y='1954' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='186' y='2284' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 2280 L 270 2280 L 270 2610' class='wire-trace' stroke='rgb(0,0,255)' stroke-width='3' opacity='0.8'/>
+    <text x='186' y='2284' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='2614' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 2610 L 90 2610 L 90 1110' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='186' y='2614' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='96' y='1114' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 1650 L 270 1650 L 270 1980' class='wire-trace' stroke='rgb(0,0,255)' stroke-width='3' opacity='0.8'/>
+    <text x='276' y='1654' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='1984' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 1980 L 180 1980 L 180 2310' class='wire-trace' stroke='rgb(0,0,255)' stroke-width='3' opacity='0.8'/>
+    <text x='276' y='1984' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='186' y='2314' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 2310 L 270 2310 L 270 2640' class='wire-trace' stroke='rgb(0,0,255)' stroke-width='3' opacity='0.8'/>
+    <text x='186' y='2314' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='2644' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 1680 L 270 1680 L 270 2010' class='wire-trace' stroke='rgb(0,0,255)' stroke-width='3' opacity='0.8'/>
+    <text x='276' y='1684' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='2014' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 2010 L 180 2010 L 180 2340' class='wire-trace' stroke='rgb(0,0,255)' stroke-width='3' opacity='0.8'/>
+    <text x='276' y='2014' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='186' y='2344' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 2340 L 270 2340 L 270 2670' class='wire-trace' stroke='rgb(0,0,255)' stroke-width='3' opacity='0.8'/>
+    <text x='186' y='2344' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='2674' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 1710 L 270 1710 L 270 2040' class='wire-trace' stroke='rgb(0,0,255)' stroke-width='3' opacity='0.8'/>
+    <text x='276' y='1714' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='2044' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 2040 L 180 2040 L 180 2370' class='wire-trace' stroke='rgb(0,0,255)' stroke-width='3' opacity='0.8'/>
+    <text x='276' y='2044' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='186' y='2374' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 2370 L 270 2370 L 270 2700' class='wire-trace' stroke='rgb(0,0,255)' stroke-width='3' opacity='0.8'/>
+    <text x='186' y='2374' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='2704' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 1740 L 270 1740 L 270 2070' class='wire-trace' stroke='rgb(0,0,255)' stroke-width='3' opacity='0.8'/>
+    <text x='276' y='1744' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='2074' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 2070 L 180 2070 L 180 2400' class='wire-trace' stroke='rgb(0,0,255)' stroke-width='3' opacity='0.8'/>
+    <text x='276' y='2074' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='186' y='2404' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 2400 L 270 2400 L 270 2730' class='wire-trace' stroke='rgb(0,0,255)' stroke-width='3' opacity='0.8'/>
+    <text x='186' y='2404' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='2734' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 1770 L 270 1770 L 270 2100' class='wire-trace' stroke='rgb(0,0,255)' stroke-width='3' opacity='0.8'/>
+    <text x='276' y='1774' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='2104' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 2100 L 180 2100 L 180 2430' class='wire-trace' stroke='rgb(0,0,255)' stroke-width='3' opacity='0.8'/>
+    <text x='276' y='2104' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='186' y='2434' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 2430 L 270 2430 L 270 2760' class='wire-trace' stroke='rgb(0,0,255)' stroke-width='3' opacity='0.8'/>
+    <text x='186' y='2434' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='2764' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 1800 L 270 1800 L 270 2130' class='wire-trace' stroke='rgb(0,0,255)' stroke-width='3' opacity='0.8'/>
+    <text x='276' y='1804' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='2134' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 2130 L 180 2130 L 180 2460' class='wire-trace' stroke='rgb(0,0,255)' stroke-width='3' opacity='0.8'/>
+    <text x='276' y='2134' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='186' y='2464' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 2460 L 270 2460 L 270 2790' class='wire-trace' stroke='rgb(0,0,255)' stroke-width='3' opacity='0.8'/>
+    <text x='186' y='2464' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='2794' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 1830 L 270 1830 L 270 2160' class='wire-trace' stroke='rgb(0,0,255)' stroke-width='3' opacity='0.8'/>
+    <text x='276' y='1834' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='2164' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 2160 L 180 2160 L 180 2490' class='wire-trace' stroke='rgb(0,0,255)' stroke-width='3' opacity='0.8'/>
+    <text x='276' y='2164' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='186' y='2494' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 2490 L 270 2490 L 270 2820' class='wire-trace' stroke='rgb(0,0,255)' stroke-width='3' opacity='0.8'/>
+    <text x='186' y='2494' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='2824' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 1860 L 270 1860 L 270 1590' class='wire-trace' stroke='rgb(0,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='276' y='1864' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='1594' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 1590 L 300 1590 L 300 1650' class='wire-trace' stroke='rgb(0,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='276' y='1594' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='306' y='1654' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 300 1650 L 270 1650 L 270 2190' class='wire-trace' stroke='rgb(0,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='306' y='1654' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='2194' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 2190 L 270 2190 L 270 1920' class='wire-trace' stroke='rgb(0,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='276' y='2194' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='1924' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 1920 L 300 1920 L 300 1980' class='wire-trace' stroke='rgb(0,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='276' y='1924' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='306' y='1984' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 300 1980 L 270 1980 L 270 2520' class='wire-trace' stroke='rgb(0,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='306' y='1984' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='2524' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 2520 L 300 2520 L 300 2310' class='wire-trace' stroke='rgb(0,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='276' y='2524' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='306' y='2314' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 300 2310 L 270 2310 L 270 2850' class='wire-trace' stroke='rgb(0,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='306' y='2314' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='2854' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 2850 L 300 2850 L 300 2640' class='wire-trace' stroke='rgb(0,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='276' y='2854' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='306' y='2644' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 300 2640 L 270 2640 L 270 3090' class='wire-trace' stroke='rgb(0,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='306' y='2644' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='3094' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 3090 L 180 3090 L 180 2940' class='wire-trace' stroke='rgb(0,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='276' y='3094' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='186' y='2944' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 2940 L 180 2940 L 180 2970' class='wire-trace' stroke='rgb(0,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='186' y='2944' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='186' y='2974' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 2970 L 300 2970 L 300 2970' class='wire-trace' stroke='rgb(0,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='186' y='2974' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='306' y='2974' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 300 2970 L 300 2970 L 300 1260' class='wire-trace' stroke='rgb(0,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='306' y='2974' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='306' y='1264' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 300 1260 L 270 1260 L 270 1530' class='wire-trace' stroke='rgb(0,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='306' y='1264' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='1534' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 1530 L 90 1530 L 90 1320' class='wire-trace' stroke='rgb(0,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='276' y='1534' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='96' y='1324' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 90 1320 L 90 1320 L 90 1380' class='wire-trace' stroke='rgb(0,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='96' y='1324' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='96' y='1384' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 90 1380 L 300 1380 L 300 870' class='wire-trace' stroke='rgb(0,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='96' y='1384' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='306' y='874' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 300 870 L 270 870 L 270 1140' class='wire-trace' stroke='rgb(0,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='306' y='874' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='1144' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 1140 L 90 1140 L 90 930' class='wire-trace' stroke='rgb(0,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='276' y='1144' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='96' y='934' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 90 930 L 90 930 L 90 990' class='wire-trace' stroke='rgb(0,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='96' y='934' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='96' y='994' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 90 990 L 300 990 L 300 480' class='wire-trace' stroke='rgb(0,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='96' y='994' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='306' y='484' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 300 480 L 270 480 L 270 750' class='wire-trace' stroke='rgb(0,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='306' y='484' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='754' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 750 L 90 750 L 90 540' class='wire-trace' stroke='rgb(0,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='276' y='754' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='96' y='544' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 90 540 L 90 540 L 90 600' class='wire-trace' stroke='rgb(0,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='96' y='544' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='96' y='604' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 90 600 L 300 600 L 300 150' class='wire-trace' stroke='rgb(0,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='96' y='604' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='306' y='154' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 300 150 L 270 150 L 270 360' class='wire-trace' stroke='rgb(0,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='306' y='154' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='364' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 2940 L 270 2940 L 270 3060' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='276' y='2944' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='3064' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 2280 L 270 2280 L 270 660' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='276' y='2284' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='664' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 2310 L 270 2310 L 270 690' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='276' y='2314' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='694' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 2340 L 270 2340 L 270 720' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='276' y='2344' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='724' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 2370 L 90 2370 L 90 750' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='276' y='2374' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='96' y='754' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 90 960 L 90 960 L 90 1350' class='wire-trace' stroke='rgb(0,255,0)' stroke-width='3' opacity='0.8'/>
+    <text x='96' y='964' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='96' y='1354' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 2400 L 90 2400 L 90 720' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='276' y='2404' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='96' y='724' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 2430 L 90 2430 L 90 690' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='276' y='2434' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='96' y='694' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 2460 L 90 2460 L 90 660' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='276' y='2464' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='96' y='664' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 2490 L 90 2490 L 90 630' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='276' y='2494' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='96' y='634' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 2970 L 270 2970 L 270 1410' class='wire-trace' stroke='rgb(0,255,0)' stroke-width='3' opacity='0.8'/>
+    <text x='276' y='2974' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='1414' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 1410 L 270 1410 L 270 1020' class='wire-trace' stroke='rgb(0,255,0)' stroke-width='3' opacity='0.8'/>
+    <text x='276' y='1414' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='1024' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 3000 L 270 3000 L 270 1380' class='wire-trace' stroke='rgb(0,255,0)' stroke-width='3' opacity='0.8'/>
+    <text x='276' y='3004' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='1384' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 1380 L 270 1380 L 270 990' class='wire-trace' stroke='rgb(0,255,0)' stroke-width='3' opacity='0.8'/>
+    <text x='276' y='1384' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='994' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 3030 L 270 3030 L 270 1350' class='wire-trace' stroke='rgb(0,255,0)' stroke-width='3' opacity='0.8'/>
+    <text x='276' y='3034' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='1354' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 1350 L 270 1350 L 270 960' class='wire-trace' stroke='rgb(0,255,0)' stroke-width='3' opacity='0.8'/>
+    <text x='276' y='1354' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='964' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 90 1500 L 210 1500 L 210 210' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='96' y='1504' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='216' y='214' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 1620 L 270 1620 L 270 1320' class='wire-trace' stroke='rgb(0,255,0)' stroke-width='3' opacity='0.8'/>
+    <text x='186' y='1624' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='1324' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 1320 L 270 1320 L 270 930' class='wire-trace' stroke='rgb(0,255,0)' stroke-width='3' opacity='0.8'/>
+    <text x='276' y='1324' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='934' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 90 1470 L 210 1470 L 210 180' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='96' y='1474' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='216' y='184' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 1650 L 270 1650 L 270 1290' class='wire-trace' stroke='rgb(0,255,0)' stroke-width='3' opacity='0.8'/>
+    <text x='186' y='1654' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='1294' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 1290 L 270 1290 L 270 900' class='wire-trace' stroke='rgb(0,255,0)' stroke-width='3' opacity='0.8'/>
+    <text x='276' y='1294' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='904' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 90 1440 L 210 1440 L 210 150' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='96' y='1444' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='216' y='154' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 1680 L 270 1680 L 270 1260' class='wire-trace' stroke='rgb(0,255,0)' stroke-width='3' opacity='0.8'/>
+    <text x='186' y='1684' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='1264' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 1260 L 270 1260 L 270 870' class='wire-trace' stroke='rgb(0,255,0)' stroke-width='3' opacity='0.8'/>
+    <text x='276' y='1264' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='874' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 90 1410 L 210 1410 L 210 120' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='96' y='1414' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='216' y='124' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 1710 L 270 1710 L 270 1230' class='wire-trace' stroke='rgb(0,255,0)' stroke-width='3' opacity='0.8'/>
+    <text x='186' y='1714' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='1234' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 1230 L 270 1230 L 270 840' class='wire-trace' stroke='rgb(0,255,0)' stroke-width='3' opacity='0.8'/>
+    <text x='276' y='1234' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='844' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 270 810 L 270 810 L 270 1200' class='wire-trace' stroke='rgb(0,255,0)' stroke-width='3' opacity='0.8'/>
+    <text x='276' y='814' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='1204' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 90 840 L 90 840 L 90 1230' class='wire-trace' stroke='rgb(0,255,0)' stroke-width='3' opacity='0.8'/>
+    <text x='96' y='844' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='96' y='1234' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 90 870 L 90 870 L 90 1260' class='wire-trace' stroke='rgb(0,255,0)' stroke-width='3' opacity='0.8'/>
+    <text x='96' y='874' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='96' y='1264' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 1860 L 270 1860 L 270 1050' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='186' y='1864' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='1054' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 2190 L 270 2190 L 270 1080' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='186' y='2194' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='1084' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 2520 L 90 2520 L 90 1140' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='186' y='2524' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='96' y='1144' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 2640 L 270 2640 L 270 120' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='186' y='2644' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='124' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 2670 L 270 2670 L 270 150' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='186' y='2674' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='154' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 2700 L 270 2700 L 270 180' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='186' y='2704' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='184' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 90 1050 L 210 1050 L 210 300' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='96' y='1054' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='216' y='304' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 2730 L 270 2730 L 270 210' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='186' y='2734' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='214' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 90 1020 L 210 1020 L 210 270' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='96' y='1024' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='216' y='274' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 2760 L 270 2760 L 270 240' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='186' y='2764' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='244' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 2790 L 270 2790 L 270 270' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='186' y='2794' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='274' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 2820 L 270 2820 L 270 300' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='186' y='2824' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='304' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 2850 L 270 2850 L 270 330' class='wire-trace' stroke='rgb(255,255,255)' stroke-width='3' opacity='0.6'/>
+    <text x='186' y='2854' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='276' y='334' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 1590 L 300 1590 L 300 1590' class='wire-trace' stroke='rgb(255,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='186' y='1594' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='306' y='1594' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 300 1590 L 180 1590 L 180 1920' class='wire-trace' stroke='rgb(255,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='306' y='1594' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='186' y='1924' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 1920 L 300 1920 L 300 1920' class='wire-trace' stroke='rgb(255,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='186' y='1924' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='306' y='1924' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 300 1920 L 180 1920 L 180 2250' class='wire-trace' stroke='rgb(255,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='306' y='1924' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='186' y='2254' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 2250 L 300 2250 L 300 2250' class='wire-trace' stroke='rgb(255,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='186' y='2254' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='306' y='2254' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 300 2250 L 180 2250 L 180 2580' class='wire-trace' stroke='rgb(255,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='306' y='2254' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='186' y='2584' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 2580 L 300 2580 L 300 2580' class='wire-trace' stroke='rgb(255,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='186' y='2584' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='306' y='2584' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 300 2580 L 180 2580 L 180 2910' class='wire-trace' stroke='rgb(255,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='306' y='2584' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='186' y='2914' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 180 2910 L 300 2910 L 300 2910' class='wire-trace' stroke='rgb(255,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='186' y='2914' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='306' y='2914' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 300 2910 L 300 2910 L 300 1200' class='wire-trace' stroke='rgb(255,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='306' y='2914' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='306' y='1204' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 300 1200 L 90 1200 L 90 1200' class='wire-trace' stroke='rgb(255,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='306' y='1204' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='96' y='1204' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 90 1200 L 90 1200 L 90 1290' class='wire-trace' stroke='rgb(255,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='96' y='1204' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='96' y='1294' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 90 1290 L 90 1290 L 90 810' class='wire-trace' stroke='rgb(255,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='96' y='1294' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='96' y='814' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 90 810 L 90 810 L 90 900' class='wire-trace' stroke='rgb(255,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='96' y='814' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='96' y='904' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 90 900 L 300 900 L 300 810' class='wire-trace' stroke='rgb(255,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='96' y='904' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='306' y='814' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 300 810 L 300 810 L 300 420' class='wire-trace' stroke='rgb(255,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='306' y='814' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='306' y='424' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 300 420 L 90 420 L 90 420' class='wire-trace' stroke='rgb(255,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='306' y='424' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='96' y='424' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 90 420 L 90 420 L 90 420' class='wire-trace' stroke='rgb(255,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='96' y='424' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='96' y='424' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 90 420 L 90 420 L 90 510' class='wire-trace' stroke='rgb(255,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='96' y='424' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='96' y='514' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 90 510 L 210 510 L 210 90' class='wire-trace' stroke='rgb(255,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='96' y='514' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='216' y='94' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+    <path d='M 210 90 L 300 90 L 300 90' class='wire-trace' stroke='rgb(255,0,0)' stroke-width='3' opacity='0.9'/>
+    <text x='216' y='94' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part1 '.' phys_p1 '</text>
+    <text x='306' y='94' fill='rgb(160,160,160)' font-size='8' font-weight='bold'>' part2 '.' phys_p2 '</text>
+  </g>
+</svg>

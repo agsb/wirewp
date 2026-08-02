@@ -19,21 +19,13 @@ function execute_drc_validation(    u_net, model, inst, total_pins, p, net_found
     
     # 2. Consistência de encapsulamento e verificação de pinos isolados/não ligados
     for (inst in COMP_INST_MODEL) {
-        # CORREÇÃO CRÍTICA: Parêntese de fechamento inserido corretamente antes do 'continue'
         if (inst == "" || inst == "COB" || inst ~ /^C_/) continue
         
         model = COMP_INST_MODEL[inst]
         if (!COMP_LIB_PINS[model]) {
-            init_library()
-            if (LIB_PINS[model]) {
-                COMP_LIB_PINS[model] = LIB_PINS[model]
-                COMP_LIB_ROW_W[model] = LIB_ROW_W[model]
-                COMP_LIB_TYPE[model] = "DIP"
-            } else {
-                print "[DRC ERRO]: Componente " inst " possui modelo sem pegada definida: " model > "/dev/stderr"
-                DRC_ERRORS++
-                continue
-            }
+            print "[DRC ERRO]: Componente " inst " possui modelo sem pegada definida no CSV: " model > "/dev/stderr"
+            DRC_ERRORS++
+            continue
         }
         
         # Auditoria de pinos flutuantes por componente

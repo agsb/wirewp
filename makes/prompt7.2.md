@@ -40,7 +40,7 @@ O ecossistema é estruturado em 9 arquivos lógicos sequenciais (01_parser.awk a
 ### MÓDULO 07: `07_export.awk`
 - Executa resolução tardia estável (Lazy Evaluation) após o encerramento completo de toda a leitura de arquivos, varrendo o dicionário para converter os nomes lidos para o formato numérico exato exigido: `NúmeroFísico (NomeDoPino)`.
 - Exporta de forma limpa o arquivo físico de texto `board_routing_summary.txt` organizando sequencialmente as conexões por ordem estrita de prioridade (Classes de 1 a 7).
-- **Inclusão dos Capacitores**: Os capacitores automáticos de acoplamento/bypass (`C_U*`) são explicitamente listados no grupo da **Classe 1 (POWER)**. Seus pinos recebem tratamento cromático diferenciado: conexões à rede GND recebem a cor `PRETO`, e conexões a redes como VCC recebem a cor `VERMELHO`. O nível Z dessas conexões é fixado em `BAIXO` para melhor filtragem EMI na base do poste.
+- Os capacitores automáticos de acoplamento/bypass (`C_U*`) são explicitamente listados no grupo da **Classe 1 (POWER)**. Seus pinos recebem tratamento cromático diferenciado: conexões à rede GND recebem a cor `PRETO`, e conexões a redes como VCC recebem a cor `VERMELHO`. O nível Z dessas conexões é fixado em `BAIXO` para melhor filtragem EMI na base do poste.
 - Separa as alimentações em blocos idênticos para CIs reais (GND recebe cor de isolamento `PRETO` e VCC recebe cor `VERMELHO`), seguidas de Dados (`AZUL`), Endereço (`VERDE`), Controle/Clock (`AMARELO`), Analógico (`MAGENTA`) e Sinais Gerais (`BRANCO`).
 - Converte os índices do Z-Stacking em strings explícitas de orientação para o montador: `BAIXO` para o primeiro fio (Z1) e `CIMA` para o segundo (Z2).
 - Metrologia industrial 30 AWG: Inclui uma constante física absoluta fixa de **4.544 cm por segmento** para suprir a decapagem e o enrolamento estrito de **6 voltas nuas e 2 voltas isoladas** em cada extremidade do pino quadrado de 0.025". Todos os comprimentos sofrem arredondamento superior (Ceil) emulador para o próximo múltiplo exato de 1 cm.
@@ -48,9 +48,11 @@ O ecossistema é estruturado em 9 arquivos lógicos sequenciais (01_parser.awk a
 
 ### MÓDULO 08: `08_svg.awk`
 - Processa as camadas "top" (Silkscreen, contornos de encapsulamento DIP/SIP, círculos DSC de capacitores virtuais) e "bottom" (fiação ortogonal Manhattan espelhada em X com indicação dos pinos).
-- Injeta as tags `width="...px"` e `height="...px"` com `viewBox` na raiz do XML para garantir compatibilidade real de escala de 300 DPI nos navegadores Chrome, Firefox, Safari e Edge.
-- Uso estrito do caractere decimal de escape de aspas duplas octal (`\042`) nas tags de metadados iniciais XML e W3C para blindar a geração e impedir arquivos SVG corrompidos. Atributos internos usam aspas simples (`cx='...'`) eliminando a necessidade de caracteres de escape e prevenindo falhas de parsers.
-- Conformidade W3C Absoluta: Utiliza cores no formato funcional `rgb(R,G,B)` e define as opacidades como strings textuais estáticas, neutralizando erros fatais de parsers gerados em terminais com localidade decimal de vírgula (ex: `opacity='0.9'`).
+- **Conformidade W3C SVG 1.1 Absoluta**: Introduz um bloco formal `<defs>` que encapsula uma tag `<style>` com classes CSS do tipo `.wire-trace` e `.pad-hole`. Organiza todos os elementos visuais em grupos semânticos `<g>` (id: `pcb-substrate`, `universal-grid-matrix`, `silkscreen-top-layer`, `routing-bottom-layer`).
+- Usa a declaração estrita e universal de namespace exigida pelos navegadores: `xmlns="http://w3.org"`.
+- Usa injeção dinâmica de aspas duplas reais via tabela ASCII (`sprintf("%c", 34)`) para blindar as tags de metadados iniciais XML e as dimensões e namespaces da raiz `<svg>` contra falhas de parse de navegadores modernos.
+- Atributos internos usam aspas simples (`cx='...'`) eliminando completamente caracteres de escape de strings e garantindo que o arquivo renderize visualmente instantaneamente.
+- Utiliza cores puras no formato funcional `rgb(R,G,B)` e define as opacidades como strings textuais estáticas para neutralizar erros gerados em terminais com localidade decimal de vírgula (ex: `opacity='0.9'`).
 
 ### MÓDULO 09: `09_execute.awk`
 - Orquestrador geral do pipeline EDA, invocando sequencialmente as rotinas do bloco END: `execute_drc_validation()`, `run_force_directed_placement()`, `run_manhattan_routing()`, `generate_placement_report()`, `generate_wiring_report()`, `generate_routing_summary()`, `render_svg("top")` e `render_svg("bottom")`.

@@ -1,36 +1,25 @@
 # ==============================================================================
-# MÓDULO 01: PARSER DE NETLIST E BIBLIOTECA (01_parser.awk)
+# MÓDULO 01: PARSER DE NETLIST E BIBLIOTECA DINÂMICA (01_parser.awk)
 # ==============================================================================
 
-function init_library() {
-    LIB_PINS["74HC00"] = 14; LIB_ROW_W["74HC00"] = 3
-    LIB_PINS["74HC595"] = 16; LIB_ROW_W["74HC595"] = 3
-    LIB_PINS["AT28C16"] = 24; LIB_ROW_W["AT28C16"] = 6
-    LIB_PINS["LM358"] = 8; LIB_ROW_W["LM358"] = 3
-    
-    # Pegada técnica industrial de Capacitor de Desacoplamento Cerâmico 100nF
-    LIB_PINS["CAP_100NF"] = 2
-    LIB_ROW_W["CAP_100NF"] = 1
-    COMP_LIB_TYPE["CAP_100NF"] = "DSC"
-    COMP_LIB_PINS["CAP_100NF"] = 2
-    COMP_LIB_ROW_W["CAP_100NF"] = 1
-}
-
 function get_priority(net_name) {
-    if (net_name ~ /^(VBAT|VREG|VCC|VDD|VSS|GND|DGND|VREF|AGND)$/) return 1
-    if (net_name ~ /^(D[0-9]+|DATA.*)$/) return 2
-    if (net_name ~ /^(A[0-9]+|ADDR.*)$/) return 3
-    if (net_name ~ /^(CS.*|CE.*|OE.*|WE.*|DS.*|RS.*|CLR.*|CLK.*|WR.*|RD.*|EN.*|RESET)$/) return 4
-    if (net_name ~ /^(AN.*)$/) return 5
-    if (net_name != "" && net_name != "NC") return 6
+    if (net_name ~ /^(VBAT|VREG|VCC|VDD|VSS|GND|DGND|VREF|AGND)$/) { return 1 }
+    if (net_name ~ /^(D[0-9]+|DATA.*)$/) { return 2 }
+    if (net_name ~ /^(A[0-9]+|ADDR.*)$/) { return 3 }
+    if (net_name ~ /^(CS.*|CE.*|OE.*|WE.*|DS.*|RS.*|CLR.*|CLK.*|WR.*|RD.*|EN.*|RESET)$/) { return 4 }
+    if (net_name ~ /^(AN.*)$/) { return 5 }
+    if (net_name != "" && net_name != "NC") { return 6 }
     return 7
 }
 
+# ------------------------------------------------------------------------------
+# FILTRO DE ENTRADA: PROCESSAMENTO EXCLUSIVO DE ARQUIVOS DE DADOS (CSV)
+# ------------------------------------------------------------------------------
 FILENAME !~ /\.awk$/ {
     gsub(/\r/, "", $0)
     if ($0 ~ /^[[:space:]]*$/ || $0 ~ /^[[:space:]]*#/) next
     
-    # componentes.csv: Definição de Tipos e Pegadas
+    # 1. componentes.csv: Definição Dinâmica de Tipos, Pinos e Pegadas
     if (NF == 4 && ($2 == "DIP" || $2 == "CON" || $2 == "SIL" || $2 == "DSC")) {
         pack = $1; type = $2; pins = $3; name = $4
         COMP_LIB_TYPE[pack] = type
@@ -39,15 +28,16 @@ FILENAME !~ /\.awk$/ {
         next
     }
     
-    # componentes.csv: Registro dos Pinos do Datasheet
+    # 2. componentes.csv: Registro dos Pinos de Sinal/Datasheet do Componente
     if (NF == 4 && $2 == "PIN") {
         pack = $1; pin_num = $3; pin_name = $4
         DB_PIN_TO_NAME[pack, pin_num] = pin_name
         DB_NAME_TO_PIN[pack, pin_name] = pin_num
+        RAW_PIN_DB[pack, pin_num] = pin_name
         next
     }
 
-    # netlist.csv
+    # 3. netlist.csv: Processamento de Conectividade e Geometria da Placa
     if (NF == 3) {
         part = $1; pin_id = $2; wire = $3
 
