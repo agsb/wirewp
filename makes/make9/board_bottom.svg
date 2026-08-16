@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1200px" height="1200px" viewBox="0 0 1200 1200">
+<svg xmlns="http://w3.org" width="1200px" height="1200px" viewBox="0 0 1200 1200">
   <defs>
     <style type="text/css">
       text { font-family: 'Courier New', Courier, monospace; user-select: none; text-rendering: optimizeLegibility; }
@@ -1543,8 +1543,6 @@
     <text x='780' y='768' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U3.6</text>
     <text x='390' y='678' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U5.16</text>
     <text x='780' y='738' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U3.5</text>
-    <text x='180' y='168' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U8.2</text>
-    <text x='180' y='288' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U8.6</text>
     <text x='390' y='708' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U5.15</text>
     <text x='780' y='708' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U3.4</text>
     <text x='390' y='738' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U5.14</text>
@@ -1580,7 +1578,7 @@
     <text x='180' y='138' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U8.1</text>
     <text x='1080' y='258' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>CNE.1</text>
     <text x='390' y='138' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U6.1</text>
-    <text x='1080' y='978' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U1.11</text>
+    <text x='900' y='1008' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U1.13</text>
     <text x='600' y='168' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U4.2</text>
     <text x='300' y='168' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U6.19</text>
     <text x='300' y='168' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U6.19</text>
@@ -1692,7 +1690,7 @@
     <text x='390' y='828' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U5.11</text>
     <text x='1080' y='948' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U1.10</text>
     <text x='300' y='408' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U6.11</text>
-    <text x='900' y='1008' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U1.13</text>
+    <text x='1080' y='978' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U1.11</text>
     <text x='390' y='168' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U6.2</text>
     <text x='780' y='858' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U3.9</text>
     <text x='390' y='198' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U6.3</text>
@@ -1725,30 +1723,32 @@
     <text x='1080' y='828' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U1.6</text>
     <text x='720' y='438' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U2.14</text>
     <text x='1020' y='378' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>CNE.16</text>
-    <text x='510' y='168' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U4.19</text>
+    <text x='180' y='288' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U8.6</text>
     <text x='900' y='258' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U2.5</text>
     <text x='900' y='258' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U2.5</text>
     <text x='1080' y='798' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U1.5</text>
     <text x='720' y='408' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U2.15</text>
     <text x='1020' y='348' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>CNE.17</text>
-    <text x='510' y='198' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U4.18</text>
+    <text x='510' y='168' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U4.19</text>
     <text x='900' y='228' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U2.4</text>
     <text x='900' y='228' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U2.4</text>
     <text x='1080' y='768' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U1.4</text>
     <text x='720' y='378' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U2.16</text>
     <text x='1020' y='318' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>CNE.18</text>
-    <text x='510' y='228' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U4.17</text>
+    <text x='510' y='198' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U4.18</text>
     <text x='900' y='198' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U2.3</text>
     <text x='900' y='198' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U2.3</text>
     <text x='1080' y='738' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U1.3</text>
     <text x='720' y='348' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U2.17</text>
     <text x='1020' y='288' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>CNE.19</text>
-    <text x='510' y='258' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U4.16</text>
+    <text x='510' y='228' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U4.17</text>
     <text x='900' y='168' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U2.2</text>
     <text x='900' y='168' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U2.2</text>
     <text x='1080' y='708' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U1.2</text>
-    <text x='1080' y='678' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U1.1</text>
+    <text x='510' y='258' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U4.16</text>
     <text x='900' y='138' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U2.1</text>
+    <text x='900' y='138' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U2.1</text>
+    <text x='1080' y='678' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U1.1</text>
     <text x='900' y='708' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U1.23</text>
     <text x='720' y='168' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U2.23</text>
     <text x='900' y='738' fill='rgb(220,220,220)' font-size='16' font-weight='bold' text-anchor='middle'>U1.22</text>

@@ -95,27 +95,27 @@ PASSO  REDE         DE_COMP  PIN_1(DS)    Z1_POS PARA_CMP PIN_2(DS)    Z2_POS CO
 79     A1           U2       7 (A1)       CIMA   U1       7 (A1)       BAIXO  11           13           VERDE      OK        
 80     A2           U8       5 (QC1)      BAIXO  U2       6 (A2)       BAIXO  11           14           VERDE      OK        
 81     A2           U2       6 (A2)       CIMA   U1       6 (A2)       BAIXO  11           13           VERDE      OK        
-82     A3           U4       19 (Q0)      BAIXO  U2       5 (A3)       BAIXO  9            11           VERDE      OK        
+82     A3           U8       6 (QD1)      BAIXO  U2       5 (A3)       BAIXO  11           14           VERDE      OK        
 83     A3           U2       5 (A3)       CIMA   U1       5 (A3)       BAIXO  11           13           VERDE      OK        
-84     A4           U4       18 (Q1)      BAIXO  U2       4 (A4)       BAIXO  9            10           VERDE      OK        
+84     A4           U4       19 (Q0)      BAIXO  U2       4 (A4)       BAIXO  9            11           VERDE      OK        
 85     A4           U2       4 (A4)       CIMA   U1       4 (A4)       BAIXO  11           13           VERDE      OK        
-86     A5           U4       17 (Q2)      BAIXO  U2       3 (A5)       BAIXO  9            10           VERDE      OK        
+86     A5           U4       18 (Q1)      BAIXO  U2       3 (A5)       BAIXO  8            10           VERDE      OK        
 87     A5           U2       3 (A5)       CIMA   U1       3 (A5)       BAIXO  11           13           VERDE      OK        
-88     A6           U4       16 (Q3)      BAIXO  U2       2 (A6)       BAIXO  9            11           VERDE      OK        
+88     A6           U4       17 (Q2)      BAIXO  U2       2 (A6)       BAIXO  9            11           VERDE      OK        
 89     A6           U2       2 (A6)       CIMA   U1       2 (A6)       BAIXO  11           13           VERDE      OK        
-90     A7           U1       1 (A7)       BAIXO  U2       1 (A7)       BAIXO  11           13           VERDE      OK        
-91     A8           U1       23 (A8)      BAIXO  U2       23 (A8)      BAIXO  11           13           VERDE      OK        
-92     A9           U1       22 (A9)      BAIXO  U2       22 (A9)      BAIXO  11           13           VERDE      OK        
+90     A7           U4       16 (Q3)      BAIXO  U2       1 (A7)       BAIXO  9            11           VERDE      OK        
+91     A7           U2       1 (A7)       CIMA   U1       1 (A7)       BAIXO  11           13           VERDE      OK        
+92     A8           U1       23 (A8)      BAIXO  U2       23 (A8)      BAIXO  11           13           VERDE      OK        
+93     A9           U1       22 (A9)      BAIXO  U2       22 (A9)      BAIXO  11           13           VERDE      OK        
 
 [ CLASSE 4 - LINHAS DE CONTROLE CRÍTICO / CLOCK ]
 --------------------------------------------------------------------------------------------------------------------------
-93     CLR1         U8       2 (CLR1)     BAIXO  U8       6 (QD1)      BAIXO  6            7            AMARELO    OK        
 94     DS7          U7       1 (DS)       BAIXO  U1       15 (D5)      BAIXO  15           18           AMARELO    OK        
-95     OE6          U6       1 (OE)       BAIXO  U1       11 (D2)      BAIXO  21           25           AMARELO    OK        
+95     OE6          U6       1 (OE)       BAIXO  U1       13 (D3)      BAIXO  19           23           AMARELO    OK        
 96     OE7          U7       19 (OE)      BAIXO  U1       14 (D4)      BAIXO  16           19           AMARELO    OK        
 97     CLK4         U4       11 (CLK)     BAIXO  U1       9 (D0)       BAIXO  16           19           AMARELO    OK        
 98     CLK5         U5       11 (CLK)     BAIXO  U1       10 (D1)      BAIXO  13           16           AMARELO    OK        
-99     CLK6         U6       11 (CLK)     BAIXO  U1       13 (D3)      BAIXO  17           21           AMARELO    OK        
+99     CLK6         U6       11 (CLK)     BAIXO  U1       11 (D2)      BAIXO  19           22           AMARELO    OK        
 
 [ CLASSE 5 - SINAIS ANALÓGICOS SENSÍVEIS (TWIST) ]
 --------------------------------------------------------------------------------------------------------------------------
